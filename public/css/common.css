@@ -1,0 +1,34 @@
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  margin: 0 auto;
+  background: #fff;
+}
+
+a {
+  color: #00B7FF;
+}
+
+#wrapper {
+  width: 100%;
+  margin: 0;
+  padding:0;
+  background: #fff;
+}
+
+table.skeleton {
+    width: 100%;
+}
+
+table.skeleton td {
+    padding: 10px 20px;
+}
+
+table td.nav-container {
+    width: 280px;
+}
+
+table td.content-container {
+    background: #f5f5f5;
+}
+
+
