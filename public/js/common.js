@@ -1,6 +1,6 @@
 $(function() {
     /* Bind paste event */
-    document.onpaste = function(event){
+    function pasteHandler(event){
         var items = event.clipboardData.items;
 
         /* Detect if last item is image */
@@ -17,5 +17,7 @@ $(function() {
             };
             reader.readAsDataURL(blob);
         }
-    }
+    };
+    
+    document.onpaste = pasteHandler;
 });
