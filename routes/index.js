@@ -3,5 +3,6 @@ exports.home = function(req, res) {
 };
 
 exports.uploadHandler = function(req, res) {
-    res.send(req);
+    console.log('Upload started...');
+    // res.send(req);
 };
