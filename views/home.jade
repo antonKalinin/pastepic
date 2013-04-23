@@ -1,16 +1,20 @@
 extends layout
 
 block content
-  #wrapper
-    table.skeleton 
-        tr
-            td.nav-container
-                h1= title
-            td.content-container
-                div Content here 
-    #footer
-        div Copyright &copy; Ninja Store #{+new Date().getFullYear()} 
-        a(href='/page?name=about') About 
-        | |  
-        a(href='/page?name=contact') Contact Us
+    #wrapper
+        table.skeleton
+            tr
+                td.side-container
+                    div.inner.shadow-right
+                        div#header
+                            h1= title
+
+                    div#footer
+                        a(href='/page?name=about') About
+                        div Copyright &copy; Front2Tooth #{+new Date().getFullYear()}
+
+                td.content-container
+                    div.inner
+                        div.image-holder
+
 
