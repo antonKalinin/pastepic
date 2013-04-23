@@ -37,7 +37,7 @@ $(function() {
             contentType: false,
             processData: false,
             success: function (data) {
-                console.log('data');    
+                console.log(data);    
             },
             dataType: 'json'
         });
