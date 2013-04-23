@@ -1,3 +1,3 @@
 exports.home = function(req, res) {
-    res.render('home', {title: 'Front 2 Tooth'})
+    res.render('home', {title: 'Pic.Talk'})
 };
