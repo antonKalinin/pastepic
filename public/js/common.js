@@ -13,6 +13,7 @@ $(function() {
                 var imgSrc = event.target.result;
                 console.log(imgSrc);
                 var $img = $('<img />').attr('src', imgSrc);
+                $('.image-holder .content-tip').hide();
                 $('.image-holder').append($img);
             };
             reader.readAsDataURL(blob);
