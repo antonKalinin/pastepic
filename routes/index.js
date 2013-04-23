@@ -12,7 +12,7 @@ exports.uploadHandler = function(req, res) {
     }
     
     var vs = require('fs');
-    fs.readFile(req.files.displayImage.path, function (err, data) {
+    fs.readFile(image.path, function (err, data) {
         // asynchronously reads the entire contents of an image file
         var newPath = __dirname + "/uploads/" + new Date().getTime();
         fs.writeFile(newPath, data, function (err) {
