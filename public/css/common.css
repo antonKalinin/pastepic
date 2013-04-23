@@ -59,6 +59,20 @@ table td.content-container {
     max-width: 1100px;
 }
 
+.content-tip {
+    text-align: center;
+    margin-top: 100px;
+    color: #ccc;
+}
+
+.content-tip h1 {
+    padding: 20px 30px; 
+    border: 4px dashed;
+    border-radius: 3px;
+    width: 450px;
+    margin: 0 auto;
+}
+
 #footer {
     clear: both;
     position: relative;
