@@ -4,5 +4,6 @@ exports.home = function(req, res) {
 
 exports.uploadHandler = function(req, res) {
     console.log('Upload started...');
-    // res.send(req);
+    console.log(req);
+    res.send('ok');
 };
