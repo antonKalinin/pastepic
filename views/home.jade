@@ -2,27 +2,26 @@ extends layout
 
 block content
     #wrapper
-        table.skeleton
-            tr
-                td.side-container
-                    div.inner.shadow-right
-                        div#header
-                            h1= title
-                            p Paste image from your clipboard and share it with your friends in one click.
+        #side-container.sha-r
+            div#side-inner
+                div#header
+                    h1= title
+                    p Paste image from your clipboard and share it with your friends in one click.
 
-                    div#footer
-                        a(href='/page?name=about') About
-                        div Copyright &copy; Front2Tooth #{+new Date().getFullYear()}
+                if (development)
+                div#logger
 
-                td.content-container
-                    div.inner
-                        div.image-holder
-                            if (imageSrc)
-                                img(src= imageSrc)
-                                // input(type=text, value= imageSrc)
-                            else
-                                div.content-tip
-                                    h1.sh Ctrl + V to paste
+            div#footer
+
+                div Copyright &copy; #{+new Date().getFullYear()}&nbsp;
+                    span.email hurricanebox@gmail.com
+
+        #content-container.slided
+            if (imageSrc)
+                img.pasted.b-sha(src= imageSrc)
+            else
+                div.content-tip
+                    a.sh Click me or Ctrl + V
 
 
 

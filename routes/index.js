@@ -1,5 +1,16 @@
+var _getCommonViewData = function() {
+    return {
+        development: true
+    };
+}
+
 exports.home = function(req, res) {
-    res.render('home', {title: 'PicTalk', imageSrc: false})
+
+    var viewData = _getCommonViewData()
+    viewData.title = 'PicTalk';
+    viewData.imageSrc = false;
+
+    res.render('home', viewData)
 };
 
 exports.uploadHandler = function(req, res) {
@@ -28,9 +39,10 @@ exports.uploadHandler = function(req, res) {
 
 exports.imageHandler = function(req, res) {
     console.log(req);
-    var viewData = {
-        title: 'PicTalk',
-        imageSrc: '/uploads/' + req.route.params.imageId + '.png'
-    }
+
+    var viewData = _getCommonViewData();
+    viewData.title = 'PicTalk';
+    viewData.imageSrc = '/uploads/' + req.route.params.imageId + '.png';
+
     res.render('home', viewData)
 };

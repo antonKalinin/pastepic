@@ -14,8 +14,12 @@ a {
     color: #00B7FF;
 }
 
-.sh {
+.t-sha {
     text-shadow: 0 1px 0 #555;
+}
+
+.b-sha {
+    box-shadow: 0px 1px 25px rgba(0, 0, 0, 0.5);
 }
 
 #wrapper {
@@ -23,66 +27,66 @@ a {
     height: 100%;
     margin: 0;
     padding:0;
+    background-color: #999;
+    background-image: url('img/bg_tile.jpg');
+    overflow: hidden;
+}
+
+#side-container {
+    position: absolute;
     background: #fff;
-}
-
-table.skeleton {
-    width: 100%;
     height: 100%;
-    border-collapse: collapse;
-    vertical-align: top;
-}
-
-table.skeleton tbody {
-    vertical-align: top;
-}
-
-table.skeleton td {
-
-}
-
-table td.side-container {
+    z-index: 10;
     width: 280px;
     min-width: 280px;
+    box-shadow: 1px -1px 3px rgba(0,0,0,0.2);
 }
 
-table td .inner {
+#side-inner {
     position: relative;
     height: 100%;
     overflow: auto;
     padding: 0 20px;
 }
 
-.inner.shadow-right {
-    box-shadow: 1px -1px 1px rgba(0,0,0,0.1);
+#logger {
+    margin: 20px auto;
+    color: #ccc;
 }
 
-table td.content-container {
+#content-container {
     text-align: center;
-    background: #999;
 }
 
-.image-holder {
+#content-container.slided {
+   margin-left: 280px;
+}
+
+img.pasted {
+    width: 1100px;
     margin: 30px auto 0;
 }
 
-.image-holder img {
-    max-width: 1100px;
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
-}
 
 .content-tip {
     text-align: center;
     margin-top: 100px;
-    color: #d5d5d5;
 }
 
-.content-tip h1 {
-    padding: 20px 30px; 
-    border: 4px dashed;
-    border-radius: 3px;
-    width: 450px;
+.content-tip a {
     margin: 0 auto;
+    padding: 20px 30px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 3px;
+    font-size: 15px;
+    color: #d5d5d5;
+    box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+}
+
+.content-tip a:hover {
+    background: rgba(0, 0, 0, 0.52);
+    box-shadow: 1px 1px 12px rgba(0, 0, 0, 0.5);
 }
 
 img.loading {
@@ -94,6 +98,10 @@ img.loading {
     position: relative;
     z-index: 10;
     background: white;
-    height: 44px;
-    margin: -44px 20px 0;
+    height: 30px;
+    margin: -30px 20px 0;
+}
+
+#footer span.email {
+    color: #00B7FF;
 }
