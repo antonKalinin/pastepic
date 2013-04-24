@@ -17,8 +17,12 @@ block content
                 td.content-container
                     div.inner
                         div.image-holder
-                            div.content-tip
-                                h1.sh paste image from your clipboard
-                                
+                            if (imageSrc)
+                                img(src= imageSrc)
+                                // input(type=text, value= imageSrc)
+                            else
+                                div.content-tip
+                                    h1.sh Ctrl + V to paste
+
 
 
