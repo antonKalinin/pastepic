@@ -85,6 +85,10 @@ table td.content-container {
     margin: 0 auto;
 }
 
+img.loading {
+    opacity: 0.4;
+}
+
 #footer {
     clear: both;
     position: relative;
