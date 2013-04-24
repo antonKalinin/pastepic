@@ -29,6 +29,7 @@ $(function() {
                 $img = $('<img />')
             }
             $img.attr('src', imgSrc);
+            $img.addClass('loading');
             $('.image-holder .content-tip').hide();
             $('.image-holder').append($img);
         };
@@ -46,7 +47,11 @@ $(function() {
             processData: false,
             success: function (data) {
                 if(data && data.imgId) {
-                    window.location = '/' + data.imgId;
+                    var $img = $('.image-holder img');
+                    $img.attr('src', '/uploads/' + data.imgId  + '.png');
+                    $img.removeClass('loading');
+                    history.pushState({}, data.imgId, "/" + data.imgId);
+                    // window.location = '/' + data.imgId;
                 }
             },
             dataType: 'json'
