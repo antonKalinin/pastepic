@@ -1,92 +1,72 @@
-$(function() {
-    var $content = $('#content-container');
-    function pasteHandler(evt){
-        var items = evt.clipboardData.items;
-        if (!items.length) {
-            console.log("Nothing to paste.");
-            return false;
-        }
+/**
+ * UI library (notifies and modals, custom scrolls and selects)
+ * This script handle common UI tasks.  
+ */ 
+ 
+"use strict";
 
-        /* Get only first item of clipboard (last inserted) */
-        var item = items[0],
-            type = item.type;
+/* ALIASES */
+function ge(el) { return (typeof el == 'string' ? document.getElementById(el) : el); }
 
-        /* Detect if item is image */
-        if (!type.match(/^image/ig)) {
-            return false;
-        }
+var UI = UI || (function($) {
+    /* private properties for all UI js library */
+    /* initialization */
+    return {};
+})(jQuery);
 
-        
-        var formData = new FormData(),
-            reader = new FileReader(),
-            blob = item.getAsFile();
-            
-        reader.onload = function(evt){
-            var imgSrc = evt.target.result;
-
-            var $img = $('img.pasted');
-            if(!$img.length) {
-                $img = $('<img />')
-            }
-            $img.attr('src', imgSrc);
-            $img.addClass('pasted').addClass('loading');
-            $content.find('.content-tip').hide();
-            $content.append($img);
+// notify module
+UI.namespace('UI.notify');
+UI.notify = function (html, opts) {
+    "use strict";
+    var notify = $('<div/>').addClass('notify'),
+        defs = {
+            position: 'top', // top, center, bottom
+            cssClass: '',    // custom css class 
+            showTime: 1500,  // duration of show
+            closable: true,  // is auto close 
+            speed: 500,      // speed of apearence
+            onClose: null    // callback function when notify disapeared
         };
-
-        reader.readAsDataURL(blob);
         
-        /* try to upload image to server */
-        formData.append('image', blob);
-        $.ajax({
-            type: "POST",
-            url: '/upload',
-            data: formData,
-            cache: false,
-            contentType: false,
-            processData: false,
-            success: function (data) {
-                if(data && data.imgId) {
-                    var $img = $('img.pasted');
-                    $img.attr('src', '/uploads/' + data.imgId  + '.png');
-                    $img.removeClass('loading');
-                    history.pushState({}, data.imgId, "/" + data.imgId);
-                    // window.location = '/' + data.imgId;
-                }
-            },
-            dataType: 'json'
-        });
-    };
+    /* render new notify */    
+    
+    var p = {};
+        p = $.extend(true, defs, opts);
+        
+    // set notify in the middle by x axis
+    $('body').append(notify);
+    notify.html(html);
+    notify.css('left', $(window).width() / 2 - notify.width() / 2);
 
-    function zoomHandler(evt) {
-        var $logger = $('#logger');
-        var zoomFactor = (evt.originalEvent.wheelDelta > 0) ? 1 : -1,
-            zoomStep = 50;
-        var $img = $('img.pasted'),
-            width = parseInt($img.css('width')),
-            contentSlideRight = parseInt($content.css('margin-left'));
-
-        if(width <= 600 && zoomFactor < 0) return false;
-        if(width >= 1200 && zoomFactor > 0) return false;
-
-        /*if(width > 1200 && zoomFactor > 0) {
-            if(contentSlideRight > 0) {
-                contentSlideRight -= zoomStep;
-                $content.css('margin-left', contentSlideRight)
-            }
-        }*/
-
-        /*if(width < 1200 && zoomFactor < 0) {
-            $content.addClass('slided');
-        }*/
-
-        width += (zoomFactor*zoomStep);
-        $logger.text(width);
-        $img.css('width', width);
+    // set settings for notify
+    if (p.cssClass != '') notify.addClass(p.cssClass);
+    
+    var ncls = '', ntop = 0;
+    if(p.position) {
+        switch(p.position) {
+            case 'top':
+                ncls = 'notify-top';
+                break;
+            case 'bottom':
+                ncls = 'notify-bottom';
+                ntop = $(window).height() - notify.height();
+                break;
+            case 'center':
+                ntop = $(window).height() / 2 - notify.height() / 2;
+        }
     }
     
-    /* Binding evts */
-    document.onpaste = pasteHandler;
-    $content.bind('mousewheel', zoomHandler);
-    //$(document).bind('paste', pasteHandler);
-});
+    notify.addClass(ncls);
+    notify.css('top', ntop);
+    
+    /*  display notify */
+    notify.fadeIn(p.speed, function() {
+        if(p.closable) {
+            notify.delay(p.showTime).fadeOut(p.speed, function(){ p.onClose(); });
+        }
+    });
+    
+    return {
+        /* return an object (empty yet) */
+    };
+};
