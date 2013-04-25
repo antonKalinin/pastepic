@@ -105,3 +105,27 @@ img.loading {
 #footer span.email {
     color: #00B7FF;
 }
+
+/* UI MODULES */
+
+/* notify */
+.notify {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    max-width: 300px;
+    max-height: 24px;
+    padding: 12px 15px;
+    border-radius: 3px;
+    background: rgba(0,0,0, 0.7);
+    text-align: center;
+    color: #fff;
+}
+
+.notify.notify-top {
+    border-radius: 0 0 3px 3px;
+}
+
+.notify.notify-bottom {
+    border-radius: 3px 3px 0 0;
+}
