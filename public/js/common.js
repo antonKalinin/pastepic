@@ -14,6 +14,24 @@ var UI = UI || (function($) {
     return {};
 })(jQuery);
 
+UI.namespace = function (ns_string) {
+    "use strict";
+    var parts = ns_string.split('.'),
+        parent = UI,
+        i;
+    if (parts[0] === 'UI') {
+        parts = parts.slice(1);
+    }
+
+    for (i = 0; i < parts.length; i += 1) {
+        if (typeof parent[parts[i]] === "undefined") {
+            parent[parts[i]] = {};
+        }
+        parent = parent[parts[i]];
+    }
+    return parent;
+};
+
 // notify module
 UI.namespace('UI.notify');
 UI.notify = function (html, opts) {
