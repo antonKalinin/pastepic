@@ -24,7 +24,7 @@ $(function() {
         reader.onload = function(evt){
             var imgSrc = evt.target.result;
 
-            var $img = $('.image-holder img');
+            var $img = $('img.pasted');
             if(!$img.length) {
                 $img = $('<img />')
             }
