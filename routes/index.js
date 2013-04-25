@@ -1,13 +1,18 @@
 var _getCommonViewData = function() {
     return {
-        development: true
+        development: true,
+        items: {
+            Homer: "Bart, with $10,000, we'd be millionaires! We could buy all kinds of useful things like...love!",
+            Bart: "I didn't do it, nobody saw me do it, there's no way you can prove anything!",
+            Liza: "It chose to destroy itself rather than lie with us. You can't help but feel a little rejected.",
+            Nelson: "Haa-ha"
+        }
     };
 }
 
 exports.home = function(req, res) {
 
     var viewData = _getCommonViewData()
-    viewData.title = 'PicTalk';
     viewData.imageSrc = false;
 
     res.render('home', viewData)
@@ -41,7 +46,6 @@ exports.imageHandler = function(req, res) {
     console.log(req);
 
     var viewData = _getCommonViewData();
-    viewData.title = 'PicTalk';
     viewData.imageSrc = '/uploads/' + req.route.params.imageId + '.png';
 
     res.render('home', viewData)

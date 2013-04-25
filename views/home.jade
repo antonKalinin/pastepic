@@ -2,17 +2,26 @@ extends layout
 
 block content
     #wrapper
-        #side-container.sha-r
+        #side-container
             div#side-inner
                 div#header
-                    h1= title
+                    h1 Pictalk
                     p Paste image from your clipboard and share it with your friends in one click.
 
                 if (development)
-                div#logger
+                div.chat-wrap
+                    div#chat
+                        ul
+                            each item, i in items
+                                li
+                                    span= i
+                                    = item
+                    div.name-input-wrap
+                        input(type='text',
+                            name='userName',
+                            placeholder = 'Enter your name to join the chart')
 
             div#footer
-
                 div Copyright &copy; #{+new Date().getFullYear()}&nbsp;
                     span.email hurricanebox@gmail.com
 
@@ -22,6 +31,8 @@ block content
             else
                 div.content-tip
                     a.sh Click me or Ctrl + V
+
+
 
 
 

@@ -56,16 +56,8 @@ a {
 
 #header p {
     background: #fff;
+    margin-bottom: 120px;
     padding: 5px 15px 5px 20px;
-}
-
-#logger {  
-    height: 340px;
-    margin: 120px 20px 0;
-    padding: 5px;
-    background: rgba(0,0,0,0.5);
-    border-radius: 3px;
-    color: #dedede;
 }
 
 #content-container {
@@ -119,6 +111,52 @@ img.loading {
 #footer span.email {
     color: #00B7FF;
 }
+
+/* CHAT */
+
+.chat-wrap {
+    margin: 0 20px;
+}
+
+#chat {
+    height: 320px;
+    padding: 7px 15px;
+    background: rgba(0,0,0,0.5);
+    border-radius: 3px;
+    color: #dedede;
+}
+
+#chat ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#chat li {
+    margin: 10px 0;
+    padding: 5px;
+    background: #fff;
+    border-radius: 3px;
+    color: #272727;
+}
+
+#chat li span {
+    margin-right: 5px;
+    color: #00B7FF;
+}
+
+#chat li span:after {
+    content: ":";
+}
+
+.chat-wrap input {
+    width: 230px;
+    background: rgba(0,0,0,0.3);
+    border: 1px solid #333;
+    padding: 4px;
+    color: #ccc;
+}
+
 
 /* UI MODULES */
 
