@@ -1,0 +1,3 @@
+/*
+  This is javascript to handle all the events of image manipulating
+*/
