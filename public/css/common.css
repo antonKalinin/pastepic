@@ -34,24 +34,38 @@ a {
 
 #side-container {
     position: absolute;
-    background: #fff;
+    background: transparent;
     height: 100%;
     z-index: 10;
     width: 280px;
     min-width: 280px;
-    box-shadow: 1px -1px 3px rgba(0,0,0,0.2);
 }
 
 #side-inner {
     position: relative;
     height: 100%;
     overflow: auto;
-    padding: 0 20px;
 }
 
-#logger {
-    margin: 20px auto;
-    color: #ccc;
+#header h1 {
+    display: inline-block;
+    background: #fff;
+    margin: 20px 0 0;
+    padding: 5px 15px 5px 20px;
+}
+
+#header p {
+    background: #fff;
+    padding: 5px 15px 5px 20px;
+}
+
+#logger {  
+    height: 340px;
+    margin: 120px 20px 0;
+    padding: 5px;
+    background: rgba(0,0,0,0.5);
+    border-radius: 3px;
+    color: #dedede;
 }
 
 #content-container {
@@ -97,9 +111,9 @@ img.loading {
     clear: both;
     position: relative;
     z-index: 10;
-    background: white;
     height: 30px;
     margin: -30px 20px 0;
+    color: #dedede;
 }
 
 #footer span.email {
