@@ -81,7 +81,7 @@ UI.notify = function (html, opts) {
     notify.fadeIn(p.speed, function() {
         if(p.closable) {
             notify.delay(p.showTime).fadeOut(p.speed, function(){
-               p.onClose(); 
+               if(typeof (p.onClose) == 'function') p.onClose(); 
                notify.remove(); // destroy closed div
             });
         }
