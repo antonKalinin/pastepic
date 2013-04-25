@@ -17,6 +17,7 @@ $(function() {
 
         /* Detect if item is image */
         if (!type.match(/^image/ig)) {
+            UI.notify('Houston, we need an image!');      
             return false;
         }
 
