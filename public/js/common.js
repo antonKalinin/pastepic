@@ -80,7 +80,10 @@ UI.notify = function (html, opts) {
     /*  display notify */
     notify.fadeIn(p.speed, function() {
         if(p.closable) {
-            notify.delay(p.showTime).fadeOut(p.speed, function(){ p.onClose(); });
+            notify.delay(p.showTime).fadeOut(p.speed, function(){
+               p.onClose(); 
+               notify.remove(); // destroy closed div
+            });
         }
     });
     
