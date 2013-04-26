@@ -157,6 +157,15 @@ img.loading {
     color: #ccc;
 }
 
+.logger {
+    margin: 50px 20px 0;
+    color: #777;
+}
+
+.logger p {
+    margin: 2px 0;
+}
+
 
 /* UI MODULES */
 

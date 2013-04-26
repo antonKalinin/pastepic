@@ -27,8 +27,72 @@ if ('development' == app.get('env')) {
 
 app.get('/', index.home);
 app.post('/upload', index.uploadHandler);
-app.get('/:imageId', index.imageHandler);
+/* simply stupid */
+app.get('/:imageId', function(req, res) {
+    index.imageHandler(req, res);
+    setPicId(req, res);
+});
 
-http.createServer(app).listen(app.get('port'), function(){
+/* creating a server */
+
+var server = http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
 });
+
+var picId = false;
+function setPicId(req, res){
+    picId = req.route.params.imageId;
+    console.log(picId);
+};
+
+var onlineCount = 0;
+var io = require('socket.io').listen(server);
+var picSockets = {};
+
+// Отключаем вывод полного лога - пригодится в production'е
+io.set('log level', 1);
+
+// Навешиваем обработчик на подключение нового клиента
+io.sockets.on('connection', function (socket) {
+    var ID = (socket.id).toString().substr(0, 5);
+    var time = (new Date).toLocaleTimeString();
+    onlineCount++;
+    socket.emit('connected', {'name': ID, 'time': time, 'onlineCount': onlineCount, 'picId': picId});
+    socket.broadcast.emit('userIn', {'name': ID, 'time': time, 'onlineCount': onlineCount});
+
+    /* push socket to  */
+    if (picId) {
+        var key = 'pic' + picId;
+        if (!picSockets[key]) {
+            picSockets[key] = {};
+        }
+        picSockets[key][socket.id] = socket;
+
+        var picOnlineCount = 0;
+        /* Count sockets in stack */
+        for(var pSocketId in picSockets[key]) {
+            if (picSockets[key].hasOwnProperty(pSocketId)) picOnlineCount++;
+        }
+        /*  */
+        for(var pSocketId in picSockets[key]) {
+            picSockets[key][pSocketId].emit('picUserIn',  {'name': ID, 'time': time, 'picOnlineCount': picOnlineCount})
+        }
+    }
+
+    socket.on('message', function (msg) {
+        var time = (new Date).toLocaleTimeString();
+        socket.json.send({'event': 'messageSent', 'name': ID, 'text': msg, 'time': time});
+        socket.broadcast.json.send({'event': 'messageReceived', 'name': ID, 'text': msg, 'time': time})
+    });
+    socket.on('disconnect', function() {
+        onlineCount--;
+        var time = (new Date).toLocaleTimeString();
+        io.sockets.emit('userOut', {'name': ID, 'time': time, 'onlineCount': onlineCount});
+
+        if (picId) {
+            var key = 'pic' + picId;
+        }
+    });
+});
+
+

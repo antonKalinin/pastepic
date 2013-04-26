@@ -43,10 +43,8 @@ exports.uploadHandler = function(req, res) {
 };
 
 exports.imageHandler = function(req, res) {
-    console.log(req);
-
     var viewData = _getCommonViewData();
-    viewData.imageSrc = '/uploads/' + req.route.params.imageId + '.png';
-
-    res.render('home', viewData)
+    var picId = req.route.params.imageId;
+    viewData.imageSrc = '/uploads/' + picId + '.png';
+    res.render('home', viewData);
 };
