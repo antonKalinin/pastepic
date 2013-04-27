@@ -25,9 +25,16 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
-app.get('/', index.home);
-app.post('/upload', index.uploadHandler);
 /* simply stupid */
+
+app.get('/', function(req, res) {
+    picId = false;
+    index.home(req, res);
+});
+app.post('/upload',function(req, res) {
+    picId = false;
+    index.uploadHandler(req, res);
+});
 app.get('/:imageId', function(req, res) {
     index.imageHandler(req, res);
     setPicId(req, res);
@@ -87,11 +94,16 @@ io.sockets.on('connection', function (socket) {
     socket.on('disconnect', function() {
         onlineCount--;
         var time = (new Date).toLocaleTimeString();
-        io.sockets.emit('userOut', {'name': ID, 'time': time, 'onlineCount': onlineCount});
 
         if (picId) {
             var key = 'pic' + picId;
+            if (picSockets[key].hasOwnProperty(pSocketId)) {
+                picOnlineCount--;
+                delete picSockets[key];
+            }
         }
+
+        io.sockets.emit('userOut', {'name': ID, 'time': time, 'onlineCount': onlineCount, 'picOnlineCount': picOnlineCount});
     });
 });
 

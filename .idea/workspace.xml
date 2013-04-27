@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c13b46b3-a340-4b14-9054-95e2120957a3" name="Default" comment="View UPD &amp; common.js">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/socket.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/common.css" afterPath="$PROJECT_DIR$/public/css/common.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/home.jade" afterPath="$PROJECT_DIR$/views/home.jade" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/index.js" afterPath="$PROJECT_DIR$/routes/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/layout.jade" afterPath="$PROJECT_DIR$/views/layout.jade" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="pictalk.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -16,10 +11,11 @@
     <file path="/home.jade" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1366954481122" ignored="false" />
     <file path="/common.css" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1366954527520" ignored="false" />
     <file path="/index.js" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1366958692756" ignored="false" />
-    <file path="/app.js" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1366963786349" ignored="false" />
+    <file path="/app.js" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1367043480111" ignored="false" />
     <file path="/common.js" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1366834889533" ignored="false" />
     <file path="/layout.jade" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1366919744182" ignored="false" />
     <file path="/socket.js" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1366963081383" ignored="false" />
+    <file path="$PROJECT_DIR$/.idea/workspace.xml" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1367043446925" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,7 +38,7 @@
       <file leaf-file-name="app.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="75" column="11" selection-start="2101" selection-end="2101" vertical-scroll-proportion="0.75200534">
+            <state line="103" column="9" selection-start="3034" selection-end="3034" vertical-scroll-proportion="0.8696524">
               <folding />
             </state>
           </provider>
@@ -69,7 +65,7 @@
       <file leaf-file-name="home.jade" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/home.jade">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="27" column="47" selection-start="978" selection-end="978" vertical-scroll-proportion="-7.9411764">
+            <state line="27" column="49" selection-start="982" selection-end="982" vertical-scroll-proportion="-7.9411764">
               <folding />
             </state>
           </provider>
@@ -123,10 +119,10 @@
         <option value="$PROJECT_DIR$/../flyingfrog/application/modules/sandbox/views/scripts/ui/text-editor.phtml" />
         <option value="$PROJECT_DIR$/public/js/common.js" />
         <option value="$PROJECT_DIR$/views/layout.jade" />
-        <option value="$PROJECT_DIR$/views/home.jade" />
         <option value="$PROJECT_DIR$/public/css/common.css" />
         <option value="$PROJECT_DIR$/routes/index.js" />
         <option value="$PROJECT_DIR$/public/js/socket.js" />
+        <option value="$PROJECT_DIR$/views/home.jade" />
         <option value="$PROJECT_DIR$/app.js" />
       </list>
     </option>
@@ -381,7 +377,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14741036" sideWeight="0.8111396" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14741036" sideWeight="0.9935979" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39948782" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -533,13 +529,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/home.jade">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="47" selection-start="978" selection-end="978" vertical-scroll-proportion="-7.9411764">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/routes/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="46" column="40" selection-start="1386" selection-end="1410" vertical-scroll-proportion="0.0">
@@ -561,9 +550,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/views/home.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="49" selection-start="982" selection-end="982" vertical-scroll-proportion="-7.9411764">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="75" column="11" selection-start="2101" selection-end="2101" vertical-scroll-proportion="0.75200534">
+        <state line="103" column="9" selection-start="3034" selection-end="3034" vertical-scroll-proportion="0.8696524">
           <folding />
         </state>
       </provider>
