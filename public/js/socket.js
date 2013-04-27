@@ -7,10 +7,6 @@ var eventsHandlers = {
         logEvent('userIn', data);
         updateOnline(data.onlineCount);
     },
-    picUserIn: function(data) {
-        logEvent('picUserIn', data);
-        updatePicOnline(data.picOnlineCount);
-    },
     userOut: function(data) {
         logEvent('userOut', data);
         updateOnline(data.onlineCount);
@@ -44,11 +40,7 @@ function logEvent(event, data) {
 }
 
 function updateOnline(c) {
-    $('#global-ocount').html(c);
-}
-
-function updatePicOnline(c) {
-    $('#picture-ocount').html(c);
+    $('#o-count').html(c);
 }
 
 

@@ -22,10 +22,8 @@ block content
                             placeholder = 'Enter your name to join the chart')
                 div.logger
                     div
-                        p global online:
-                            span#global-ocount 0
-                        p picture online:
-                            span#picture-ocount 0
+                        p picture online viewers:
+                            span#o-count 0
 
             div#footer
                 div Copyright &copy; #{+new Date().getFullYear()}&nbsp;
@@ -36,7 +34,10 @@ block content
                 img.pasted.b-sha(src= imageSrc)
             else
                 div.content-tip
-                    a.sh Click me or Ctrl + V
+                    ol.use-tip
+                        li 1. Make a print screen on your computer.
+                        li 2. Ctrl + V here and share link with others.
+
 
 
 

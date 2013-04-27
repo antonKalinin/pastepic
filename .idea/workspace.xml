@@ -3,19 +3,22 @@
   <component name="ChangeListManager">
     <list default="true" id="c13b46b3-a340-4b14-9054-95e2120957a3" name="Default" comment="View UPD &amp; common.js">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/common.css" afterPath="$PROJECT_DIR$/public/css/common.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/home.jade" afterPath="$PROJECT_DIR$/views/home.jade" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/index.js" afterPath="$PROJECT_DIR$/routes/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/socket.js" afterPath="$PROJECT_DIR$/public/js/socket.js" />
     </list>
     <ignored path="pictalk.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1366961243246" ignored="false" />
-    <file path="/home.jade" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1366954481122" ignored="false" />
-    <file path="/common.css" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1366954527520" ignored="false" />
-    <file path="/index.js" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1366958692756" ignored="false" />
-    <file path="/app.js" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1367043480111" ignored="false" />
+    <file path="/home.jade" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1367080930582" ignored="false" />
+    <file path="/common.css" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1367081847379" ignored="false" />
+    <file path="/index.js" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1367081395681" ignored="false" />
+    <file path="/app.js" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1367080177955" ignored="false" />
     <file path="/common.js" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1366834889533" ignored="false" />
     <file path="/layout.jade" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1366919744182" ignored="false" />
     <file path="/socket.js" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1366963081383" ignored="false" />
-    <file path="$PROJECT_DIR$/.idea/workspace.xml" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1367043446925" ignored="false" />
+    <file path="$PROJECT_DIR$/.idea/workspace.xml" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1367081830387" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,10 +38,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="app.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="app.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="103" column="9" selection-start="3034" selection-end="3034" vertical-scroll-proportion="0.8696524">
+            <state line="17" column="30" selection-start="407" selection-end="407" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -47,16 +50,16 @@
       <file leaf-file-name="socket.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/js/socket.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="56" column="0" selection-start="1357" selection-end="1357" vertical-scroll-proportion="0.0">
+            <state line="43" column="1" selection-start="1157" selection-end="1157" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="common.css" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="common.css" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/css/common.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="165" column="17" selection-start="2357" selection-end="2357" vertical-scroll-proportion="-23.82353">
+            <state line="164" column="5" selection-start="2208" selection-end="2208" vertical-scroll-proportion="0.70178926">
               <folding />
             </state>
           </provider>
@@ -65,7 +68,7 @@
       <file leaf-file-name="home.jade" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/home.jade">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="27" column="49" selection-start="982" selection-end="982" vertical-scroll-proportion="-7.9411764">
+            <state line="25" column="40" selection-start="891" selection-end="891" vertical-scroll-proportion="-7.352941">
               <folding />
             </state>
           </provider>
@@ -74,7 +77,7 @@
       <file leaf-file-name="common.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/js/common.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="17" selection-start="422" selection-end="422" vertical-scroll-proportion="-5.0">
+            <state line="33" column="0" selection-start="768" selection-end="768" vertical-scroll-proportion="-9.666667">
               <folding />
             </state>
           </provider>
@@ -83,7 +86,7 @@
       <file leaf-file-name="index.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="46" column="40" selection-start="1386" selection-end="1410" vertical-scroll-proportion="0.0">
+            <state line="92" column="26" selection-start="2657" selection-end="2657" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -119,11 +122,11 @@
         <option value="$PROJECT_DIR$/../flyingfrog/application/modules/sandbox/views/scripts/ui/text-editor.phtml" />
         <option value="$PROJECT_DIR$/public/js/common.js" />
         <option value="$PROJECT_DIR$/views/layout.jade" />
-        <option value="$PROJECT_DIR$/public/css/common.css" />
-        <option value="$PROJECT_DIR$/routes/index.js" />
+        <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/public/js/socket.js" />
         <option value="$PROJECT_DIR$/views/home.jade" />
-        <option value="$PROJECT_DIR$/app.js" />
+        <option value="$PROJECT_DIR$/routes/index.js" />
+        <option value="$PROJECT_DIR$/public/css/common.css" />
       </list>
     </option>
   </component>
@@ -281,20 +284,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pictalk" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pictalk" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="node_modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
@@ -377,7 +366,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14741036" sideWeight="0.9935979" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14741036" sideWeight="0.98079383" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39948782" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -522,44 +511,44 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/css/common.css">
+    <entry file="file://$PROJECT_DIR$/public/js/socket.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="165" column="17" selection-start="2357" selection-end="2357" vertical-scroll-proportion="-23.82353">
+        <state line="43" column="1" selection-start="1157" selection-end="1157" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="46" column="40" selection-start="1386" selection-end="1410" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/common.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="17" selection-start="422" selection-end="422" vertical-scroll-proportion="-5.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/socket.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="56" column="0" selection-start="1357" selection-end="1357" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/home.jade">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="49" selection-start="982" selection-end="982" vertical-scroll-proportion="-7.9411764">
+        <state line="92" column="26" selection-start="2657" selection-end="2657" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="103" column="9" selection-start="3034" selection-end="3034" vertical-scroll-proportion="0.8696524">
+        <state line="17" column="30" selection-start="407" selection-end="407" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/common.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="0" selection-start="768" selection-end="768" vertical-scroll-proportion="-9.666667">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/home.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="40" selection-start="891" selection-end="891" vertical-scroll-proportion="-7.352941">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/css/common.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="164" column="5" selection-start="2208" selection-end="2208" vertical-scroll-proportion="0.70178926">
           <folding />
         </state>
       </provider>

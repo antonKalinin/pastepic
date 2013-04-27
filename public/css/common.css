@@ -76,23 +76,19 @@ img.pasted {
 
 .content-tip {
     text-align: center;
-    margin-top: 100px;
 }
 
-.content-tip a {
-    margin: 0 auto;
-    padding: 20px 30px;
-    background: rgba(0, 0, 0, 0.5);
+ol.use-tip {
+    display: block;
+    width: 400px;
+    margin: 200px auto;
+    padding: 30px;
+    list-style: none;
+    color: #ccc;
+    font-size: 19px;
+    border: 3px dashed #ccc;
     border-radius: 3px;
-    font-size: 15px;
-    color: #d5d5d5;
-    box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.5);
-    cursor: pointer;
-}
 
-.content-tip a:hover {
-    background: rgba(0, 0, 0, 0.52);
-    box-shadow: 1px 1px 12px rgba(0, 0, 0, 0.5);
 }
 
 img.loading {
@@ -164,6 +160,12 @@ img.loading {
 
 .logger p {
     margin: 2px 0;
+}
+
+span#o-count {
+    display: inline-block;
+    margin-left: 5px;
+    color: #09c;
 }
 
 
