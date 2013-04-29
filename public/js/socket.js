@@ -23,7 +23,7 @@ window.onload = function() {
 
 window.onbeforeunload = function (evt) {
     /* Before close the page disconnect the socket */
-    socket.disconnect();
+    socket.disconnect({ picId: app.getPicId() });
 }
 
 function logEvent(event, data) {
