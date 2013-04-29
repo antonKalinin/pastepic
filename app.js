@@ -69,7 +69,7 @@ io.sockets.on('connection', function (socket) {
          * Info other sockets in the room about new picture viewer.
          * Count the number of online viewers.
          */
-         var picId = data.picId ? dataPicId : false;
+         var picId = data.picId ? data.PicId : false;
          if(!picId) return;
          /* 
           * Check if client already in room.
