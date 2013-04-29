@@ -54,7 +54,6 @@ io.sockets.on('connection', function (socket) {
     var params = {
         'name': ID,
         'time': time,
-        'picId': picId
     };
 
     socket.emit('connected', params);
