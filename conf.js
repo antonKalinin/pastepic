@@ -13,10 +13,14 @@
     };
 
     var env = process.env.NODE_ENV;
+    console.log(process.env);
+    console.log(env);
+    console.log(config[env]);
     if(env && config[env]) {
         module.exports = config[env];
+    } else {
+        module.exports = config.development;
     }
 
-    module.exports = config.development;
 
 })();

@@ -9,6 +9,7 @@ var express = require('express')
   , conf = require('./conf');
 
 var app = express();
+console.log(conf.port);
 
 app.set('port', conf.port);
 app.set('views', __dirname + '/views');

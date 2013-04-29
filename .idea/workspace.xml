@@ -2,14 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c13b46b3-a340-4b14-9054-95e2120957a3" name="Default" comment="View UPD &amp; common.js">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/conf.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/common.css" afterPath="$PROJECT_DIR$/public/css/common.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/home.jade" afterPath="$PROJECT_DIR$/views/home.jade" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/index.js" afterPath="$PROJECT_DIR$/routes/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/layout.jade" afterPath="$PROJECT_DIR$/views/layout.jade" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/socket.js" afterPath="$PROJECT_DIR$/public/js/socket.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/conf.js" afterPath="$PROJECT_DIR$/conf.js" />
     </list>
     <ignored path="pictalk.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -17,11 +11,11 @@
     <file path="/home.jade" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1367261431912" ignored="false" />
     <file path="/common.css" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1367261678190" ignored="false" />
     <file path="/index.js" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1367259110461" ignored="false" />
-    <file path="/app.js" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1367259819634" ignored="false" />
+    <file path="/app.js" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1367264181354" ignored="false" />
     <file path="/common.js" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1366834889533" ignored="false" />
     <file path="/layout.jade" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1367259092589" ignored="false" />
     <file path="/socket.js" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1367262829692" ignored="false" />
-    <file path="/conf.js" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1367259119205" ignored="false" />
+    <file path="/conf.js" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1367264221687" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,16 +38,16 @@
       <file leaf-file-name="app.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="112" column="0" selection-start="3147" selection-end="3147" vertical-scroll-proportion="0.0">
+            <state line="11" column="23" selection-start="233" selection-end="233" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="conf.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="conf.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/conf.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="10" selection-start="214" selection-end="214" vertical-scroll-proportion="0.0">
+            <state line="22" column="0" selection-start="555" selection-end="555" vertical-scroll-proportion="0.2183984">
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -61,10 +55,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="socket.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="socket.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/js/socket.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="49" selection-start="500" selection-end="500" vertical-scroll-proportion="0.1091992">
+            <state line="77" column="0" selection-start="2137" selection-end="2137" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -101,7 +95,10 @@
         <entry file="file://$PROJECT_DIR$/routes/index.js">
           <provider selected="true" editor-type-id="text-editor">
             <state line="4" column="26" selection-start="109" selection-end="109" vertical-scroll-proportion="0.0">
-              <folding />
+              <folding>
+                <marker date="1367259130000" expanded="true" signature="68:551" placeholder="{...}" />
+                <marker date="1367259130000" expanded="true" signature="81:548" placeholder="{&quot;picId&quot;: false...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -136,12 +133,12 @@
         <option value="$PROJECT_DIR$/../flyingfrog/application/modules/sandbox/views/scripts/ui/text-editor.phtml" />
         <option value="$PROJECT_DIR$/public/js/common.js" />
         <option value="$PROJECT_DIR$/routes/index.js" />
-        <option value="$PROJECT_DIR$/conf.js" />
         <option value="$PROJECT_DIR$/views/layout.jade" />
-        <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/views/home.jade" />
         <option value="$PROJECT_DIR$/public/css/common.css" />
         <option value="$PROJECT_DIR$/public/js/socket.js" />
+        <option value="$PROJECT_DIR$/app.js" />
+        <option value="$PROJECT_DIR$/conf.js" />
       </list>
     </option>
   </component>
@@ -507,7 +504,10 @@
     <entry file="file://$PROJECT_DIR$/routes/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="4" column="26" selection-start="109" selection-end="109" vertical-scroll-proportion="0.0">
-          <folding />
+          <folding>
+            <marker date="1367259130000" expanded="true" signature="68:551" placeholder="{...}" />
+            <marker date="1367259130000" expanded="true" signature="81:548" placeholder="{&quot;picId&quot;: false...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -522,23 +522,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.17140967">
           <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="112" column="0" selection-start="3147" selection-end="3147" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/conf.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="10" selection-start="214" selection-end="214" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#!!doc" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -559,8 +543,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/js/socket.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="49" selection-start="500" selection-end="500" vertical-scroll-proportion="0.1091992">
+        <state line="77" column="0" selection-start="2137" selection-end="2137" vertical-scroll-proportion="0.0">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="23" selection-start="233" selection-end="233" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/conf.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="0" selection-start="555" selection-end="555" vertical-scroll-proportion="0.2183984">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
