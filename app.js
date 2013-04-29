@@ -76,8 +76,10 @@ io.sockets.on('connection', function (socket) {
           * If not, join the room.
           */
          socket.join(picId);
+         var picClients = io.sockets.clients(picId); 
+         var picViewersCount = picClients.length;
          /* Info all clients in room about new member. */
-         io.sockets.in(picId).emit('picConnResp', {picId: picId});
+         io.sockets.in(picId).emit('picConnResp', {picId: picId, picViewersCount: picViewersCount});
     });
 
 
