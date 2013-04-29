@@ -7,20 +7,20 @@ window.onload = function() {
     } */
     
     // socket = io.connect('http://fronteeth.com:8080');
-    socket.on('connect', function () {
+    // socket.on('connect', function () {
         
         /* init connetion to picture page */
-        socket.emit('picConnInit', { picId: app.getPicId() });
+        // socket.emit('picConnInit', { picId: app.getPicId() });
         
         /* handle connection to picture page response from server */
-        socket.on('picConnReps', function(data) {
-            console.log(data);
-        });
+        // socket.on('picConnReps', function(data) {
+            //  console.log(data);
+        // });
 
-        socket.on('message', function (data) {
-            console.log(data);
-        });
-    });
+        // socket.on('message', function (data) {
+            // console.log(data);
+        // });
+    // });
 };
 
 function logEvent(event, data) {
