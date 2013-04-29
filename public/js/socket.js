@@ -6,7 +6,7 @@ window.onload = function() {
         
     } */
     
-    socket = io.connect('http://fronteeth.com:8080');
+    // socket = io.connect('http://fronteeth.com:8080');
     socket.on('connect', function () {
         
         /* init connetion to picture page */
