@@ -69,17 +69,24 @@ io.sockets.on('connection', function (socket) {
          * Info other sockets in the room about new picture viewer.
          * Count the number of online viewers.
          */
-         var picId = data.picId ? data.picId : false;
-         if(!picId) return;
-         /* 
-          * Check if client already in room.
-          * If not, join the room.
-          */
-         socket.join(picId);
-         var picClients = io.sockets.clients(picId); 
-         var viewersCount = picClients.length;
-         /* Info all clients in room about new member. */
-         io.sockets.in(picId).emit('picConnResp', {picId: picId, viewersCount: viewersCount});
+        var picId = data.picId ? data.picId : false;
+        if(!picId) return;
+        /* 
+         * Check if client already in room.
+         * If not, join the room.
+         */
+        socket.join(picId);
+        var picClients = io.sockets.clients(picId); 
+        var viewersCount = picClients.length;
+        /* Info all clients in room about new member. */
+        io.sockets.in(picId).emit('picConnResp', {picId: picId, viewersCount: viewersCount});
+         
+        socket.on('disconnect', function(data){
+            /* Leave the picture room then disconnected. */
+            var picId = data.picId ? data.picId : false;
+            if(!picId) return;
+            socket.leave(picId);    
+        });'
     });
 
 
