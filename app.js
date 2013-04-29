@@ -38,8 +38,6 @@ io.set('log level', 1);
 app.get('/', index.home);
 app.post('/upload', index.uploadHandler);
 app.get('/:picId', function(req, res) {
-    var picId = req.params.picId;
-    io.sockets.in(picId).emit('picRequest', {picId: picId});
     index.imageHandler(req, res);
 });
 
@@ -62,12 +60,21 @@ io.sockets.on('connection', function (socket) {
      * In response to this message user get the number of online picture viewers.
      */
 
-    socket.on('picApprove', function(data){
+    socket.on('picConnInit', function(data){
         /*
          * Add this socket to room with same picture id.
          * Info other sockets in the room about new picture viewer.
          * Count the number of online viewers.
          */
+         var picId = data.picId ? dataPicId : false;
+         if(!picId) return;
+         /* 
+          * Check if client already in room.
+          * If not, join the room.
+          */
+         socket.join(picId);
+         /* Info all clients in room about new member. */
+         io.sockets.in(picId).emit('picConnResp', {picId: picId});
     });
 
 
