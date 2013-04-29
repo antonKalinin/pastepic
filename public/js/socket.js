@@ -8,9 +8,11 @@ window.onload = function() {
         /* init connetion to picture page */
         socket.emit('picConnInit', { picId: app.getPicId() });
         
-        /* handle connection to picture page response from server */
+        /* handle connection to picture page, response from server */
         socket.on('picConnResp', function(data) {
             console.log(data);
+            /* Update online pic viewers count */
+            if(data.viewersCount) updateOnline(data.viewersCount);
         });
 
         socket.on('message', function (data) {
