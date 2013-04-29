@@ -5,15 +5,14 @@
 var express = require('express')
   , index = require('./routes/index')
   , http = require('http')
-  , path = require('path');
+  , path = require('path')
+  , conf = require('./conf');
 
 var app = express();
 
-// all environments
-app.set('port', process.env.PORT || 8080);
+app.set('port', conf.port);
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
-app.use(express.favicon());
 app.use(express.logger('dev'));
 app.use(express.bodyParser());
 app.use(express.methodOverride());
@@ -75,8 +74,10 @@ io.sockets.on('connection', function (socket) {
          * Check if client already in room.
          * If not, join the room.
          */
+
+        var picClients = io.sockets.clients(picId);
         socket.join(picId);
-        var picClients = io.sockets.clients(picId); 
+
         var viewersCount = picClients.length;
         /* Info all clients in room about new member. */
         io.sockets.in(picId).emit('picConnResp', {picId: picId, viewersCount: viewersCount});
@@ -89,7 +90,7 @@ io.sockets.on('connection', function (socket) {
             var name = (socket.id).toString().substr(0, 5);
 
             socket.emit('msgSent', {picId: picId, status: 1});
-            io.sockets.in(picId).json.send({text: data.text, from: name});
+            io.sockets.in(picId).json.send({text: data.text, from: name, time: time});
         });
          
         socket.on('disconnect', function(data){

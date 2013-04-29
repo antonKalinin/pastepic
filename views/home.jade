@@ -8,18 +8,15 @@ block content
                     h1 Pictalk
                     p Paste image from your clipboard and share it with your friends in one click.
 
-                if (development)
                 div.chat-wrap
                     div#chat
                         ul
-                            each item, i in items
-                                li
-                                    span= i
-                                    = item
+
                     div.name-input-wrap
-                        input(type='text',
-                            name='userName',
-                            placeholder = 'Enter your name to join the chart')
+                        // input(type='text',
+                        //    name='userName',
+                        //    placeholder = 'Enter your name to join the chart')
+                    textarea(placeholder = 'Print your message')
                 div.logger
                     div
                         p picture online viewers:

@@ -136,12 +136,12 @@ img.loading {
     color: #272727;
 }
 
-#chat li span {
+#chat li span.name {
     margin-right: 5px;
     color: #00B7FF;
 }
 
-#chat li span:after {
+#chat li span.name:after {
     content: ":";
 }
 
@@ -150,6 +150,15 @@ img.loading {
     background: rgba(0,0,0,0.3);
     border: 1px solid #333;
     padding: 4px;
+    color: #ccc;
+}
+
+.chat-wrap textarea {
+    margin: 2px;
+    width: 230px;
+    height: 30px;
+    background: rgba(0,0,0,0.5);
+    border: 1px solid #333;
     color: #ccc;
 }
 

@@ -1,6 +1,9 @@
+var conf = require('../conf');
+
 var _getCommonViewData = function() {
     return {
-        development: true,
+        domen: conf.domen,
+        port: conf.port,
         picId: false,
         items: {
             Homer: "Bart, with $10,000, we'd be millionaires! We could buy all kinds of useful things like...love!",
@@ -10,6 +13,7 @@ var _getCommonViewData = function() {
         }
     };
 };
+
 
 exports.home = function(req, res) {
     var viewData = _getCommonViewData();
