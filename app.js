@@ -96,7 +96,9 @@ io.sockets.on('connection', function (socket) {
             /* Leave the picture room then disconnected. */
             var picId = data.picId ? data.picId : false;
             if(!picId) return;
-            socket.leave(picId);    
+            socket.leave(picId); 
+            var viewersCount = io.sockets.clients(picId).length;
+            io.sockets.in(picId).emit('userOut', {picId: picId, viewersCount: viewersCount});
         });
     });
 
