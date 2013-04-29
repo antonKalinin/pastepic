@@ -1,6 +1,7 @@
 var _getCommonViewData = function() {
     return {
         development: true,
+        picId: false,
         items: {
             Homer: "Bart, with $10,000, we'd be millionaires! We could buy all kinds of useful things like...love!",
             Bart: "I didn't do it, nobody saw me do it, there's no way you can prove anything!",
@@ -12,7 +13,6 @@ var _getCommonViewData = function() {
 
 exports.home = function(req, res) {
     var viewData = _getCommonViewData();
-    picId = false;
     viewData.imageSrc = false;
     res.render('home', viewData)
 };
@@ -44,6 +44,7 @@ exports.imageHandler = function(req, res) {
     var viewData = _getCommonViewData();
     var picId = req.route.params.picId;
     viewData.imageSrc = '/uploads/' + picId + '.png';
+    viewData.picId = picId;
     res.render('home', viewData);
 };
 
