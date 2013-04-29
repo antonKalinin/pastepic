@@ -1,3 +1,17 @@
+/* Global client application module */
+var app = (function(){
+    var _picId = false;
+    return {
+        getPicId: function() {
+            return _picId;
+        },
+        setPicId: function(picId) {
+            _picId = picId;
+        }
+    };
+})();    
+
+
 /*
   This is javascript to handle all the events of image manipulating
 */
