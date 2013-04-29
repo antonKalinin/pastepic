@@ -9,7 +9,7 @@ window.onload = function() {
         socket.emit('picConnInit', { picId: app.getPicId() });
         
         /* handle connection to picture page response from server */
-        socket.on('picConnReps', function(data) {
+        socket.on('picConnResp', function(data) {
             console.log(data);
         });
 
