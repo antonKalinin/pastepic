@@ -1,6 +1,6 @@
 window.onload = function() {
-    
     // Create a connection to server.
+    // Socket is a global here. Maybe better to make it as app object property.
     socket = io.connect('http://fronteeth.com:8080');
     socket.on('connect', function (data) {
         console.log(data);
@@ -20,6 +20,11 @@ window.onload = function() {
         });
     });
 };
+
+window.onbeforeunload = function (evt) {
+    /* Before close the page disconnect the socket */
+    socket.disconnect();
+}
 
 function logEvent(event, data) {
     console.log('Event: ' + event);
