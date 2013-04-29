@@ -1,36 +1,23 @@
-var eventsHandlers = {
-    connected: function(data) {
-        logEvent('connected', data);
-        updateOnline(data.onlineCount);
-    },
-    userIn: function(data) {
-        logEvent('userIn', data);
-        updateOnline(data.onlineCount);
-    },
-    userOut: function(data) {
-        logEvent('userOut', data);
-        updateOnline(data.onlineCount);
-    }
-}
-
 window.onload = function() {
-    // Создаем соединение с сервером; websockets почему-то в Хроме не работают, используем xhr
+    // Create a connection to server. In chrome use long polling somewhy! (TODO: get know why)
     if (navigator.userAgent.toLowerCase().indexOf('chrome') != -1) {
         socket = io.connect('http://localhost:8080', {'transports': ['xhr-polling']});
     } else {
         socket = io.connect('http://localhost:8080');
     }
     socket.on('connect', function () {
+        
+        /* init connetion to picture page */
+        socket.emit('picConnInit', { picId: app.getPicId() });
+        
+        /* handle connection to picture page response from server */
+        socket.on('picConnReps', function(data) {
+            console.log(data);
+        });
 
         socket.on('message', function (data) {
             console.log(data);
         });
-
-        /* initialize event handlers */
-        for (var event in eventsHandlers) {
-            socket.on(event, eventsHandlers[event]);
-        }
-
     });
 };
 
