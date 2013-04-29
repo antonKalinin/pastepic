@@ -86,7 +86,7 @@ io.sockets.on('connection', function (socket) {
             var picId = data.picId ? data.picId : false;
             if(!picId) return;
             socket.leave(picId);    
-        });'
+        });
     });
 
 
