@@ -86,7 +86,7 @@ io.sockets.on('connection', function (socket) {
             var picId = data.picId ? data.picId : false;
             if(!picId) return;
             var time = (new Date).toLocaleTimeString();
-            var name = (socket.id).toString().substr(0, 5);'
+            var name = (socket.id).toString().substr(0, 5);
 
             socket.emit('msgSent', {picId: picId, status: 1});
             io.sockets.in(picId).sent({text: data.text, from: name});
