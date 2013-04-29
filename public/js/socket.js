@@ -15,10 +15,6 @@ window.onload = function() {
             if(data.viewersCount) updateOnline(data.viewersCount);
         });
         
-        socket.on('message', function(data) {
-            console.log(data);    
-        });
-
         socket.on('message', function (data) {
             console.log(data);
         });
