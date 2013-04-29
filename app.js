@@ -89,7 +89,7 @@ io.sockets.on('connection', function (socket) {
             var name = (socket.id).toString().substr(0, 5);
 
             socket.emit('msgSent', {picId: picId, status: 1});
-            io.sockets.in(picId).sent({text: data.text, from: name});
+            io.sockets.in(picId).json.send({text: data.text, from: name});
         });
          
         socket.on('disconnect', function(data){
