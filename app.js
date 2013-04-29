@@ -42,7 +42,11 @@ app.get('/:picId', function(req, res) {
 });
 
 
-/* pool of open sockets according to pictures */
+
+io.configure(function () { 
+  io.set("transports", ["xhr-polling"]); 
+  io.set("polling duration", 10); 
+});
 
 io.sockets.on('connection', function (socket) {
     var ID = (socket.id).toString().substr(0, 5);
