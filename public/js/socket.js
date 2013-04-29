@@ -1,9 +1,9 @@
 window.onload = function() {
     // Create a connection to server. In chrome use long polling somewhy! (TODO: get know why)
     if (navigator.userAgent.toLowerCase().indexOf('chrome') != -1) {
-        socket = io.connect('http://localhost:8080', {'transports': ['xhr-polling']});
+        socket = io.connect('http://fronteeth.com:8080', {'transports': ['xhr-polling']});
     } else {
-        socket = io.connect('http://localhost:8080');
+        socket = io.connect('http://fronteeth.com:8080');
     }
     socket.on('connect', function () {
         
