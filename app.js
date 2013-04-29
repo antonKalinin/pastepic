@@ -77,9 +77,9 @@ io.sockets.on('connection', function (socket) {
           */
          socket.join(picId);
          var picClients = io.sockets.clients(picId); 
-         var picViewersCount = picClients.length;
+         var viewersCount = picClients.length;
          /* Info all clients in room about new member. */
-         io.sockets.in(picId).emit('picConnResp', {picId: picId, picViewersCount: picViewersCount});
+         io.sockets.in(picId).emit('picConnResp', {picId: picId, viewersCount: viewersCount});
     });
 
 
