@@ -37,9 +37,42 @@ io.set('log level', 1);
 
 app.get('/', index.home);
 app.post('/upload', index.uploadHandler);
-app.get('/:imageId', function(req, res) {
-    index.imageHandler(req, res, io);
+app.get('/:picId', function(req, res) {
+    var picId = req.params.picId;
+    io.sockets.in(picId).emit('picRequest', {picId: picId});
+    index.imageHandler(req, res);
 });
+
+
+/* pool of open sockets according to pictures */
+
+io.sockets.on('connection', function (socket) {
+    var ID = (socket.id).toString().substr(0, 5);
+    var time = (new Date).toLocaleTimeString();
+    var params = {
+        'name': ID,
+        'time': time,
+        'picId': picId
+    };
+
+    socket.emit('connected', params);
+
+    /*
+     * The way is to send from client a message witch contain a picture id.
+     * In response to this message user get the number of online picture viewers.
+     */
+
+    socket.on('picApprove', function(data){
+        /*
+         * Add this socket to room with same picture id.
+         * Info other sockets in the room about new picture viewer.
+         * Count the number of online viewers.
+         */
+    });
+
+
+});
+
 
 
 

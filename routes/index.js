@@ -10,8 +10,6 @@ var _getCommonViewData = function() {
     };
 };
 
-var picId = false;
-
 exports.home = function(req, res) {
     var viewData = _getCommonViewData();
     picId = false;
@@ -20,7 +18,6 @@ exports.home = function(req, res) {
 };
 
 exports.uploadHandler = function(req, res) {
-
     var image = req.files.image
     
     if (!image) {
@@ -43,61 +40,12 @@ exports.uploadHandler = function(req, res) {
     });
 };
 
-exports.imageHandler = function(req, res, io) {
+exports.imageHandler = function(req, res) {
     var viewData = _getCommonViewData();
-    picId = req.route.params.imageId;
-
-    initSockets(io);
-
+    var picId = req.route.params.picId;
     viewData.imageSrc = '/uploads/' + picId + '.png';
     res.render('home', viewData);
 };
 
 
-/* pool of open sockets according to pictures */
-var picSockets = {};
-
-function initSockets(io) {
-    io.sockets.on('connection', function (socket) {
-        if(!picId) return false;
-
-        var ID = (socket.id).toString().substr(0, 5);
-        var time = (new Date).toLocaleTimeString();
-        var params = {
-            'name': ID,
-            'time': time,
-            'picId': picId
-        };
-
-        socket.emit('connected', params);
-
-        var key = 'pic' + picId;
-        if (!picSockets[key]) {
-            picSockets[key] = {};
-        }
-        picSockets[key][socket.id] = socket;
-
-        var onlineCount = 0;
-        /* Count sockets in stack */
-        for(var pSocketId in picSockets[key]) {
-            if (picSockets[key].hasOwnProperty(pSocketId)) onlineCount++;
-        }
-
-        params.onlineCount = onlineCount;
-        for(var pSocketId in picSockets[key]) {
-            picSockets[key][pSocketId].emit('userIn',  params)
-        }
-
-        socket.on('disconnect', function() {
-            var time = (new Date).toLocaleTimeString();
-            var key = 'pic' + picId;
-            if (picSockets[key].hasOwnProperty(pSocketId)) {
-                onlineCount--;
-                delete picSockets[key];
-            }
-
-            io.sockets.emit('userOut', {'name': ID, 'time': time, 'onlineCount': onlineCount});
-        });
-    });
-}
 
