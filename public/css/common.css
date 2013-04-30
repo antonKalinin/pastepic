@@ -92,6 +92,12 @@ img.loading {
     opacity: 0.4;
 }
 
+a.fullscreen-pic {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}
+
 #footer {
     clear: both;
     position: relative;
