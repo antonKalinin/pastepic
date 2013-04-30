@@ -29,6 +29,7 @@ block content
         #content-container.slided
             if (imageSrc)
                 img.pasted.b-sha(src= imageSrc)
+                a(href='/uploads/#{imageSrc}', class='fullscreen-pic') Fullscreen picture
             else
                 div.content-tip
                     ol.use-tip
