@@ -63,6 +63,8 @@ var chat = (function(){
         msgIn: function(data) {
             var $msg = newMsg(data);
             container.append($msg);
+            console.log(msgInput.height());
+            msgInput.scrollTop(msgInput.height());
         },
         msgOut: function() {
             var text = msgInput.val();

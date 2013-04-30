@@ -110,22 +110,32 @@ img.loading {
 
 /* CHAT */
 
+::-webkit-scrollbar {
+    width:8px;
+    height:8px;
+    -webkit-border-radius: 4px;
+}
+
+
 .chat-wrap {
     margin: 0 20px;
 }
 
 #chat {
     height: 320px;
+    overflow: hidden;
     padding: 7px 15px;
     background: rgba(0,0,0,0.5);
-    border-radius: 3px;
+    border-radius: 3px 3px 0 0;
     color: #dedede;
 }
 
 #chat ul {
+    height: 100%;
     list-style: none;
     margin: 0;
     padding: 0;
+    overflow-y: scroll;
 }
 
 #chat li {
@@ -154,11 +164,15 @@ img.loading {
 }
 
 .chat-wrap textarea {
-    margin: 2px;
     width: 230px;
+    max-width: 230px;
     height: 30px;
+    max-height: 90px;
+    padding: 5px;
+    margin: 1px 0;
     background: rgba(0,0,0,0.5);
-    border: 1px solid #333;
+    border: 0px;
+    border-radius: 0 0 3px 3px;
     color: #ccc;
 }
 
