@@ -109,7 +109,7 @@ $(function() {
     $content.bind('mousewheel', zoomHandler);
     
     $('img.pasted').dblclick(function(){
-        $('a.fullscreen-pic').trigger('click');    
+        $('a.fullscreen-pic')[0].click();    
     });
     
     //$(document).bind('paste', pasteHandler);
