@@ -9,7 +9,7 @@ var app = (function(){
             _picId = picId;
         }
     };
-})();    
+})();   
 
 
 /*
@@ -104,9 +104,14 @@ $(function() {
         $img.css('width', width);
     }
     
-    /* Binding evts */
+    /* Binding events */
     document.onpaste = pasteHandler;
     $content.bind('mousewheel', zoomHandler);
+    
+    $('img.pasted').dblclick(function(){
+        $('a.fullscreen-pic').trigger('click');    
+    });
+    
     //$(document).bind('paste', pasteHandler);
 });
 
