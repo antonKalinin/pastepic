@@ -54,8 +54,8 @@ var chat = (function(){
             container = $('#chat ul');
             msgInput = $('.chat-wrap textarea');
             msgInput.keydown(function(e) {
-                if (event.which == 13) {
-                    event.preventDefault();
+                if (e.which == 13) {
+                    e.preventDefault();
                     chat.msgOut();
                 }
             });
