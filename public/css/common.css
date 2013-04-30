@@ -129,9 +129,7 @@ img.loading {
 }
 
 #chat li {
-    margin: 10px 0;
-    padding: 5px;
-    border-radius: 3px;
+    margin: 5px 0;
     color: #272727;
 }
 
