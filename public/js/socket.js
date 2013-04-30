@@ -48,7 +48,10 @@ var chat = (function(){
         msgWrap.append(name);
         msgWrap.append(body);
         return msgWrap;
-    };
+    }
+      , scrollBottom = function() {
+        container.stop().animate({ scrollTop: container.get(0).scrollHeight }, 400);
+    }
     return {
         init: function() {
             container = $('#chat ul');
@@ -64,7 +67,7 @@ var chat = (function(){
             var $msg = newMsg(data);
             container.append($msg);
             console.log(msgInput.height());
-            msgInput.scrollTop(msgInput.height());
+            scrollBottom();
         },
         msgOut: function() {
             var text = msgInput.val();
