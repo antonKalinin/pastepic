@@ -68,6 +68,7 @@ var chat = (function(){
         },
         msgOut: function() {
             var text = msgInput.val();
+            if(!text || text == '') return false;
             msgInput.val('');
             socket.json.send({text: text, picId: app.getPicId()});
         }
