@@ -2,23 +2,16 @@ var conf = require('../conf');
 
 var _getCommonViewData = function() {
     return {
-        domen: conf.domen,
+        domain: conf.domain,
         port: conf.port,
         picId: false,
-        items: {
-            Homer: "Bart, with $10,000, we'd be millionaires! We could buy all kinds of useful things like...love!",
-            Bart: "I didn't do it, nobody saw me do it, there's no way you can prove anything!",
-            Liza: "It chose to destroy itself rather than lie with us. You can't help but feel a little rejected.",
-            Nelson: "Haa-ha"
-        }
     };
 };
 
-
-exports.home = function(req, res) {
+exports.index = function(req, res) {
     var viewData = _getCommonViewData();
     viewData.imageSrc = false;
-    res.render('home', viewData)
+    res.render('index.html', viewData)
 };
 
 exports.uploadHandler = function(req, res) {
@@ -35,11 +28,14 @@ exports.uploadHandler = function(req, res) {
     fs.readFile(image.path, function (err, data) {
         // asynchronously reads the entire contents of an image file
         var uploadDir = path.join(__dirname, '../', '/public/uploads/');
-        var imgId = new Date().getTime();
-        var savePath = uploadDir + imgId + '.png';
+        var picId = new Date().getTime();
+        var savePath = uploadDir + picId + '.png';
         fs.writeFile(savePath, data, function (err) {
             if (err) throw err;
-            res.send({imgId: imgId});
+            res.send({
+                picId: picId,
+                picLink: conf.domain + '/uploads/' + picId + '.png'
+            });
         });
     });
 };
@@ -47,9 +43,10 @@ exports.uploadHandler = function(req, res) {
 exports.imageHandler = function(req, res) {
     var viewData = _getCommonViewData();
     var picId = req.route.params.picId;
-    viewData.imageSrc = '/uploads/' + picId + '.png';
+    viewData.imageSrc = 'uploads/' + picId + '.png';
     viewData.picId = picId;
-    res.render('home', viewData);
+    viewData.picLink = conf.domain + viewData.imageSrc;
+    res.render('index.html', viewData);
 };
 
 

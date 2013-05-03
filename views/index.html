@@ -1,0 +1,31 @@
+{% extends 'layout.html' %}
+
+{% block head %}
+{% parent %}
+<!-- Custom Css -->
+<!-- Custom JavaScript -->
+{% endblock %}
+
+{% block content %}
+<div id="header">
+    <div class="container">
+        <a href="/" class="logo">Pictalk</a>
+        <div class="fl-r" style="margin-top: 6px">
+            <input type="text" class="link-input" value="{% if picId %}{{picLink}}{% endif %}"/>
+            <div class="btn btn-info" onclick="app.linkToClipboard()">Get Link!</div>
+        </div>
+    </div>
+</div>
+<div id="content">
+    <div id="pic-holder">
+        {% if picId %}
+        <img src="{{imageSrc}}" class="pasted" alt=""/>
+        {% else %}
+        <div class="tip">
+            <h1>Paste your screenshot.</h1>
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}

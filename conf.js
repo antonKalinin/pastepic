@@ -4,11 +4,11 @@
     var config = {
         production: {
             port: 80,
-            domen: 'http://fronteeth.com'
+            domain: 'http://fronteeth.com'
         },
         development: {
             port: 8080,
-            domen: 'localhost/'
+            domain: 'localhost/'
         }
     };
 

@@ -3,22 +3,30 @@
  */
 
 var express = require('express')
-  , index = require('./routes/index')
   , http = require('http')
   , path = require('path')
-  , conf = require('./conf');
+  , swig = require('swig')
+  , conf = require('./conf')
+  , cons = require('consolidate')
+  , index = require('./routes/index');
 
 var app = express();
 console.log(conf.port);
 
 app.set('port', conf.port);
 app.set('views', __dirname + '/views');
-app.set('view engine', 'jade');
+app.engine('.html', cons.swig);
+app.set('view engine', 'html');
 app.use(express.logger('dev'));
 app.use(express.bodyParser());
 app.use(express.methodOverride());
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
+
+swig.init({
+    root: __dirname + '/views' ,
+    allowErrors: true // allows errors to be thrown and caught by express instead of suppressed by Swig
+});
 
 // development only
 if ('development' == app.get('env')) {
@@ -35,7 +43,7 @@ io.set('log level', 1);
 
 /* simply stupid */
 
-app.get('/', index.home);
+app.get('/', index.index);
 app.post('/upload', index.uploadHandler);
 app.get('/:picId', function(req, res) {
     index.imageHandler(req, res);
