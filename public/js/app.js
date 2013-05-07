@@ -63,8 +63,10 @@ var app = (function(){
                 isDrawingMode: true,
                 freeDrawingColor: '#09c',
                 freeDrawingLineWidth: 3,
-                CURSOR: 'crosshair'
             });
+            
+            app.canvas.setBackgroundImage($pic.attr('src'));
+            $pic.hide();
 
             var d = screen.width - $pic.width();
             if(d) {
