@@ -1,12 +1,26 @@
 /* Global client application module */
 var app = (function(){
-    var _picId = false;
+    var pic = {
+        id: false,
+        width: 0,
+        height: 0
+    };
+
+    var canvasInitialized = false;
+
     return {
         getPicId: function() {
-            return _picId;
+            return pic.id;
         },
         setPicId: function(picId) {
-            _picId = picId;
+            pic.id = picId;
+        },
+        setPicProps: function(props) {
+            for (p in props) {
+                if (pic.hasOwnProperty(p)) {
+                    pic[p] = props[p];
+                }
+            }
         },
         linkToClipboard: function() {
             if (window.clipboardData && clipboardData.setData) {
@@ -24,10 +38,43 @@ var app = (function(){
                 var clip = new ZeroClipboard(_defaults);
                 clip.setText( 'Copy me!' );
             }
+        },
+        /**
+         * Initialize canvas over the pasted picture.
+         */
+        initCanvas: function() {
+            if(canvasInitialized) return true;
+
+            var $pic = $('img.pasted');
+            app.setPicProps({width: $pic.width(), height: $pic.height()});
+            if(screen.width - $pic.width() < 20) {
+                $pic.css('width', $pic.width()-20);
+            }
+
+            var $c = $('<canvas>').attr('id', 'cnvs');
+            var t = $pic.width();
+            $c.width(t);
+            $c.height($pic.height());
+            $c.attr('width', t);
+            $c.attr('height', $pic.height());
+            $('#content #pic-holder').prepend($c);
+
+            app.canvas = new fabric.Canvas('cnvs', {
+                isDrawingMode: true,
+                freeDrawingColor: '#09c',
+                freeDrawingLineWidth: 3,
+                CURSOR: 'crosshair'
+            });
+
+            var d = screen.width - $pic.width();
+            if(d) {
+                $('.canvas-container').css('margin-left', d/2);
+                app.canvas.calcOffset();
+            }
+            canvasInitialized = true;
         }
     };
-})();   
-
+})();
 
 /*
   This is javascript to handle all the events of image manipulating
@@ -52,22 +99,22 @@ $(function() {
             return false;
         }
 
-        
         var formData = new FormData(),
             reader = new FileReader(),
             blob = item.getAsFile();
             
         reader.onload = function(evt){
-            var imgSrc = evt.target.result;
+            var picSrc = evt.target.result;
 
-            var $img = $('img.pasted');
-            if(!$img.length) {
-                $img = $('<img />')
+            var $pic = $('img.pasted');
+            if(!$pic.length) {
+                $pic = $('<img />')
             }
-            $img.attr('src', imgSrc);
-            $img.addClass('pasted').addClass('loading');
+            $pic.attr('src', picSrc);
+            $pic.addClass('pasted').addClass('loading');
+
             $picHolder.find('.tip').hide();
-            $picHolder.append($img);
+            $picHolder.append($pic);
         };
 
         reader.readAsDataURL(blob);
@@ -86,6 +133,7 @@ $(function() {
                     var $img = $('img.pasted');
                     $img.attr('src', '/uploads/' + data.picId  + '.png');
                     $img.removeClass('loading');
+                    app.initCanvas();
                     history.pushState({}, data.picId, "/" + data.picId);
                     $('.link-input').val(data.picLink)
                     // window.location = '/' + data.imgId;
@@ -94,6 +142,9 @@ $(function() {
             dataType: 'json'
         });
     };
+
+
+
 
     function zoomHandler(evt) {
         var $logger = $('#logger');

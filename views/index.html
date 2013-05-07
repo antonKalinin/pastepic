@@ -4,15 +4,20 @@
 {% parent %}
 <!-- Custom Css -->
 <!-- Custom JavaScript -->
+<script type="text/javascript" src="js/fabric.js"></script>
 {% endblock %}
 
 {% block content %}
 <div id="header">
     <div class="container">
-        <a href="/" class="logo">Pictalk</a>
+        <a href="/" class="logo fl-l">Pictalk</a>
+        <div class="controls fl-l">
+            <div class="btn btn-primary btn-small" onclick="app.initCanvas()"><i class="icon-flash"></i></div>
+        </div>
         <div class="fl-r" style="margin-top: 6px">
-            <input type="text" class="link-input" value="{% if picId %}{{picLink}}{% endif %}"/>
-            <div class="btn btn-info" onclick="app.linkToClipboard()">Get Link!</div>
+            <!--<span>Link to share</span>-->
+            <input type="text" class="link-input" value="{% if picId %}{{domain}}/{{picId}}{% endif %}"/>
+            <div class="btn btn-info" onclick="app.generateLink()">Get Link!</div>
         </div>
     </div>
 </div>

@@ -62,6 +62,12 @@ a {
     text-decoration: none;
 }
 
+.canvas-container {
+    position: absolute !important;
+    cursor: crosshair;
+
+}
+
 #header p {
     padding: 5px 15px 5px 20px;
 }
@@ -69,6 +75,14 @@ a {
 #header input.link-input {
     width: 255px;
     margin: 3px;
+}
+
+#header .controls {
+    margin: 10px 10px 10px 30px;
+}
+
+#header .controls .btn {
+    padding: 0px 3px 3px;
 }
 
 #content {
@@ -81,7 +95,7 @@ a {
 
 #pic-holder img.pasted {
     display: block;
-    margin: 0 auto;
+    margin: 60px auto 10px;
 }
 
 #pic-holder .tip {
@@ -92,6 +106,30 @@ a {
     color: #aaa;
     text-shadow: 0 1px 0 #fff;
 }
+
+
+/* ICONS */
+
+[class^="icon-"],
+[class*=" icon-"] {
+    display:inline-block;
+    width:20px;
+    height:20px;
+    margin-top:1px;
+    *margin-right:.3em;
+    line-height:20px;
+    vertical-align:text-top;
+    background-image:url("img/silkcons.png");
+    background-position:0 0;
+    background-repeat:no-repeat
+}
+
+.icon-plus   { background-position: 0 0; }
+.icon-minus  { background-position: 0 0; }
+.icon-crop   { background-position: 0 0; }
+.icon-pencil { background-position: 0 0; }
+.icon-blur   { background-position: 0 0; }
+.icon-flash  { background-position: -288px -340px; }
 
 /* UI MODULES */
 
