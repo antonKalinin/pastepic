@@ -65,7 +65,7 @@ a {
 .canvas-container {
     position: absolute !important;
     cursor: crosshair;
-
+    margin-top: 30px;
 }
 
 #header p {
