@@ -65,7 +65,7 @@ var app = (function(){
                 freeDrawingLineWidth: 3,
             });
             
-            app.canvas.setBackgroundImage($pic.attr('src'));
+            app.canvas.setBackgroundImage($pic.attr('src'), app.canvas.renderAll.bind(app.canvas));
             $pic.hide();
 
             var d = screen.width - $pic.width();
