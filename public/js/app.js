@@ -45,7 +45,7 @@ var app = (function(){
         },
         unblockContols: function() {
             $('.controls-blocker').hide();
-        }
+        },
         /**
          * Initialize canvas over the pasted picture.
          */
