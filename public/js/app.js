@@ -39,12 +39,14 @@ var app = (function(){
             }
         },
         makeLink: function() {
-            app.canvas.toDataURL();
+            var imgData = app.canvas.toDataURL();
+            console.log(imgData);
+            $('.link-input').val(pic.id);
         },
         /**
          * Initialize canvas over the pasted picture.
          */
-        initCanvas: function() {
+        initCanvas: function(fn) {
             if(canvasInitialized) return true;
 
             var $pic = $('#pic-holder img');
@@ -70,6 +72,7 @@ var app = (function(){
                 app.canvas.calcOffset();
             }
             canvasInitialized = true;
+            if(fn) fn();
         },
         picEdit: function(tool, el) {
             if(activeEdit) activeEdit(false);
@@ -124,7 +127,7 @@ $(function() {
                 $pic = $('<img />')
             }
             $pic.attr('src', picSrc);
-            $pic.addClass('pasted').addClass('loading');
+            $pic.addClass('loading');
 
             $picHolder.find('.tip').hide();
             $picHolder.append($pic);
@@ -145,10 +148,9 @@ $(function() {
                 if(data && data.picId) {
                     var $img = $('img.pasted');
                     $img.attr('src', '/uploads/' + data.picId  + '.png');
-                    $img.removeClass('loading');
-                    app.initCanvas();
-                    history.pushState({}, data.picId, "/" + data.picId);
-                    $('.link-input').val(data.picLink)
+                    app.initCanvas(function(){$img.removeClass('loading');});
+                    // history.pushState({}, data.picId, "/" + data.picId);
+                    // $('.link-input').val(data.picLink)
                     // window.location = '/' + data.imgId;
                 }
             },
