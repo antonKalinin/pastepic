@@ -5,6 +5,7 @@ var _getCommonViewData = function() {
         domain: conf.domain,
         port: conf.port,
         picId: false,
+        mac: proccess.platform == 'darwin'
     };
 };
 
