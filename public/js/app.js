@@ -43,6 +43,9 @@ var app = (function(){
             console.log(imgData);
             $('.link-input').val(pic.id);
         },
+        unblockContols: function() {
+            $('.controls-blocker').hide();
+        }
         /**
          * Initialize canvas over the pasted picture.
          */
@@ -72,6 +75,7 @@ var app = (function(){
                 app.canvas.calcOffset();
             }
             canvasInitialized = true;
+            app.unblockContols();
             if(fn) fn();
         },
         picEdit: function(tool, el) {
@@ -87,6 +91,8 @@ var app = (function(){
             if(!editMode) {
                 app.initCanvas();
                 $('#pic-holder img').hide();
+            } else {
+                
             }
         }
     };
@@ -148,6 +154,7 @@ $(function() {
                 if(data && data.picId) {
                     var $img = $('img.pasted');
                     $img.attr('src', '/uploads/' + data.picId  + '.png');
+                    app.setPicId(data.picId);
                     app.initCanvas(function(){$img.removeClass('loading');});
                     // history.pushState({}, data.picId, "/" + data.picId);
                     // $('.link-input').val(data.picLink)
