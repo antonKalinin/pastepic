@@ -87,7 +87,17 @@ a {
 }
 
 #header .controls {
+    position: absolute;
     float: right;
+}
+
+#header .controls .controls-blocker {
+    position: absolute;
+    left: 0;
+    z-index: 10;    
+    height: 48px;
+    width: 100%;
+    background: rgba(255,255,255,0.8);    
 }
 
 #header .controls .btn [class^="icon-"] {
