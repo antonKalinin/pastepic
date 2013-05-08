@@ -55,7 +55,7 @@ a {
 
 #header a.logo {
     display: inline-block;
-    margin: 14px 10px;
+    margin: 12px 10px 0;
     font-size: 21px;
     font-weight: 700;
     color: #272727;
@@ -66,10 +66,19 @@ a {
     position: absolute !important;
     cursor: crosshair;
     margin-top: 30px;
+    margin-bottom: 30px;
 }
 
 #header p {
     padding: 5px 15px 5px 20px;
+}
+
+#header .vrt {
+    display: block;
+    height: 48px;
+    float: left;
+    margin: 0 10px;
+    border-right: 1px solid #eee;
 }
 
 #header input.link-input {
@@ -78,11 +87,16 @@ a {
 }
 
 #header .controls {
-    margin: 10px 10px 10px 30px;
+    float: right;
 }
 
-#header .controls .btn {
-    padding: 0px 3px 3px;
+#header .controls .btn [class^="icon-"] {
+    margin: -2px 2px;
+}
+
+.controls .edit-block {
+    margin: 9px 10px 0;
+    float: left;
 }
 
 #content {
@@ -94,7 +108,7 @@ a {
 }
 
 #pic-holder img.pasted {
-    display: block;
+    display: none;
     margin: 80px auto 10px;
 }
 
@@ -126,10 +140,11 @@ a {
 
 .icon-plus   { background-position: 0 0; }
 .icon-minus  { background-position: 0 0; }
-.icon-crop   { background-position: 0 0; }
-.icon-pencil { background-position: 0 0; }
+.icon-crop   { background-position: -160px -306px; }
+.icon-pencil { background-position: -32px -136px; }
 .icon-blur   { background-position: 0 0; }
 .icon-flash  { background-position: -288px -340px; }
+.icon-right  { background-position: -96px -34px; }
 
 /* UI MODULES */
 

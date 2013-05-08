@@ -11,20 +11,27 @@
 <div id="header">
     <div class="container">
         <a href="/" class="logo fl-l">Pictalk</a>
-        <div class="controls fl-l">
-            <div class="btn btn-primary btn-small" onclick="app.initCanvas()"><i class="icon-flash"></i></div>
-        </div>
-        <div class="fl-r" style="margin-top: 6px">
-            <!--<span>Link to share</span>-->
-            <input type="text" class="link-input" value="{% if picId %}{{domain}}/{{picId}}{% endif %}"/>
-            <div class="btn btn-info" onclick="app.generateLink()">Get Link!</div>
+        <div class="controls">
+            <div class="edit-block">
+                <div class="btn-group">
+                    <div class="btn btn-inverse" onclick="app.toggleEditMode()"><i class="icon-flash"></i></div>
+                    <div class="btn btn-inverse" onclick="app.picEdit('pencil', this)"><i class="icon-pencil"></i></div>
+                    <div class="btn btn-inverse" onclick="app.picEdit('crop', this)"><i class="icon-crop"></i></div>
+                </div>
+            </div>
+            <div class="vrt"></div>
+            <div class="fl-l" style="margin-top: 5px">
+                <div class="btn btn-primary" onclick="app.makeLink()">
+                    <span>Get Link </span><i class="icon-right"></i></div>
+                <input type="text" class="link-input" value="{% if picId %}{{domain}}/{{picId}}{% endif %}"/>
+            </div>
         </div>
     </div>
 </div>
 <div id="content">
     <div id="pic-holder">
         {% if picId %}
-        <img src="{{imageSrc}}" class="pasted" alt=""/>
+        <img src="{{imageSrc}}" alt=""/>
         {% else %}
         <div class="tip">
             <h1>Paste your screenshot.</h1>

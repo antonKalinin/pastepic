@@ -6,7 +6,23 @@ var app = (function(){
         height: 0
     };
 
-    var canvasInitialized = false;
+    var canvasInitialized = false,
+        editMode = false;
+
+    var edit = {
+        pencil: function(on) {
+            if(on) {
+                app.canvas.isDrawingMode = true;
+                app.canvas.freeDrawingColor = '#09c';
+                app.canvas.freeDrawingLineWidth = 4;
+            } else {
+                app.canvas.isDrawingMode = false;
+            }
+        }
+    };
+
+    var activeEdit = false;
+
 
     return {
         getPicId: function() {
@@ -22,22 +38,8 @@ var app = (function(){
                 }
             }
         },
-        linkToClipboard: function() {
-            if (window.clipboardData && clipboardData.setData) {
-                UI.notify('Copied to clipboard.');
-                clipboardData.setData('location', window.location);
-            } else {
-                var _defaults = {
-                    moviePath:         "ZeroClipboard.swf",        // URL to movie
-                    trustedDomains:    undefined,                  // Domains that we should trust (single string or array of strings)
-                    hoverClass:        "zeroclipboard-is-hover",   // The class used to hover over the object
-                    activeClass:       "zeroclipboard-is-active",  // The class used to set object active
-                    allowScriptAccess: "sameDomain",               // SWF outbound scripting policy
-                    useNoCache:        true                        // Include a nocache query parameter on requests for the SWF
-                };
-                var clip = new ZeroClipboard(_defaults);
-                clip.setText( 'Copy me!' );
-            }
+        makeLink: function() {
+            app.canvas.toDataURL();
         },
         /**
          * Initialize canvas over the pasted picture.
@@ -45,35 +47,44 @@ var app = (function(){
         initCanvas: function() {
             if(canvasInitialized) return true;
 
-            var $pic = $('img.pasted');
+            var $pic = $('#pic-holder img');
+            console.log($pic);
             app.setPicProps({width: $pic.width(), height: $pic.height()});
-            if(screen.width - $pic.width() < 20) {
-                $pic.css('width', $pic.width()-20);
-            }
 
             var $c = $('<canvas>').attr('id', 'cnvs');
-            var t = $pic.width();
-            $c.width(t);
-            $c.height($pic.height());
-            $c.attr('width', t);
-            $c.attr('height', $pic.height());
+            var w = $pic.width(), h = $pic.height();
+            $c.width(w);
+            $c.height(h);
+            $c.attr('width', w);
+            $c.attr('height', h);
             $('#content #pic-holder').prepend($c);
 
-            app.canvas = new fabric.Canvas('cnvs', {
-                isDrawingMode: true,
-                freeDrawingColor: '#09c',
-                freeDrawingLineWidth: 3,
+            app.canvas = new fabric.Canvas('cnvs');
+            app.canvas.setBackgroundImage($pic.attr('src'), app.canvas.renderAll.bind(app.canvas), {
+               backgroundImageStretch: false
             });
-            
-            app.canvas.setBackgroundImage($pic.attr('src'), app.canvas.renderAll.bind(app.canvas));
-            $pic.hide();
 
-            var d = screen.width - $pic.width();
+            var d = $('body').width() - $pic.width();
             if(d) {
                 $('.canvas-container').css('margin-left', d/2);
                 app.canvas.calcOffset();
             }
             canvasInitialized = true;
+        },
+        picEdit: function(tool, el) {
+            if(activeEdit) activeEdit(false);
+            $('.edit-block .btn').removeClass('active');
+            if(edit.hasOwnProperty(tool)) {
+                activeEdit = edit[tool];
+                edit[tool](true);
+            }
+            $(el).addClass('active');
+        },
+        toggleEditMode: function() {
+            if(!editMode) {
+                app.initCanvas();
+                $('#pic-holder img').hide();
+            }
         }
     };
 })();
