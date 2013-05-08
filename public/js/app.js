@@ -20,9 +20,18 @@ var app = (function(){
             }
         }
     };
+    
+    /* function to convert canvas urlData output to blob */
+    function dataURLtoBlob(dataURL) {
+        var binary = atob(dataURL.split(',')[1]);
+        var array = [];
+        for(var i = 0; i < binary.length; i++) {
+            array.push(binary.charCodeAt(i));
+        }
+        return new Blob([new Uint8Array(array)], {type: 'image/jpeg'});
+    }
 
     var activeEdit = false;
-
 
     return {
         getPicId: function() {
@@ -39,9 +48,18 @@ var app = (function(){
             }
         },
         makeLink: function() {
-            var imgData = app.canvas.toDataURL();
-            console.log(imgData);
-            $('.link-input').val(pic.id);
+            var blobImageData = dataURLtoBlob(app.canvas.toDataURL()),
+                formData = new FormData();
+            
+            formData.append('image', blobImageData);   
+            formData.append('picId', app.getPicId());  
+                
+            var afterUpload = function(resp) {
+                if(resp && resp.picId) {
+                    $('.link-input').val(window.location.origin + '/' + resp.picId);      
+                }
+            };
+            app.upload(formData, afterUpload);
         },
         unblockContols: function() {
             $('.controls-blocker').hide();
@@ -53,7 +71,6 @@ var app = (function(){
             if(canvasInitialized) return true;
 
             var $pic = $('#pic-holder img');
-            console.log($pic);
             app.setPicProps({width: $pic.width(), height: $pic.height()});
 
             var $c = $('<canvas>').attr('id', 'cnvs');
@@ -75,6 +92,7 @@ var app = (function(){
                 app.canvas.calcOffset();
             }
             canvasInitialized = true;
+            console.log('Canvas initialized successfuly');
             app.unblockContols();
             if(fn) fn();
         },
