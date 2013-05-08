@@ -29,7 +29,12 @@ exports.uploadHandler = function(req, res) {
     fs.readFile(image.path, function (err, data) {
         // asynchronously reads the entire contents of an image file
         var uploadDir = path.join(__dirname, '../', '/public/uploads/');
-        var picId = new Date().getTime();
+        
+        var picId = req.param('picId');
+        if(!picId) {
+           picId = new Date().getTime(); 
+        }
+        
         var savePath = uploadDir + picId + '.png';
         fs.writeFile(savePath, data, function (err) {
             if (err) throw err;
