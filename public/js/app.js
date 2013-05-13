@@ -161,7 +161,7 @@ $(function() {
             reader = new FileReader(),
             blob = item.getAsFile();
             
-        var pic = null;
+        var $pic = null;
             
         reader.onload = function(evt){
             var picSrc = evt.target.result;
