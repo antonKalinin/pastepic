@@ -161,25 +161,6 @@ $(function() {
             reader = new FileReader(),
             blob = item.getAsFile();
             
-        var $pic = null;
-            
-        reader.onload = function(evt){
-            var picSrc = evt.target.result;
-
-            $pic = $('#pic-holder img');
-            if(!$pic.length) $pic = $('<img />');
-            
-            $pic.attr('src', picSrc);
-            $pic.addClass('loading');
-
-            $picHolder.find('.tip').hide();
-            $picHolder.append($pic);
-            
-        };
-
-        reader.readAsDataURL(blob);
-        formData.append('image', blob);
-        
         var afterUpload = function(resp) {
             if(resp && resp.picId) {
                 var $img = $('#pic-holder img');
@@ -190,19 +171,35 @@ $(function() {
                 // $('.link-input').val(data.picLink)
                 // window.location = '/' + data.imgId;
             }
-        }
-        
-        /* try to upload image to server */
-        $pic.load(function(){
-            /* recalculate picture width if it fullscreen*/
-            var pw = $pic.width();
-            var d = $('body').width() - pw;
-            if(d < 40) {
-                pw = pw - (40 - d);
-                $pic.width(pw);
-            }
-            app.upload(formData, afterUpload);
-        }) 
+        };
+
+        reader.onload = function(evt){
+            var picSrc = evt.target.result;
+            var $pic = $('#pic-holder img');
+            if(!$pic.length) $pic = $('<img />');
+            
+            $pic.attr('src', picSrc);
+            $pic.addClass('loading');
+
+            $picHolder.find('.tip').hide();
+            $picHolder.append($pic);
+            
+            /* try to upload image to server */
+            $pic.load(function(){
+                /* recalculate picture width if it fullscreen*/
+                var pw = $pic.width();
+                var d = $('body').width() - pw;
+                if(d < 40) {
+                    pw = pw - (40 - d);
+                    $pic.width(pw);
+                }
+                app.upload(formData, afterUpload);
+            }) 
+            
+        };
+
+        reader.readAsDataURL(blob);
+        formData.append('image', blob);
         
     };
     
