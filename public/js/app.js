@@ -74,11 +74,18 @@ var app = (function(){
             app.setPicProps({width: $pic.width(), height: $pic.height()});
 
             var $c = $('<canvas>').attr('id', 'cnvs');
-            var w = $pic.width(), h = $pic.height();
-            $c.width(w);
-            $c.height(h);
-            $c.attr('width', w);
-            $c.attr('height', h);
+            var bw = $('body').width(),
+                pw = $pic.width(),
+                ph = $pic.height();
+            
+            /* recalculate picture width if it fullscreen*/    
+            var deltaW = bw - pw;
+            if(deltaW < 40) pw = pw - (40 - deltaW);
+                    
+            $c.width(pw);
+            $c.height(ph);
+            $c.attr('width', pw);
+            $c.attr('height', ph);
             $('#content #pic-holder').prepend($c);
 
             app.canvas = new fabric.Canvas('cnvs');
@@ -86,11 +93,11 @@ var app = (function(){
                backgroundImageStretch: false
             });
 
-            var d = $('body').width() - $pic.width();
-            if(d) {
-                $('.canvas-container').css('margin-left', d/2);
+            if(deltaW) {
+                $('.canvas-container').css('margin-left', deltaW/2);
                 app.canvas.calcOffset();
             }
+            
             canvasInitialized = true;
             console.log('Canvas initialized successfuly');
             app.unblockContols();
