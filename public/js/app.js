@@ -185,7 +185,7 @@ $(function() {
             $picHolder.append($pic);
             
             /* try to upload image to server */
-            $pic.load(function(){
+            $pic.load(function(event){
                 /* recalculate picture width if it fullscreen*/
                 var pw = $pic.width();
                 var d = $('body').width() - pw;
@@ -194,6 +194,7 @@ $(function() {
                     $pic.width(pw);
                 }
                 app.upload(formData, afterUpload);
+                $(this).off(event);
             }) 
             
         };
