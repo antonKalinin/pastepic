@@ -172,8 +172,8 @@ $(function() {
         reader.onload = function(evt){
             var picSrc = evt.target.result;
 
-            var $pic = $('img.pasted');
-            if(!$pic.length) $pic = $('<img />').addClass('pasted');
+            var $pic = $('#pic-holder img');
+            if(!$pic.length) $pic = $('<img />');
             
             $pic.attr('src', picSrc);
             $pic.addClass('loading');
@@ -187,7 +187,7 @@ $(function() {
         
         var afterUpload = function(resp) {
             if(resp && resp.picId) {
-                var $img = $('img.pasted');
+                var $img = $('#pic-holder img');
                 $img.attr('src', '/uploads/' + resp.picId  + '.png');
                 app.setPicId(resp.picId);
                 app.initCanvas(function(){$img.removeClass('loading');});
