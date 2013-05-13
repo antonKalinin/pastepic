@@ -77,20 +77,6 @@ var app = (function(){
             var bw = $('body').width(),
                 pw = $pic.width(),
                 ph = $pic.height();
-                
-                console.log($pic);
-                console.log(pw);
-                
-            
-            /* recalculate picture width if it fullscreen*/    
-            var deltaW = bw - pw;
-            console.log(deltaW);
-            if(deltaW < 40) {
-                console.log(deltaW);
-                pw = pw - (40 - deltaW);
-                $pic.width(pw);
-                deltaW = 40;
-            }
                     
             $c.width(pw);
             $c.height(ph);
@@ -102,9 +88,10 @@ var app = (function(){
             app.canvas.setBackgroundImage($pic.attr('src'), app.canvas.renderAll.bind(app.canvas), {
                backgroundImageStretch: false
             });
-
-            if(deltaW) {
-                $('.canvas-container').css('margin-left', deltaW/2);
+            
+            var d = bw-pw;
+            if(d) {
+                $('.canvas-container').css('margin-left', d/2);
                 app.canvas.calcOffset();
             }
             
@@ -174,10 +161,12 @@ $(function() {
             reader = new FileReader(),
             blob = item.getAsFile();
             
+        var pic = null;
+            
         reader.onload = function(evt){
             var picSrc = evt.target.result;
 
-            var $pic = $('#pic-holder img');
+            $pic = $('#pic-holder img');
             if(!$pic.length) $pic = $('<img />');
             
             $pic.attr('src', picSrc);
@@ -185,6 +174,7 @@ $(function() {
 
             $picHolder.find('.tip').hide();
             $picHolder.append($pic);
+            
         };
 
         reader.readAsDataURL(blob);
@@ -203,7 +193,17 @@ $(function() {
         }
         
         /* try to upload image to server */
-        app.upload(formData, afterUpload);
+        $pic.load(function(){
+            /* recalculate picture width if it fullscreen*/
+            var pw = $pic.width();
+            var d = $('body').width() - pw;
+            if(d < 40) {
+                pw = pw - (40 - d);
+                $pic.width(pw);
+            }
+            app.upload(formData, afterUpload);
+        }) 
+        
     };
     
     /* Binding events */
