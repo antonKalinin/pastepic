@@ -80,9 +80,11 @@ var app = (function(){
             
             /* recalculate picture width if it fullscreen*/    
             var deltaW = bw - pw;
+            console.log(deltaW);
             if(deltaW < 40) { 
                 pw = pw - (40 - deltaW);
                 $pic.width(pw);
+                console.log('New pic width: ' + $pic.width());
             }
                     
             $c.width(pw);
@@ -171,9 +173,8 @@ $(function() {
             var picSrc = evt.target.result;
 
             var $pic = $('img.pasted');
-            if(!$pic.length) {
-                $pic = $('<img />')
-            }
+            if(!$pic.length) $pic = $('<img />').addClass('pasted');
+            
             $pic.attr('src', picSrc);
             $pic.addClass('loading');
 
