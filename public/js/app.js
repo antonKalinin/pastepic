@@ -77,10 +77,13 @@ var app = (function(){
             var bw = $('body').width(),
                 pw = $pic.width(),
                 ph = $pic.height();
+                
+                console.log($pic);
             
             /* recalculate picture width if it fullscreen*/    
             var deltaW = bw - pw;
-            if(deltaW < 40) { 
+            if(deltaW < 40) {
+                console.log(deltaW);
                 pw = pw - (40 - deltaW);
                 $pic.width(pw);
                 deltaW = 40;
