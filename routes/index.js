@@ -61,14 +61,13 @@ exports.monitorHandler = function(req, res) {
         
     var viewData = _getCommonViewData(), 
         uploadDir = path.join(__dirname, '../', '/public/uploads/');
-    // test    
-    viewData.files = ['sadfsadfsadfasdf.png'];
             
     fs.readdir(uploadDir, function(err, files){
         viewData.files = files;
+         res.render('monitor.html', viewData);
     });
     
-    res.render('monitor.html', viewData);
+   
 }
 
 
