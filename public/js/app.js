@@ -1,3 +1,15 @@
+/* clipboard copy plugin initialization */
+var copyOptions = {
+        moviePath:         "js/ZeroClipboard.swf",     // URL to movie
+        trustedDomains:    undefined,                  // Domains that we should trust (single string or array of strings)
+        hoverClass:        "zeroclipboard-is-hover",   // The class used to hover over the object
+        activeClass:       "zeroclipboard-is-active",  // The class used to set object active
+        allowScriptAccess: "sameDomain",               // SWF outbound scripting policy
+        useNoCache:        true                        // Include a nocache query parameter on requests for the SWF
+    };
+    
+var zclip = new ZeroClipboard(copyOptions);
+
 /* Global client application module */
 var app = (function(){
     var pic = {
@@ -56,7 +68,9 @@ var app = (function(){
                 
             var afterUpload = function(resp) {
                 if(resp && resp.picId) {
-                    $('.link-input').val(window.location.origin + '/' + resp.picId);      
+                    var link = window.location.origin + '/' + resp.picId;
+                    $('.link-input').val(link);  
+                    zclip.setText(link);
                 }
             };
             app.upload(formData, afterUpload);
@@ -207,11 +221,6 @@ $(function() {
     /* Binding events */
     document.onpaste = pasteHandler;
     //$picHolder.bind('mousewheel', zoomHandler);
-    
-    $('img.pasted').dblclick(function(){
-        $('a.fullscreen-pic')[0].click();    
-    });
-    
     //$(document).bind('paste', pasteHandler);
 });
 
