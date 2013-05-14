@@ -45,7 +45,9 @@
         <img src="{{imageSrc}}" alt=""/>
         {% else %}
         <div class="tip">
-            <h1>Paste your screenshot.</h1>
+            <h1>
+            {% if mac %}Cmd{% else %}Ctrl{% endif %} + V to paste your screenshot.    
+            </h1>
         </div>
         {% endif %}
     </div>
