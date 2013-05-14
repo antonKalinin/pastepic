@@ -18,10 +18,10 @@
         {% if files %}
         <ul class="pic-list">
             {% for file in files %}
-                {% if loop.index && loop.index%5==0 %}<div class="clear"></div>{% endif %}
                 <li>
                     <a href="/uploads/{{ file }}" target="_blank"><img src="/uploads/{{ file }}" width="200"></a>
                 </li>
+                {% if loop.index && loop.index%5==0 %}<div class="clear"></div>{% endif %}
             {% endfor %}
         </ul>
         {% endif %}
