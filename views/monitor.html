@@ -13,7 +13,14 @@
     </div>
 </div>
 <div id="content">
-   <h1>This is monitor page</h1>
+    <div class="content-inner">
+        {% if files %}
+            {% for i in files %}
+                <span>{{ i }}</span>
+                <img src="/uploads/{{ files[i] }}" width="200">
+            {% endfor %}
+        {% endif %}
+    </div>
 </div>
 <div id="footer">
     Developed by antonKalinin, 2013. Tips to 
