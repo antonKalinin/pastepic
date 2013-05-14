@@ -1,14 +1,3 @@
-/* clipboard copy plugin initialization */
-var copyOptions = {
-        moviePath:         "js/ZeroClipboard.swf",     // URL to movie
-        trustedDomains:    undefined,                  // Domains that we should trust (single string or array of strings)
-        hoverClass:        "zeroclipboard-is-hover",   // The class used to hover over the object
-        activeClass:       "zeroclipboard-is-active",  // The class used to set object active
-        allowScriptAccess: "sameDomain",               // SWF outbound scripting policy
-        useNoCache:        true                        // Include a nocache query parameter on requests for the SWF
-    };
-    
-var zclip = new ZeroClipboard(copyOptions);
 
 /* Global client application module */
 var app = (function(){
@@ -46,6 +35,7 @@ var app = (function(){
     var activeEdit = false;
 
     return {
+        zclip: false,
         getPicId: function() {
             return pic.id;
         },
@@ -69,8 +59,8 @@ var app = (function(){
             var afterUpload = function(resp) {
                 if(resp && resp.picId) {
                     var link = window.location.origin + '/' + resp.picId;
-                    $('.link-input').val(link);  
-                    zclip.setText(link);
+                    $('.link-input').val(link); 
+                    if(app.zclip) app.zclip.setText(link);
                 }
             };
             app.upload(formData, afterUpload);
@@ -220,7 +210,18 @@ $(function() {
     
     /* Binding events */
     document.onpaste = pasteHandler;
-    //$picHolder.bind('mousewheel', zoomHandler);
-    //$(document).bind('paste', pasteHandler);
+    
+    /* clipboard copy plugin initialization */
+    var copyOptions = {
+        moviePath:         "js/ZeroClipboard.swf",     // URL to movie
+        trustedDomains:    undefined,                  // Domains that we should trust (single string or array of strings)
+        hoverClass:        "zeroclipboard-is-hover",   // The class used to hover over the object
+        activeClass:       "zeroclipboard-is-active",  // The class used to set object active
+        allowScriptAccess: "sameDomain",               // SWF outbound scripting policy
+        useNoCache:        true                        // Include a nocache query parameter on requests for the SWF
+    };
+    
+    app.zclip = new ZeroClipboard(copyOptions);
+        
 });
 
