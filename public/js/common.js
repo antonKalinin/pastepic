@@ -38,7 +38,7 @@ UI.notify = function (html, opts) {
     "use strict";
     var notify = $('<div/>').addClass('notify'),
         defs = {
-            position: 'top', // top, center, bottom
+            position: 'center', // top, center, bottom
             cssClass: '',    // custom css class 
             showTime: 1500,  // duration of show
             closable: true,  // is auto close 
