@@ -55,5 +55,10 @@ exports.imageHandler = function(req, res) {
     res.render('index.html', viewData);
 };
 
+exports.monitorHandler = function(req, res) {
+    var viewData = _getCommonViewData();
+    res.render('monitor.html', viewData);
+}
+
 
 
