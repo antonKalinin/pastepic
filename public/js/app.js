@@ -91,6 +91,7 @@ var app = (function(){
             app.canvas.setBackgroundImage($pic.attr('src'), app.canvas.renderAll.bind(app.canvas), {
                backgroundImageStretch: false
             });
+            app.canvas.selection = false;
             
             var d = bw-pw;
             if(d) {
