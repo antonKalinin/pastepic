@@ -49,7 +49,7 @@ var auth = express.basicAuth(function(user, pass) {
 
 app.get('/', index.index);
 app.post('/upload', index.uploadHandler);
-app.post('/monitor', auth, index.monitorHandler);
+app.get('/monitor', auth, index.monitorHandler);
 app.get('/:picId', function(req, res) {
     index.imageHandler(req, res);
 });
