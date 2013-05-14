@@ -56,7 +56,16 @@ exports.imageHandler = function(req, res) {
 };
 
 exports.monitorHandler = function(req, res) {
-    var viewData = _getCommonViewData();
+    var fs = require('fs'),
+        path = require('path');
+        
+    var viewData = _getCommonViewData(), 
+        uploadDir = path.join(__dirname, '../', '/public/uploads/');
+            
+    fs.readdir(uploadDir, function(err, files){
+        viewData.files = files;
+    });
+    
     res.render('monitor.html', viewData);
 }
 
