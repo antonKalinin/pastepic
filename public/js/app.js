@@ -87,7 +87,7 @@ var app = (function(){
             $c.attr('height', ph);
             $('#content #pic-holder').prepend($c);
 
-            app.canvas = new fabric.StaticCanvas('cnvs');
+            app.canvas = new fabric.Canvas('cnvs');
             app.canvas.setBackgroundImage($pic.attr('src'), app.canvas.renderAll.bind(app.canvas), {
                backgroundImageStretch: false
             });
