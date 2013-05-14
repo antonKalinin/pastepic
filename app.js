@@ -41,10 +41,15 @@ var server = http.createServer(app).listen(app.get('port'), function(){
 var io = require('socket.io').listen(server);
 io.set('log level', 1);
 
-/* simply stupid */
+/* simply stupid: opened admin login and pass */
+
+var auth = express.basicAuth(function(user, pass) {
+ return user === 'simply' && pass === 'stupid';
+});
 
 app.get('/', index.index);
 app.post('/upload', index.uploadHandler);
+app.post('/monitor', auth, index.monitorHandler);
 app.get('/:picId', function(req, res) {
     index.imageHandler(req, res);
 });
