@@ -1,4 +1,3 @@
-
 /* Global client application module */
 var app = (function(){
     var pic = {
@@ -212,16 +211,8 @@ $(function() {
     document.onpaste = pasteHandler;
     
     /* clipboard copy plugin initialization */
-    var copyOptions = {
-        moviePath:         "js/ZeroClipboard.swf",     // URL to movie
-        trustedDomains:    undefined,                  // Domains that we should trust (single string or array of strings)
-        hoverClass:        "zeroclipboard-is-hover",   // The class used to hover over the object
-        activeClass:       "zeroclipboard-is-active",  // The class used to set object active
-        allowScriptAccess: "sameDomain",               // SWF outbound scripting policy
-        useNoCache:        true                        // Include a nocache query parameter on requests for the SWF
-    };
-    
-    app.zclip = new ZeroClipboard(copyOptions);
+    ZeroClipboard.setDefaults( { moviePath: '/js/ZeroClipboard.swf' } );
+    app.zclip = new ZeroClipboard();
         
 });
 
