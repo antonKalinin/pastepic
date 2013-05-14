@@ -15,10 +15,13 @@
 <div id="content">
     <div class="content-inner">
         {% if files %}
-            {% for i in files %}
-                <span>{{ i }}</span>
-                <img src="/uploads/{{ files[i] }}" width="200">
+        <ul class="pic-list">
+            {% for file in files %}
+                <li>
+                    <img src="/uploads/{{ file }}" width="200">
+                </li>
             {% endfor %}
+        </ul>
         {% endif %}
     </div>
 </div>
