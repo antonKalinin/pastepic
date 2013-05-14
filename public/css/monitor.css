@@ -1,0 +1,16 @@
+.pic-list {
+    width: 1164px;
+    margin: 40px auto 0;
+    padding: 0;
+    list-style: none;
+}
+
+.pic-list li {
+    float: left;
+    margin: 15px 10px;
+    background: #fff;
+    padding: 5px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.4);
+    max-height: 130px;
+    overflow: hidden;
+}
