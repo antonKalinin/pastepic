@@ -42,19 +42,15 @@ exports.uploadHandler = function(req, res) {
             if (err) throw err;
             
             // make a preview of uploaded picture        
-            /*var prevParams = {  
+            var prevParams = {  
                 srcPath: savePath,
-                dstPath: previewDir + 'pr' + picId + '.png',
-                width: 200,
-                format: 'png'
+                dstPath: previewDir + 'pr' + picId + '.jpg',
+                width: 200
             };
             
             im.resize(prevParams, function(err, stdout, stderr){
-                if (err) {
-                    console.log(err);
-                    throw err;
-                }
-            });*/
+                if (err) throw err;
+            });
             
             res.send({
                 picId: picId,
