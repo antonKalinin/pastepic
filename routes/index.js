@@ -24,11 +24,13 @@ exports.uploadHandler = function(req, res) {
     }
     
     var fs = require('fs'),
-        path = require('path');
+        path = require('path'),
+        im = require('imagemagick');
 
     fs.readFile(image.path, function (err, data) {
         // asynchronously reads the entire contents of an image file
-        var uploadDir = path.join(__dirname, '../', '/public/uploads/');
+        var uploadDir = path.join(__dirname, '../', '/public/uploads/'),
+            previewDir = uploadDir + 'previews/';
         
         var picId = req.param('picId');
         if(!picId) {
@@ -38,11 +40,24 @@ exports.uploadHandler = function(req, res) {
         var savePath = uploadDir + picId + '.png';
         fs.writeFile(savePath, data, function (err) {
             if (err) throw err;
+            
+            // make a preview of uploaded picture        
+            var prevParams = {  
+                srcPath: savePath,
+                dstPath: previewDir + 'pr' + picId + '.png',
+                width: 200,
+                format: 'png',
+            };
+            
+            im.resize(prevParams, function(err, stdout, stderr){
+              if (err) throw err;
+            });
+            
             res.send({
                 picId: picId,
                 picLink: conf.domain + '/uploads/' + picId + '.png'
             });
-        });
+        }); 
     });
 };
 
@@ -55,19 +70,18 @@ exports.imageHandler = function(req, res) {
     res.render('index.html', viewData);
 };
 
+/* Route to monitor uploaded pictures */
 exports.monitorHandler = function(req, res) {
     var fs = require('fs'),
         path = require('path');
         
     var viewData = _getCommonViewData(), 
-        uploadDir = path.join(__dirname, '../', '/public/uploads/');
+        filesDir = path.join(__dirname, '../', '/public/uploads/previews/');
             
-    fs.readdir(uploadDir, function(err, files){
+    fs.readdir(filesDir, function(err, files){
         viewData.files = files;
-         res.render('monitor.html', viewData);
+        res.render('monitor.html', viewData);
     });
-    
-   
 }
 
 
