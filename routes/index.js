@@ -81,6 +81,7 @@ exports.monitorHandler = function(req, res) {
             
     fs.readdir(filesDir, function(err, files){
         viewData.files = files;
+        viewData.filesCount = files.length;
         res.render('monitor.html', viewData);
     });
 }
