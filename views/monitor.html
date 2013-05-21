@@ -22,7 +22,7 @@
         <ul class="pic-list">
             {% for file in files %}
                 <li>
-                    <a href="/uploads/{{ file.slice(0,-2) }}" target="_blank"><img src="/uploads/previews/{{ file }}" width="200"></a>
+                    <a href="/uploads/{{ file|replace('pr', '') }}" target="_blank"><img src="/uploads/previews/{{ file }}" width="200"></a>
                 </li>
                 {% if loop.index && loop.index%5==0 %}<div class="clear"></div>{% endif %}
             {% endfor %}
