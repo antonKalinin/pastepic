@@ -50,17 +50,10 @@ exports.uploadHandler = function(req, res) {
                 width: 200
             };
             
-            console.log(prevParams);
-            
-            try {
-                im.resize(prevParams, function(err, stdout, stderr){
-                //if (err) console.log(err);
-                });
-            } catch(err) {
-                console.log(err);
-            }
-            
-            
+            im.resize(prevParams, function(err, stdout, stderr){
+                if (err) throw err;
+            });
+
             res.send({
                 picId: picId,
                 picLink: conf.domain + '/uploads/' + picId + '.png'
