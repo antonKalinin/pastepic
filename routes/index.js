@@ -46,7 +46,7 @@ exports.uploadHandler = function(req, res) {
                 srcPath: savePath,
                 srcFormat: 'png',
                 dstPath: previewDir + 'pr' + picId + '.png',
-                format: 'png'
+                format: 'png',
                 width: 200
             };
             
