@@ -50,6 +50,8 @@ exports.uploadHandler = function(req, res) {
                 width: 200
             };
             
+            console.log(prevParams);
+            
             try {
                 im.resize(prevParams, function(err, stdout, stderr){
                 //if (err) console.log(err);
