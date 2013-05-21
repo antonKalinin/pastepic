@@ -15,11 +15,14 @@
 </div>
 <div id="content">
     <div class="content-inner">
+        <div class="files-stats">
+            Files count: {{ filesCount }}
+        </div> 
         {% if files %}
         <ul class="pic-list">
             {% for file in files %}
                 <li>
-                    <a href="/uploads/{{ file }}" target="_blank"><img src="/uploads/{{ file }}" width="200"></a>
+                    <a href="/uploads/{{ file.slice(0,-2) }}" target="_blank"><img src="/uploads/previews/{{ file }}" width="200"></a>
                 </li>
                 {% if loop.index && loop.index%5==0 %}<div class="clear"></div>{% endif %}
             {% endfor %}
