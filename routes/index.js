@@ -50,7 +50,10 @@ exports.uploadHandler = function(req, res) {
             };
             
             im.resize(prevParams, function(err, stdout, stderr){
-              if (err) throw err;
+                console.log(err);
+                console.log(stdout);
+                console.log(stderr);
+                if (err) throw err;
             });
             
             res.send({
