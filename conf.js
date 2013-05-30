@@ -3,7 +3,7 @@
 
     var config = {
         production: {
-            port: 80,
+            port: 8000,
             domain: 'http://fronteeth.com'
         },
         development: {

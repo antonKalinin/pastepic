@@ -2,11 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c13b46b3-a340-4b14-9054-95e2120957a3" name="Default" comment="View UPD &amp; common.js">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/index.html" afterPath="$PROJECT_DIR$/views/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/conf.js" afterPath="$PROJECT_DIR$/conf.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="pictalk.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1367586136986" ignored="false" />
+    <file path="/Dummy.txt" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1369943451772" ignored="false" />
     <file path="/home.jade" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1367261431912" ignored="false" />
     <file path="/common.css" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1367956174189" ignored="false" />
     <file path="/index.js" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1367589411407" ignored="false" />
@@ -39,10 +40,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="60" column="0" selection-start="1967" selection-end="1967" vertical-scroll-proportion="0.87215906">
+            <state line="60" column="0" selection-start="1980" selection-end="1980" vertical-scroll-proportion="-37.5">
               <folding>
                 <element signature="n#style#0;n#div#3;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#span#0;n#h1#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
@@ -54,16 +55,15 @@
       <file leaf-file-name="app.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/js/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="123" column="27" selection-start="3850" selection-end="3850" vertical-scroll-proportion="-9.705882">
+            <state line="129" column="27" selection-start="4028" selection-end="4028" vertical-scroll-proportion="0.0">
               <folding>
-                <element signature="n#!!doc" expanded="true" />
-                <marker date="1368640059000" expanded="true" signature="726:773" placeholder="{...}" />
-                <marker date="1368640059000" expanded="true" signature="1989:2046" placeholder="/** Initialize canvas over the pasted picture. ...*/" />
-                <marker date="1368640059000" expanded="true" signature="2415:2517" placeholder="{&quot;backgroundImageStretch&quot;: false...}" />
-                <marker date="1368640059000" expanded="true" signature="3623:3694" placeholder="{...}" />
-                <marker date="1368640059000" expanded="true" signature="3865:3924" placeholder="{...}" />
-                <marker date="1368640059000" expanded="true" signature="2918:2987" placeholder="{...}" />
-                <marker date="1368640059000" expanded="true" signature="3841:3873" placeholder="{...}" />
+                <marker date="1369943142000" expanded="true" signature="726:773" placeholder="{...}" />
+                <marker date="1369943142000" expanded="true" signature="1989:2046" placeholder="/** Initialize canvas over the pasted picture. ...*/" />
+                <marker date="1369943142000" expanded="true" signature="2415:2517" placeholder="{&quot;backgroundImageStretch&quot;: false...}" />
+                <marker date="1369943142000" expanded="true" signature="2918:2987" placeholder="{...}" />
+                <marker date="1369943142000" expanded="true" signature="3623:3694" placeholder="{...}" />
+                <marker date="1369943142000" expanded="true" signature="3841:3873" placeholder="{...}" />
+                <marker date="1369943142000" expanded="true" signature="3865:3924" placeholder="{...}" />
               </folding>
             </state>
           </provider>
@@ -72,10 +72,8 @@
       <file leaf-file-name="fabric.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/js/fabric.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6491" column="53" selection-start="187096" selection-end="187111" vertical-scroll-proportion="-32.52">
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
+            <state line="6491" column="53" selection-start="187096" selection-end="187111" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -83,7 +81,7 @@
       <file leaf-file-name="common.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/css/common.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="81" column="17" selection-start="1088" selection-end="1088" vertical-scroll-proportion="-7.607843">
+            <state line="81" column="17" selection-start="1088" selection-end="1088" vertical-scroll-proportion="0.0">
               <folding>
                 <marker date="1368640059000" expanded="true" signature="998:1002" placeholder="{...}" />
                 <marker date="1368640059000" expanded="true" signature="1049:1127" placeholder="{...}" />
@@ -95,10 +93,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="conf.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="conf.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/conf.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="5" selection-start="486" selection-end="486" vertical-scroll-proportion="0.0">
+            <state line="17" column="12" selection-start="430" selection-end="430" vertical-scroll-proportion="0.16623208">
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -109,7 +107,7 @@
       <file leaf-file-name="index.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="24" selection-start="104" selection-end="110" vertical-scroll-proportion="-2.4">
+            <state line="7" column="24" selection-start="104" selection-end="110" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -142,21 +140,22 @@
         <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/public/css/old.css" />
         <option value="$PROJECT_DIR$/routes/index.js" />
-        <option value="$PROJECT_DIR$/conf.js" />
         <option value="$PROJECT_DIR$/public/css/bootstrap.css" />
         <option value="$PROJECT_DIR$/views/layout.html" />
         <option value="$PROJECT_DIR$/public/js/fabric.js" />
         <option value="$PROJECT_DIR$/public/js/app.js" />
         <option value="$PROJECT_DIR$/public/css/common.css" />
         <option value="$PROJECT_DIR$/views/index.html" />
+        <option value="$PROJECT_DIR$/conf.js" />
       </list>
     </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="y" value="22" />
-    <option name="width" value="1440" />
-    <option name="height" value="874" />
+    <option name="x" value="185" />
+    <option name="y" value="-1680" />
+    <option name="width" value="1050" />
+    <option name="height" value="1680" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -209,7 +208,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -322,6 +320,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -338,17 +337,17 @@
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="72" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="766" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="766" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="766" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="766" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="72" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="69" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder3" value="3" />
     <property name="FullScreen" value="false" />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -407,14 +406,14 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="1440" height="874" extended-state="6" />
+    <frame x="185" y="-1680" width="1050" height="1680" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15853658" sideWeight="0.9993598" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19223107" sideWeight="0.91229194" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39948782" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -495,118 +494,86 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/views/jade/home.jade">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="46" selection-start="1011" selection-end="1019" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="30" column="46" selection-start="1011" selection-end="1019" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/js/common.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="50" selection-start="313" selection-end="313" vertical-scroll-proportion="0.1091992">
-          <folding />
-        </state>
+        <state line="11" column="50" selection-start="313" selection-end="313" vertical-scroll-proportion="0.1091992" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/js/socket.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="0" selection-start="1044" selection-end="1044" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="32" column="0" selection-start="1044" selection-end="1044" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/express/node_modules/connect/node_modules/formidable/test/common.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="0" selection-start="229" selection-end="229" vertical-scroll-proportion="0.1091992">
-          <folding />
-        </state>
+        <state line="11" column="0" selection-start="229" selection-end="229" vertical-scroll-proportion="0.1091992" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../canvas/test.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="71" selection-start="360" selection-end="420" vertical-scroll-proportion="0.13113652">
-          <folding />
-        </state>
+        <state line="13" column="71" selection-start="360" selection-end="420" vertical-scroll-proportion="0.13113652" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="24" selection-start="104" selection-end="110" vertical-scroll-proportion="-2.4">
+        <state line="7" column="24" selection-start="104" selection-end="110" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/css/bootstrap.min.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="34505" selection-start="34466" selection-end="34734" vertical-scroll-proportion="0.08146639">
-          <folding />
-        </state>
+        <state line="8" column="34505" selection-start="34466" selection-end="34734" vertical-scroll-proportion="0.08146639" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/css/old.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="149" column="1" selection-start="2122" selection-end="2122" vertical-scroll-proportion="0.9404368">
-          <folding />
-        </state>
+        <state line="149" column="1" selection-start="2122" selection-end="2122" vertical-scroll-proportion="0.9404368" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="80" column="26" selection-start="2126" selection-end="2126" vertical-scroll-proportion="0.6639511">
-          <folding />
-        </state>
+        <state line="80" column="26" selection-start="2126" selection-end="2126" vertical-scroll-proportion="0.6639511" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/layout.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="28" selection-start="854" selection-end="854" vertical-scroll-proportion="0.20174849">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/conf.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="5" selection-start="486" selection-end="486" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
+        <state line="20" column="28" selection-start="854" selection-end="854" vertical-scroll-proportion="0.20174849" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/css/bootstrap.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6067" column="21" selection-start="129522" selection-end="129522" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="6067" column="21" selection-start="129522" selection-end="129522" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/js/fabric.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6491" column="53" selection-start="187096" selection-end="187111" vertical-scroll-proportion="-32.52">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
+        <state line="6491" column="53" selection-start="187096" selection-end="187111" vertical-scroll-proportion="0.0">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/js/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="123" column="27" selection-start="3850" selection-end="3850" vertical-scroll-proportion="-9.705882">
+        <state line="129" column="27" selection-start="4028" selection-end="4028" vertical-scroll-proportion="0.0">
           <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <marker date="1368640059000" expanded="true" signature="726:773" placeholder="{...}" />
-            <marker date="1368640059000" expanded="true" signature="1989:2046" placeholder="/** Initialize canvas over the pasted picture. ...*/" />
-            <marker date="1368640059000" expanded="true" signature="2415:2517" placeholder="{&quot;backgroundImageStretch&quot;: false...}" />
-            <marker date="1368640059000" expanded="true" signature="3623:3694" placeholder="{...}" />
-            <marker date="1368640059000" expanded="true" signature="3865:3924" placeholder="{...}" />
-            <marker date="1368640059000" expanded="true" signature="2918:2987" placeholder="{...}" />
-            <marker date="1368640059000" expanded="true" signature="3841:3873" placeholder="{...}" />
+            <marker date="1369943142000" expanded="true" signature="726:773" placeholder="{...}" />
+            <marker date="1369943142000" expanded="true" signature="1989:2046" placeholder="/** Initialize canvas over the pasted picture. ...*/" />
+            <marker date="1369943142000" expanded="true" signature="2415:2517" placeholder="{&quot;backgroundImageStretch&quot;: false...}" />
+            <marker date="1369943142000" expanded="true" signature="2918:2987" placeholder="{...}" />
+            <marker date="1369943142000" expanded="true" signature="3623:3694" placeholder="{...}" />
+            <marker date="1369943142000" expanded="true" signature="3841:3873" placeholder="{...}" />
+            <marker date="1369943142000" expanded="true" signature="3865:3924" placeholder="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/css/common.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="81" column="17" selection-start="1088" selection-end="1088" vertical-scroll-proportion="-7.607843">
+        <state line="81" column="17" selection-start="1088" selection-end="1088" vertical-scroll-proportion="0.0">
           <folding>
             <marker date="1368640059000" expanded="true" signature="998:1002" placeholder="{...}" />
             <marker date="1368640059000" expanded="true" signature="1049:1127" placeholder="{...}" />
@@ -619,10 +586,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/views/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="60" column="0" selection-start="1967" selection-end="1967" vertical-scroll-proportion="0.87215906">
+        <state line="60" column="0" selection-start="1980" selection-end="1980" vertical-scroll-proportion="-37.5">
           <folding>
             <element signature="n#style#0;n#div#3;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#span#0;n#h1#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/conf.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="12" selection-start="430" selection-end="430" vertical-scroll-proportion="0.16623208">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
           </folding>
         </state>
       </provider>
