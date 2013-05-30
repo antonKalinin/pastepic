@@ -211,9 +211,15 @@ $(function() {
     /* Binding events */
     document.onpaste = pasteHandler;
     
-    /* clipboard copy plugin initialization */
-    ZeroClipboard.setDefaults( { moviePath: '/js/ZeroClipboard.swf' } );
-    app.zclip = new ZeroClipboard();
+    
+    $(function(){
+        /* clipboard copy plugin initialization */
+        app.zclip = new ZeroClipboard($('#cp-link'), { moviePath: '/js/ZeroClipboard.swf' });
+        app.zclip.on('load', function (client) {
+            console.log('Coppy plugin flash movie loaded and ready.');
+        });
+    });
+    
         
 });
 
