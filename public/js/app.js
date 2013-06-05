@@ -202,7 +202,7 @@ $(function() {
             
         };
 
-        reader.readAsDataURL(blob);
+        reader.readAsDataURL(imageBlob);
     };
     
     /* Binding events */
