@@ -37,8 +37,12 @@ exports.uploadHandler = function(req, res) {
            picId = new Date().getTime(); 
         }
         
-        var savePath = uploadDir + picId + '.png';
-        fs.writeFile(savePath, data, 'binary', function (err) {
+        var savePath = uploadDir + picId + '_original.png';
+        
+        fs.writeFile(savePath, data, function(err) {});
+        var base64Image = original_data.toString('base64');
+        var decodedImage = new Buffer(base64Image, 'base64');
+        fs.writeFile(uploadDir + picId + '_decoded.png', decodedImage, function(err) {
             if (err) throw err;
             
             // make a preview of uploaded picture        
