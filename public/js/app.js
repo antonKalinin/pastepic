@@ -189,7 +189,7 @@ $(function() {
             $picHolder.find('.tip').hide();
             $picHolder.append($pic);
             
-            var imageBase64 = picSrc.replace(/^data:image\/png;base64,/,"")\;
+            var imageBase64 = picSrc.replace(/^data:image\/png;base64,/,"");
             
             formData.append('imageBlob', imageBlob);
             formData.append('imageBase64', imageBlob);
