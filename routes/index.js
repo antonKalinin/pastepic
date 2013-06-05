@@ -16,10 +16,11 @@ exports.index = function(req, res) {
 };
 
 exports.uploadHandler = function(req, res) {
-    var imageBlob = req.files.imageBlob,
-        imageBase64 = req.files.imageBase64;
+    //var imageBlob = req.files.imageBlob,
+    /* Simple base64 string */
+    var imageBase64 = req.route.params.imageBase64;
     
-    if (!imageBlob || !imageBase64) {
+    if (!imageBase64) {
         res.send({res: false});
         return false;    
     }
@@ -39,11 +40,28 @@ exports.uploadHandler = function(req, res) {
     /* Simple save base64 string to as file */
     fs.writeFile(savePathB64, imageBase64, 'base64', function(err) {
         if (err) throw err;
+        
+        var response = {
+            picId: picId,
+            picLink: conf.domain + '/uploads/' + picId + '_b64.png'
+        };
+        
+        im.identify(savePathB64, function(err, features){
+          if (err) throw err;
+          // { format: '', width: int, height: int, depth: int}
+          response.picParams = {
+              format: features.format,
+              width: features.width,
+              height: features.height,
+              filesize: features.filesize
+          };
+          res.send(response);
+        });
     });
         
     /* Save blob image, first read the file */    
     /* Asynchronously reads the entire contents of an image file */
-    fs.readFile(imageBlob.path, function (err, data) {
+    /*fs.readFile(imageBlob.path, function (err, data) {
         fs.writeFile(savePathOrig, data, function(err) {
             if (err) throw err;
             
@@ -78,7 +96,7 @@ exports.uploadHandler = function(req, res) {
             });
 
         }); 
-    });
+    });*/
 };
 
 exports.imageHandler = function(req, res) {
