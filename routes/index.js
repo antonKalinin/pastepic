@@ -18,7 +18,7 @@ exports.index = function(req, res) {
 exports.uploadHandler = function(req, res) {
     //var imageBlob = req.files.imageBlob,
     /* Simple base64 string */
-    var imageBase64 = req.route.params.imageBase64;
+    var imageBase64 = req.body.imageBase64;
     
     if (!imageBase64) {
         res.send({res: false});
