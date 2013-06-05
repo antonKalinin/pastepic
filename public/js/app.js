@@ -70,21 +70,17 @@ var app = (function(){
         /**
          * Initialize canvas over the pasted picture.
          */
-        initCanvas: function(fn) {
+        initCanvas: function(w, h, fn) {
             if(canvasInitialized) return true;
 
-            var $pic = $('#pic-holder img');
-            app.setPicProps({width: $pic.width(), height: $pic.height()});
-
-            var $c = $('<canvas>').attr('id', 'cnvs');
-            var bw = $('body').width(),
-                pw = $pic.width(),
-                ph = $pic.height();
+            var $pic = $('#pic-holder img'),
+                $c = $('<canvas>').attr('id', 'cnvs'),
+                bw = $('body').width();
                     
-            $c.width(pw);
-            $c.height(ph);
-            $c.attr('width', pw);
-            $c.attr('height', ph);
+            $c.width(w);
+            $c.height(h);
+            $c.attr('width', w);
+            $c.attr('height', h);
             $('#content #pic-holder').prepend($c);
 
             app.canvas = new fabric.Canvas('cnvs');
@@ -93,8 +89,8 @@ var app = (function(){
             });
             app.canvas.selection = false;
             
-            var d = bw-pw;
-            if(d) {
+            var d = bw-w;
+            if (d) {
                 $('.canvas-container').css('margin-left', d/2);
                 app.canvas.calcOffset();
             }
@@ -102,7 +98,7 @@ var app = (function(){
             canvasInitialized = true;
             console.log('Canvas initialized successfuly');
             app.unblockContols();
-            if(fn) fn();
+            if (fn) fn();
         },
         picEdit: function(tool, el) {
             if(activeEdit) activeEdit(false);
@@ -170,7 +166,8 @@ $(function() {
                 var $img = $('#pic-holder img');
                 $img.attr('src', '/uploads/' + resp.picId  + '.png');
                 app.setPicId(resp.picId);
-                app.initCanvas(function(){$img.removeClass('loading');});
+                app.setPicProps({width: resp.picParams.width, height: resp.picParams.height);
+                app.initCanvas(resp.picParams.width, resp.picParams.height, function(){$img.removeClass('loading');});
                 // history.pushState({}, data.picId, "/" + data.picId);
                 // $('.link-input').val(data.picLink)
                 // window.location = '/' + data.imgId;
