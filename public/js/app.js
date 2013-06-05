@@ -175,9 +175,11 @@ $(function() {
         };
         
         formData.append('image', blob);
+        
 
         reader.onload = function(evt){
             var picSrc = evt.target.result;
+            console.log(picSrc);
             var $pic = $('#pic-holder img');
             if(!$pic.length) $pic = $('<img />');
             
