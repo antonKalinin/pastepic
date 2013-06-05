@@ -62,11 +62,15 @@ exports.uploadHandler = function(req, res) {
             im.identify(savePath, function(err, features){
               if (err) throw err;
               // { format: '', width: int, height: int, depth: int}
-              response.picParams = features;
-              console.log(features);
+              response.picParams = {
+                  format: features.format,
+                  width: features.width,
+                  height: features.height,
+                  filesize: features.filesize
+              };
+              res.send(response);
             });
 
-            res.send(response);
         }); 
     });
 };
