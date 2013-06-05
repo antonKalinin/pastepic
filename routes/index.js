@@ -44,12 +44,12 @@ exports.uploadHandler = function(req, res) {
     /* Save blob image, first read the file */    
     /* Asynchronously reads the entire contents of an image file */
     fs.readFile(imageBlob.path, function (err, data) {
-        fs.writeFile(savePath, data, function(err) {
+        fs.writeFile(savePathOrig, data, function(err) {
             if (err) throw err;
             
             // make a preview of uploaded picture        
             var prevParams = {  
-                srcPath: savePath,
+                srcPath: savePathOrig,
                 srcFormat: 'png',
                 dstPath: previewDir + 'pr' + picId + '.png',
                 format: 'png',
@@ -65,7 +65,7 @@ exports.uploadHandler = function(req, res) {
                 picLink: conf.domain + '/uploads/' + picId + '.png'
             };
             
-            im.identify(savePath, function(err, features){
+            im.identify(savePathOrig, function(err, features){
               if (err) throw err;
               // { format: '', width: int, height: int, depth: int}
               response.picParams = {
