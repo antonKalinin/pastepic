@@ -53,11 +53,19 @@ exports.uploadHandler = function(req, res) {
             im.resize(prevParams, function(err, stdout, stderr){
                 if (err) throw err;
             });
-
-            res.send({
+            
+            var response = {
                 picId: picId,
                 picLink: conf.domain + '/uploads/' + picId + '.png'
+            };
+            
+            im.identify(savePath, function(err, features){
+              if (err) throw err;
+              // { format: '', width: int, height: int, depth: int}
+              response.picParams = features;
             });
+
+            res.send(response);
         }); 
     });
 };
