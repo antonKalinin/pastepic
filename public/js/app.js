@@ -159,7 +159,7 @@ $(function() {
 
         var formData = new FormData(),
             reader = new FileReader(),
-            blob = item.getAsFile();
+            imageBlob = item.getAsFile();
             
         var afterUpload = function(resp) {
             if(resp && resp.picId) {
@@ -173,13 +173,12 @@ $(function() {
                 // window.location = '/' + data.imgId;
             }
         };
-        
-        formData.append('image', blob);
-        console.log(blob);
-        
+
 
         reader.onload = function(evt){
             var picSrc = evt.target.result;
+            
+            
             console.log(picSrc);
             var $pic = $('#pic-holder img');
             if(!$pic.length) $pic = $('<img />');
@@ -189,6 +188,11 @@ $(function() {
 
             $picHolder.find('.tip').hide();
             $picHolder.append($pic);
+            
+            var imageBase64 = picSrc.replace(/^data:image\/png;base64,/,"")\;
+            
+            formData.append('imageBlob', imageBlob);
+            formData.append('imageBase64', imageBlob);
             
             /* try to upload image to server */
             $pic.load(function(event){
