@@ -4,7 +4,7 @@
     var config = {
         production: {
             port: 8000,
-            domain: 'http://fronteeth.com'
+            domain: 'http://pastepic.me'
         },
         development: {
             port: 8080,
