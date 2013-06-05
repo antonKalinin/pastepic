@@ -175,6 +175,7 @@ $(function() {
         };
         
         formData.append('image', blob);
+        console.log(blob);
         
 
         reader.onload = function(evt){
