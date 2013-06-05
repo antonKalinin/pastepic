@@ -191,12 +191,13 @@ $(function() {
             
             var imageBase64 = picSrc.replace(/^data:image\/png;base64,/,"");
             
-            formData.append('imageBlob', imageBlob);
-            formData.append('imageBase64', imageBlob);
+            //formData.append('imageBlob', imageBlob);
+            //formData.append('imageBase64', imageBase64);
             
             /* try to upload image to server */
             $pic.load(function(event){
-                app.upload(formData, afterUpload);
+                //app.upload(formData, afterUpload);
+                $.post('/upload', {imageBase64: imageBase64}, afterUpload, 'json');
                 $(this).off(event);
             }) 
             
