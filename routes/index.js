@@ -16,33 +16,35 @@ exports.index = function(req, res) {
 };
 
 exports.uploadHandler = function(req, res) {
-    var image = req.files.image
+    var imageBlob = req.files.imageBlob,
+        imageBase64 = req.files.imageBase64;
     
-    if (!image) {
+    if (!imageBlob || !imageBase64) {
         res.send({res: false});
         return false;    
     }
     
     var fs = require('fs'),
         path = require('path'),
-        im = require('imagemagick');
-
-    fs.readFile(image.path, function (err, data) {
-        // asynchronously reads the entire contents of an image file
-        var uploadDir = path.join(__dirname, '../', '/public/uploads/'),
-            previewDir = uploadDir + 'previews/';
+        im = require('imagemagick');  
+    
+    var picId = req.param('picId');
+    if (!picId) picId = new Date().getTime(); 
+    
+    var uploadDir = path.join(__dirname, '../', '/public/uploads/'),
+        previewDir = uploadDir + 'previews/',
+        savePathOrig = uploadDir + picId + '_orig.png',
+        savePathB64 = uploadDir + picId + '_b64.png';
         
-        var picId = req.param('picId');
-        if(!picId) {
-           picId = new Date().getTime(); 
-        }
+    /* Simple save base64 string to as file */
+    fs.writeFile(savePathB64, imageBase64, 'base64', function(err) {
+        if (err) throw err;
+    });
         
-        var savePath = uploadDir + picId + '_original.png';
-        
-        fs.writeFile(savePath, data, function(err) {});
-        var base64Image = data.toString('base64');
-        var decodedImage = new Buffer(base64Image, 'base64');
-        fs.writeFile(uploadDir + picId + '_decoded.png', decodedImage, function(err) {
+    /* Save blob image, first read the file */    
+    /* Asynchronously reads the entire contents of an image file */
+    fs.readFile(imageBlob.path, function (err, data) {
+        fs.writeFile(savePath, data, function(err) {
             if (err) throw err;
             
             // make a preview of uploaded picture        
