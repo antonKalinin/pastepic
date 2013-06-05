@@ -166,7 +166,7 @@ $(function() {
                 var $img = $('#pic-holder img');
                 $img.attr('src', '/uploads/' + resp.picId  + '.png');
                 app.setPicId(resp.picId);
-                app.setPicProps({width: resp.picParams.width, height: resp.picParams.height);
+                app.setPicProps({width: resp.picParams.width, height: resp.picParams.height});
                 app.initCanvas(resp.picParams.width, resp.picParams.height, function(){$img.removeClass('loading');});
                 // history.pushState({}, data.picId, "/" + data.picId);
                 // $('.link-input').val(data.picLink)
