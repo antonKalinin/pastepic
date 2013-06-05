@@ -38,7 +38,7 @@ exports.uploadHandler = function(req, res) {
         }
         
         var savePath = uploadDir + picId + '.png';
-        fs.writeFile(savePath, data, function (err) {
+        fs.writeFile(savePath, data, 'binary', function (err) {
             if (err) throw err;
             
             // make a preview of uploaded picture        
