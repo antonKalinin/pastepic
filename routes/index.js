@@ -63,6 +63,7 @@ exports.uploadHandler = function(req, res) {
               if (err) throw err;
               // { format: '', width: int, height: int, depth: int}
               response.picParams = features;
+              console.log(features);
             });
 
             res.send(response);
