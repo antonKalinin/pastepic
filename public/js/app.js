@@ -173,6 +173,8 @@ $(function() {
                 // window.location = '/' + data.imgId;
             }
         };
+        
+        formData.append('image', blob);
 
         reader.onload = function(evt){
             var picSrc = evt.target.result;
@@ -187,13 +189,6 @@ $(function() {
             
             /* try to upload image to server */
             $pic.load(function(event){
-                /* recalculate picture width if it fullscreen*/
-                var pw = $pic.width();
-                var d = $('body').width() - pw;
-                if(d < 40) {
-                    pw = pw - (40 - d);
-                    $pic.width(pw);
-                }
                 app.upload(formData, afterUpload);
                 $(this).off(event);
             }) 
@@ -201,8 +196,6 @@ $(function() {
         };
 
         reader.readAsDataURL(blob);
-        formData.append('image', blob);
-        
     };
     
     /* Binding events */
