@@ -2,6 +2,7 @@
 var app = (function(){
     var pic = {
         id: false,
+        link: '',
         width: 0,
         height: 0
     };
@@ -40,6 +41,12 @@ var app = (function(){
         },
         setPicId: function(picId) {
             pic.id = picId;
+        },
+        getPicLink: function() {
+            return pic.link;
+        },
+        setPicLink: function(picLink) {
+            pic.link = picLink;
         },
         setPicProps: function(props) {
             for (p in props) {
@@ -166,21 +173,21 @@ $(function() {
                 var $img = $('#pic-holder img');
                 $img.attr('src', '/uploads/' + resp.picId  + '.png');
                 app.setPicId(resp.picId);
+                app.setPicLink(resp.picLink);
                 app.setPicProps({width: resp.picParams.width, height: resp.picParams.height});
                 app.initCanvas(resp.picParams.width, resp.picParams.height, function(){$img.removeClass('loading');});
-                // history.pushState({}, data.picId, "/" + data.picId);
-                // $('.link-input').val(data.picLink)
-                // window.location = '/' + data.imgId;
+                history.pushState({}, resp.picId, "/" + resp.picId);
+                $('.pic-link .pic-id').html(resp.picId);
+                $('.copy-link-tip').fadeIn(300);
+
             }
         };
 
 
         reader.onload = function(evt){
             var picSrc = evt.target.result;
-            
-            
-            console.log(picSrc);
             var $pic = $('#pic-holder img');
+
             if(!$pic.length) $pic = $('<img />');
             
             $pic.attr('src', picSrc);
@@ -188,16 +195,12 @@ $(function() {
 
             $picHolder.find('.tip').hide();
             $picHolder.append($pic);
-            
-            var imageBase64 = picSrc.replace(/^data:image\/png;base64,/,"");
-            
-            //formData.append('imageBlob', imageBlob);
-            //formData.append('imageBase64', imageBase64);
+
+            formData.append('imageBlob', imageBlob);
             
             /* try to upload image to server */
             $pic.load(function(event){
-                //app.upload(formData, afterUpload);
-                $.post('/upload', {imageBase64: imageBase64}, afterUpload, 'json');
+                app.upload(formData, afterUpload);
                 $(this).off(event);
             }) 
             
@@ -212,10 +215,20 @@ $(function() {
     
     $(function(){
         /* clipboard copy plugin initialization */
-        app.zclip = new ZeroClipboard($('#cp-link'), { moviePath: '/js/ZeroClipboard.swf' });
+        app.zclip = new ZeroClipboard($('#link-holder .pic-id'), { moviePath: '/js/ZeroClipboard.swf' });
         app.zclip.on('load', function (client) {
             console.log('Coppy plugin flash movie loaded and ready.');
         });
+
+        app.zclip.on('mousedown', function(){
+            app.zclip.setText(app.getPicLink());
+        });
+
+        app.zclip.on( 'complete', function(client, args) {
+            UI.notify("Copied to clipboard!");
+        } );
+
+
     });
     
         

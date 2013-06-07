@@ -16,11 +16,9 @@ exports.index = function(req, res) {
 };
 
 exports.uploadHandler = function(req, res) {
-    //var imageBlob = req.files.imageBlob,
-    /* Simple base64 string */
-    var imageBase64 = req.body.imageBase64;
+    var imageBlob = req.files.imageBlob;
     
-    if (!imageBase64) {
+    if (!imageBlob) {
         res.send({res: false});
         return false;    
     }
@@ -34,77 +32,60 @@ exports.uploadHandler = function(req, res) {
     
     var uploadDir = path.join(__dirname, '../', '/public/uploads/'),
         previewDir = uploadDir + 'previews/',
-        savePathOrig = uploadDir + picId + '_orig.png',
-        savePathB64 = uploadDir + picId + '_b64.png';
-        
-    /* Simple save base64 string to as file */
-    fs.writeFile(savePathB64, imageBase64, 'base64', function(err) {
-        if (err) throw err;
-        
-        var response = {
-            picId: picId,
-            picLink: conf.domain + '/uploads/' + picId + '_b64.png'
-        };
-        
-        im.identify(savePathB64, function(err, features){
-          if (err) throw err;
-          // { format: '', width: int, height: int, depth: int}
-          response.picParams = {
-              format: features.format,
-              width: features.width,
-              height: features.height,
-              filesize: features.filesize
-          };
-          res.send(response);
-        });
-    });
+        savePath = uploadDir + picId + '.png';
         
     /* Save blob image, first read the file */    
     /* Asynchronously reads the entire contents of an image file */
-    /*fs.readFile(imageBlob.path, function (err, data) {
-        fs.writeFile(savePathOrig, data, function(err) {
+    fs.readFile(imageBlob.path, function (err, data) {
+        fs.writeFile(savePath, data, function(err) {
             if (err) throw err;
             
             // make a preview of uploaded picture        
             var prevParams = {  
-                srcPath: savePathOrig,
+                srcPath: savePath,
                 srcFormat: 'png',
                 dstPath: previewDir + 'pr' + picId + '.png',
                 format: 'png',
                 width: 200
             };
             
-            im.resize(prevParams, function(err, stdout, stderr){
+            /*im.resize(prevParams, function(err, stdout, stderr){
                 if (err) throw err;
-            });
+            });*/
             
             var response = {
                 picId: picId,
-                picLink: conf.domain + '/uploads/' + picId + '.png'
+                picLink: conf.domain + '/' + picId,
+                picSrc: conf.domain + '/uploads/' + picId + '.png'
             };
-            
-            im.identify(savePathOrig, function(err, features){
-              if (err) throw err;
-              // { format: '', width: int, height: int, depth: int}
-              response.picParams = {
-                  format: features.format,
-                  width: features.width,
-                  height: features.height,
-                  filesize: features.filesize
-              };
-              res.send(response);
-            });
+
+            try {
+                im.identify(savePath, function(err, features){
+                    if (err) throw err;
+
+                    // { format: '', width: int, height: int, depth: int}
+                    response.picParams = {
+                        format: features.format,
+                        width: features.width,
+                        height: features.height,
+                        filesize: features.filesize
+                    };
+                  res.send(response);
+                });
+            } catch (err) {
+                console.log(err);
+            }
 
         }); 
-    });*/
+    });
 };
 
 exports.imageHandler = function(req, res) {
     var viewData = _getCommonViewData();
     var picId = req.route.params.picId;
-    viewData.imageSrc = 'uploads/' + picId + '.png';
+    viewData.picSrc = 'uploads/' + picId + '.png';
     viewData.picId = picId;
-    viewData.picLink = conf.domain + viewData.imageSrc;
+    viewData.picLink = conf.domain + (conf.port != '80' ? (':' + conf.port) : '') + '/' + viewData.picId;
     res.render('index.html', viewData);
 };
 

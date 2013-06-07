@@ -4,14 +4,7 @@
 {% parent %}
 <!-- Custom Css -->
 <style>
-{% if !mac %}
-/* if not mac add margins to pasted image */
-#pic-holder img {
-    margin-top: 30px;
-    margin-bottom: 30px;
-    box-shadow: 0 5px 10px rgba(0,0,0,0.3);
-}
-{% endif %}
+
 </style>
 <!-- Custom JavaScript -->
 <script type="text/javascript" src="js/fabric.js"></script>
@@ -20,12 +13,26 @@
 {% block content %}
 <div id="header">
     <div class="container">
-        <a href="/" class="logo fl-l">Pastepic</a>
-        <div class="controls">
+        <div id="link-holder">
+            <div class="pic-link">
+                <a href="/" class="logo">pastepic.me</a>
+                <span class="slash"></span>
+                <a href="" class="pic-id" title="Copy link to clipboard.">
+                    {% if picId %} {{picId}} {% endif %}
+                </a>
+            </div>
+            <span class="copy-link-tip" {% if picId %}style="display: block"{% endif %}>&larr; click to copy to clipboard!</span>
+            <div class="link-sharing" style="display: none">
+                <a href="" class="link-to-clipboard"><i class="icon-down"></i></a>
+                <a href="" class="add-sharing"><i class="icon-plus"></i></a>
+            </div>
+            <input type="text" style="display: none"/>
+        </div>
+        <!--<div class="controls">
             <div class="controls-blocker"></div>
             <div class="edit-block">
                 <div class="btn-group">
-                    <!--<div class="btn btn-inverse" onclick="app.toggleEditMode()"><i class="icon-flash"></i></div>-->
+                    &lt;!&ndash;<div class="btn btn-inverse" onclick="app.toggleEditMode()"><i class="icon-flash"></i></div>&ndash;&gt;
                     <div class="btn btn-inverse" onclick="app.picEdit('pencil', this)"><i class="icon-pencil"></i></div>
                     <div class="btn btn-inverse" onclick="app.picEdit('crop', this)"><i class="icon-crop"></i></div>
                 </div>
@@ -36,13 +43,16 @@
                     <span>Get Link </span><i class="icon-right"></i></div>
                 <input type="text" class="link-input" value="{% if picId %}{{domain}}/{{picId}}{% endif %}"/>
             </div>
+        </div>-->
+        <div class="fl-r">
+            <a href="/login" class="login">Log in</a>
         </div>
     </div>
 </div>
 <div id="content">
     <div id="pic-holder">
         {% if picId %}
-        <img src="{{imageSrc}}" alt=""/>
+        <img src="{{picSrc}}" alt=""/>
         {% else %}
         <div class="tip">
             <h1>

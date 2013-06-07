@@ -57,24 +57,18 @@ a {
     text-align: center;
 }
 
-#header a.logo {
-    display: inline-block;
-    margin: 8px 10px 0;
-    font-size: 21px;
-    font-weight: 700;
-    color: #272727;
-    text-decoration: none;
-}
-
 .canvas-container {
     position: absolute !important;
     cursor: crosshair;
-    margin-top: 30px;
-    margin-bottom: 30px;
 }
 
 #header p {
     padding: 5px 15px 5px 20px;
+}
+
+#header a {
+    display: inline-block;
+    font-size: 15px;
 }
 
 #header .vrt {
@@ -107,6 +101,78 @@ a {
 #header .controls .btn [class^="icon-"] {
     margin: -2px 2px;
 }
+
+#header a.login {
+    padding: 12px 10px 10px;
+    color: #353535;
+}
+
+#header a.login:hover {
+    text-decoration: none;
+}
+
+
+#link-holder .pic-link{
+    width: 230px;
+    float: left;
+}
+
+#link-holder .pic-link a,
+#link-holder .pic-link span {
+    display: block;
+    float: left;
+    text-decoration: none;
+}
+
+#link-holder .slash {
+    width: 0;
+    height: 0;
+    border-top: 0px solid transparent;
+    border-bottom: 41px solid transparent;
+    border-left: 10px solid #00B7FF;
+}
+
+#link-holder a.logo {
+    padding: 10px 1px 10px 10px;
+    background-color: #00B7FF/*#00B7FF*/;
+    color: #fff;
+    font-size: 17px;
+}
+
+#link-holder a.pic-id {
+    margin-left: -10px;
+    padding: 12px 10px 11px 10px;
+    color: #373737;
+    font-size: 15px;
+
+}
+
+#header .copy-link-tip {
+    display: none;
+    float: left;
+    padding: 11px;
+    font-size: 15px;
+    color: #aaa;
+}
+
+.link-sharing {
+    float: left;
+    margin-left: 20px;
+    border-left: 1px solid #ddd;
+}
+
+.link-sharing a {
+    display: block;
+    float: left;
+    padding: 9px 7px 10px;
+    background: #eee;
+    border-right: 1px solid #ddd;
+}
+
+.link-sharing a:hover {
+    background: #dedede;
+}
+
 
 .controls .edit-block {
     margin: 5px 10px 0;
@@ -171,6 +237,8 @@ a {
 .icon-blur   { background-position: 0 0; }
 .icon-flash  { background-position: -288px -340px; }
 .icon-right  { background-position: -96px -34px; }
+.icon-down   { background-position: -128px -34px }
+.icon-plus   { background-position: -128px 0px; }
 
 /* UI MODULES */
 
