@@ -49,9 +49,9 @@ exports.uploadHandler = function(req, res) {
                 width: 200
             };
             
-            /*im.resize(prevParams, function(err, stdout, stderr){
+            im.resize(prevParams, function(err, stdout, stderr){
                 if (err) throw err;
-            });*/
+            });
             
             var response = {
                 picId: picId,
@@ -85,7 +85,7 @@ exports.imageHandler = function(req, res) {
     var picId = req.route.params.picId;
     viewData.picSrc = 'uploads/' + picId + '.png';
     viewData.picId = picId;
-    viewData.picLink = conf.domain + (conf.port != '80' ? (':' + conf.port) : '') + '/' + viewData.picId;
+    viewData.picLink = conf.domain + (conf.port != '8000' ? (':' + conf.port) : '') + '/' + viewData.picId;
     res.render('index.html', viewData);
 };
 

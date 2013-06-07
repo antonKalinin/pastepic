@@ -2,29 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c13b46b3-a340-4b14-9054-95e2120957a3" name="Default" comment="View UPD &amp; common.js">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/jade/home.jade" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/jade/layout.jade" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/ZeroClipboard.swf" afterPath="$PROJECT_DIR$/public/js/ZeroClipboard.swf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/img/bg_light.png" afterPath="$PROJECT_DIR$/public/css/img/bg_light.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/img/bg_tile.jpg" afterPath="$PROJECT_DIR$/public/css/img/bg_tile.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/img/silkcons.png" afterPath="$PROJECT_DIR$/public/css/img/silkcons.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/ZeroClipboard.min.js" afterPath="$PROJECT_DIR$/public/js/ZeroClipboard.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/app.js" afterPath="$PROJECT_DIR$/public/js/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/bootstrap.css" afterPath="$PROJECT_DIR$/public/css/bootstrap.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/bootstrap.min.css" afterPath="$PROJECT_DIR$/public/css/bootstrap.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/common.css" afterPath="$PROJECT_DIR$/public/css/common.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/common.js" afterPath="$PROJECT_DIR$/public/js/common.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/fabric.js" afterPath="$PROJECT_DIR$/public/js/fabric.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/fabric.min.js" afterPath="$PROJECT_DIR$/public/js/fabric.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/googled5cdcae04e8d3010.html" afterPath="$PROJECT_DIR$/public/googled5cdcae04e8d3010.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/googled5cdcae04e8d3010.html" afterPath="$PROJECT_DIR$/public/js/googled5cdcae04e8d3010.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/index.html" afterPath="$PROJECT_DIR$/views/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/index.js" afterPath="$PROJECT_DIR$/routes/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/layout.html" afterPath="$PROJECT_DIR$/views/layout.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/monitor.css" afterPath="$PROJECT_DIR$/public/css/monitor.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/old.css" afterPath="$PROJECT_DIR$/public/css/old.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/socket.js" afterPath="$PROJECT_DIR$/public/js/socket.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="pictalk.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -63,10 +41,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="43" selection-start="375" selection-end="375" vertical-scroll-proportion="0.17634855">
+            <state line="51" column="18" selection-start="2151" selection-end="2151" vertical-scroll-proportion="-10.2">
               <folding>
                 <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
@@ -115,10 +93,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="index.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/routes/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="108" column="0" selection-start="3259" selection-end="3259" vertical-scroll-proportion="-56.76">
+            <state line="87" column="56" selection-start="2691" selection-end="2691" vertical-scroll-proportion="0.75149107">
               <folding />
             </state>
           </provider>
@@ -154,10 +132,10 @@
         <option value="$PROJECT_DIR$/public/js/fabric.js" />
         <option value="$PROJECT_DIR$/conf.js" />
         <option value="$PROJECT_DIR$/views/layout.html" />
-        <option value="$PROJECT_DIR$/routes/index.js" />
         <option value="$PROJECT_DIR$/views/index.html" />
         <option value="$PROJECT_DIR$/public/css/common.css" />
         <option value="$PROJECT_DIR$/public/js/app.js" />
+        <option value="$PROJECT_DIR$/routes/index.js" />
       </list>
     </option>
   </component>
@@ -557,13 +535,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="108" column="0" selection-start="3259" selection-end="3259" vertical-scroll-proportion="-56.76">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/layout.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="59" column="0" selection-start="2296" selection-end="2296" vertical-scroll-proportion="-36.875">
@@ -590,12 +561,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/views/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="43" selection-start="375" selection-end="375" vertical-scroll-proportion="0.17634855">
+        <state line="51" column="18" selection-start="2151" selection-end="2151" vertical-scroll-proportion="-10.2">
           <folding>
             <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#span#0;n#h1#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="87" column="56" selection-start="2691" selection-end="2691" vertical-scroll-proportion="0.75149107">
+          <folding />
         </state>
       </provider>
     </entry>
