@@ -178,7 +178,7 @@ $(function() {
                 app.setPicId(resp.picId);
                 app.setPicLink(resp.picLink);
                 app.setPicProps({width: resp.picParams.width, height: resp.picParams.height});
-                app.initCanvas(resp.picParams.width, resp.picParams.height, picSrc
+                app.initCanvas(resp.picParams.width, resp.picParams.height, picSrc,
                     function(){
                         $img.removeClass('loading');
                         $img.hide();
