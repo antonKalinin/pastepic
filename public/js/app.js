@@ -172,15 +172,18 @@ $(function() {
             
         var afterUpload = function(resp) {
             if(resp && resp.picId) {
-                var $img = $('#pic-holder img');
-                $img.attr('src', '/uploads/' + resp.picId  + '.png');
+                var $img = $('#pic-holder img'),
+                    picSrc = '/uploads/' + resp.picId  + '.png';
+                $img.attr('src', picSrc);
                 app.setPicId(resp.picId);
                 app.setPicLink(resp.picLink);
                 app.setPicProps({width: resp.picParams.width, height: resp.picParams.height});
-                app.initCanvas(resp.picParams.width, resp.picParams.height, function(){
-                    $img.removeClass('loading');
-                    $img.hide();
-                    });
+                app.initCanvas(resp.picParams.width, resp.picParams.height, picSrc
+                    function(){
+                        $img.removeClass('loading');
+                        $img.hide();
+                    }
+                );
                 history.pushState({}, resp.picId, "/" + resp.picId);
                 $('.pic-link .pic-id').html(resp.picId);
                 $('.copy-link-tip').fadeIn(300);
