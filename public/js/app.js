@@ -77,11 +77,10 @@ var app = (function(){
         /**
          * Initialize canvas over the pasted picture.
          */
-        initCanvas: function(w, h, fn) {
+        initCanvas: function(w, h, src, fn) {
             if(canvasInitialized) return true;
 
-            var $pic = $('#pic-holder img'),
-                $c = $('<canvas>').attr('id', 'cnvs'),
+            var $c = $('<canvas>').attr('id', 'cnvs'),
                 bw = $('body').width();
                     
             $c.width(w);
@@ -91,9 +90,12 @@ var app = (function(){
             $('#content #pic-holder').prepend($c);
 
             app.canvas = new fabric.Canvas('cnvs');
-            app.canvas.setBackgroundImage($pic.attr('src'), app.canvas.renderAll.bind(app.canvas), {
-               backgroundImageStretch: false
-            });
+            if (src) {
+                app.canvas.setBackgroundImage(src, app.canvas.renderAll.bind(app.canvas), {
+                    backgroundImageStretch: false
+                });
+            }
+            
             app.canvas.selection = false;
             
             var d = bw-w;
@@ -170,12 +172,18 @@ $(function() {
             
         var afterUpload = function(resp) {
             if(resp && resp.picId) {
-                var $img = $('#pic-holder img');
-                $img.attr('src', '/uploads/' + resp.picId  + '.png');
+                var $img = $('#pic-holder img'),
+                    picSrc = '/uploads/' + resp.picId  + '.png';
+                $img.attr('src', picSrc);
                 app.setPicId(resp.picId);
                 app.setPicLink(resp.picLink);
                 app.setPicProps({width: resp.picParams.width, height: resp.picParams.height});
-                app.initCanvas(resp.picParams.width, resp.picParams.height, function(){$img.removeClass('loading');});
+                app.initCanvas(resp.picParams.width, resp.picParams.height, picSrc,
+                    function(){
+                        $img.removeClass('loading');
+                        $img.hide();
+                    }
+                );
                 history.pushState({}, resp.picId, "/" + resp.picId);
                 $('.pic-link .pic-id').html(resp.picId);
                 $('.copy-link-tip').fadeIn(300);
