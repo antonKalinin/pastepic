@@ -3,7 +3,7 @@
 
     var config = {
         production: {
-            port: 8000,
+            port: 8030,
             domain: 'http://pastepic.me'
         },
         development: {
