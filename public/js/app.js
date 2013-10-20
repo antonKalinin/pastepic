@@ -185,7 +185,8 @@ $(function() {
                     }
                 );
                 history.pushState({}, resp.picId, "/" + resp.picId);
-                $('.pic-link .pic-id').html(resp.picId);
+                $('#link-form').show();
+                $('.pic-link').val(resp.picLink);
                 $('.copy-link-tip').fadeIn(300);
 
             }
@@ -223,7 +224,7 @@ $(function() {
     
     $(function(){
         /* clipboard copy plugin initialization */
-        app.zclip = new ZeroClipboard($('#link-holder .pic-id'), { moviePath: '/js/ZeroClipboard.swf' });
+        app.zclip = new ZeroClipboard($('#btn-copy-link'), { moviePath: '/js/ZeroClipboard.swf' });
         app.zclip.on('load', function (client) {
             console.log('Coppy plugin flash movie loaded and ready.');
         });

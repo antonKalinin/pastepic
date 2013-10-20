@@ -11,44 +11,6 @@
 {% endblock %}
 
 {% block content %}
-<div id="header">
-    <div class="container">
-        <div id="link-holder">
-            <div class="pic-link">
-                <a href="/" class="logo">pastepic.me</a>
-                <span class="slash"></span>
-                <a href="" class="pic-id" title="Copy link to clipboard.">
-                    {% if picId %} {{picId}} {% endif %}
-                </a>
-            </div>
-            <span class="copy-link-tip" {% if picId %}style="display: block"{% endif %}>&larr; click to copy to clipboard!</span>
-            <div class="link-sharing" style="display: none">
-                <a href="" class="link-to-clipboard"><i class="icon-down"></i></a>
-                <a href="" class="add-sharing"><i class="icon-plus"></i></a>
-            </div>
-            <input type="text" style="display: none"/>
-        </div>
-        <!--<div class="controls">
-            <div class="controls-blocker"></div>
-            <div class="edit-block">
-                <div class="btn-group">
-                    &lt;!&ndash;<div class="btn btn-inverse" onclick="app.toggleEditMode()"><i class="icon-flash"></i></div>&ndash;&gt;
-                    <div class="btn btn-inverse" onclick="app.picEdit('pencil', this)"><i class="icon-pencil"></i></div>
-                    <div class="btn btn-inverse" onclick="app.picEdit('crop', this)"><i class="icon-crop"></i></div>
-                </div>
-            </div>
-            <div class="vrt"></div>
-            <div class="fl-l" style="margin-top: 2px">
-                <div id="cp-link" class="btn btn-primary" onclick="app.makeLink()">
-                    <span>Get Link </span><i class="icon-right"></i></div>
-                <input type="text" class="link-input" value="{% if picId %}{{domain}}/{{picId}}{% endif %}"/>
-            </div>
-        </div>-->
-        <div class="fl-r">
-            <a href="/login" class="login">Log in</a>
-        </div>
-    </div>
-</div>
 <div id="content">
     <div id="pic-holder">
         {% if picId %}
@@ -62,9 +24,4 @@
         {% endif %}
     </div>
 </div>
-<div id="footer">
-    Tips to
-    <a href="mailto:hurricanebox@gmail.com?Subject=Hi, Anton.">hurricanebox@gmail.com</a>, 2013.
-</div>
-
 {% endblock %}

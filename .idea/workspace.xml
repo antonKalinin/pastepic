@@ -1,25 +1,101 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c13b46b3-a340-4b14-9054-95e2120957a3" name="Default" comment="View UPD &amp; common.js" />
+    <list default="true" id="c13b46b3-a340-4b14-9054-95e2120957a3" name="Default" comment="View UPD &amp; common.js">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/app.js" afterPath="$PROJECT_DIR$/public/js/app.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/bootstrap.css" afterPath="$PROJECT_DIR$/public/css/bootstrap.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/bootstrap.min.css" afterPath="$PROJECT_DIR$/public/css/bootstrap.min.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/common.css" afterPath="$PROJECT_DIR$/public/css/common.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/index.html" afterPath="$PROJECT_DIR$/views/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/layout.html" afterPath="$PROJECT_DIR$/views/layout.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="pictalk.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1370504837600" ignored="false" />
+    <file path="/Dummy.txt" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1382207699093" ignored="false" />
     <file path="/home.jade" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1367261431912" ignored="false" />
-    <file path="/common.css" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1370597888119" ignored="false" />
-    <file path="/index.js" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1370597527052" ignored="false" />
-    <file path="/app.js" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1370598040458" ignored="false" />
+    <file path="/common.css" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1382295135280" ignored="false" />
+    <file path="/index.js" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1380139889560" ignored="false" />
+    <file path="/app.js" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1382296332476" ignored="false" />
     <file path="/common.js" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1366834889533" ignored="false" />
     <file path="/layout.jade" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1367345605252" ignored="false" />
     <file path="/socket.js" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1367298433426" ignored="false" />
     <file path="/conf.js" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1367589312483" ignored="false" />
     <file path="/test.html" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1367351871715" ignored="false" />
-    <file path="/layout.html" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1370597316294" ignored="false" />
-    <file path="/index.html" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1370597943857" ignored="false" />
+    <file path="/layout.html" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1382296163649" ignored="false" />
+    <file path="/index.html" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1382292431862" ignored="false" />
     <file path="/old.css" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1367586808778" ignored="false" />
     <file path="/fabric.js" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1367953645100" ignored="false" />
     <file path="$PROJECT_DIR$/../flyingfrog/application/modules/course/views/scripts/themes/edit.phtml" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1370504708313" ignored="false" />
     <file path="/edit.phtml" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1370504703181" ignored="false" />
+    <file path="$PROJECT_DIR$/../Lumberjack/app.js" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1374048537156" ignored="false" />
+    <file path="$PROJECT_DIR$/../Lumberjack/views/layout.html" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1374156168249" ignored="false" />
+    <file path="$PROJECT_DIR$/../Lumberjack/views/admin.html" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1374152524937" ignored="false" />
+    <file path="/admin.html" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1374152524532" ignored="false" />
+    <file path="/admin.js" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1374153643623" ignored="false" />
+    <file path="$PROJECT_DIR$/../Lumberjack/routes/admin.js" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1374155092305" ignored="false" />
+    <file path="$PROJECT_DIR$/../Lumberjack/routes/index.js" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1374177013950" ignored="false" />
+    <file path="$PROJECT_DIR$/../Lumberjack/public/css/common.css" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1373888145815" ignored="false" />
+    <file path="$PROJECT_DIR$/../Lumberjack/public/css/admin.css" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1373821154277" ignored="false" />
+    <file path="/admin.css" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1373821032402" ignored="false" />
+    <file path="$PROJECT_DIR$/../Lumberjack/public/css/bootstrap.css" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1373820687977" ignored="false" />
+    <file path="$PROJECT_DIR$/../Lumberjack/views/index.html" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1374179089174" ignored="false" />
+    <file path="$PROJECT_DIR$/../Lumberjack/models/gamebuild.js" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1373903027988" ignored="false" />
+    <file path="/gamebuild.js" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1373903021076" ignored="false" />
+    <file path="/test.js" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1373905123422" ignored="false" />
+    <file path="$PROJECT_DIR$/../Lumberjack/routes/test.js" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1373905172762" ignored="false" />
+    <file path="$PROJECT_DIR$/../Lumberjack/models.js" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1374180022672" ignored="false" />
+    <file path="$PROJECT_DIR$/../Lumberjack/views/404.html" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1374004935195" ignored="false" />
+    <file path="/404.html" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1374004919450" ignored="false" />
+    <file path="/models.js" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1379353353432" ignored="false" />
+    <file path="$PROJECT_DIR$/../honeyimhome/public/js/editor.quiz.js" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1379405760316" ignored="false" />
+    <file path="$PROJECT_DIR$/../honeyimhome/views/layout.html" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1380140498319" ignored="false" />
+    <file path="/editor.quiz.js" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1379405033526" ignored="false" />
+    <file path="$PROJECT_DIR$/../honeyimhome/public/css/layout.css" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1380132640128" ignored="false" />
+    <file path="$PROJECT_DIR$/../honeyimhome/app.js" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1380140463631" ignored="false" />
+    <file path="$PROJECT_DIR$/../honeyimhome/models.js" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1379353008350" ignored="false" />
+    <file path="$PROJECT_DIR$/../honeyimhome/models/models.js" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1379353046624" ignored="false" />
+    <file path="$PROJECT_DIR$/../honeyimhome/models/users.js" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1379353152197" ignored="false" />
+    <file path="/users.js" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1379353132869" ignored="false" />
+    <file path="$PROJECT_DIR$/../honeyimhome/models/qa.js" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1379670344094" ignored="false" />
+    <file path="$PROJECT_DIR$/../honeyimhome/views/quiz/editor.html" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1379406404172" ignored="false" />
+    <file path="/editor.html" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1379405945104" ignored="false" />
+    <file path="$PROJECT_DIR$/../honeyimhome/routes/question.js" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1379876560204" ignored="false" />
+    <file path="/question.js" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1379876337502" ignored="false" />
+    <file path="/qa.js" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1379416419531" ignored="false" />
+    <file path="$PROJECT_DIR$/../honeyimhome/public/js/keyboard.js" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1379405783118" ignored="false" />
+    <file path="$PROJECT_DIR$/../honeyimhome/views/help/ai_tools.html" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1379415146561" ignored="false" />
+    <file path="$PROJECT_DIR$/../honeyimhome/helpers/shortcuts.table.parser.js" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1379415346614" ignored="false" />
+    <file path="$PROJECT_DIR$/../honeyimhome/helpers/inner/shortcuts.table.parser.js" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1379425263158" ignored="false" />
+    <file path="/shortcuts.table.parser.js" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1379425203813" ignored="false" />
+    <file path="$PROJECT_DIR$/../honeyimhome/qa.config.js" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1379416462197" ignored="false" />
+    <file path="$PROJECT_DIR$/../honeyimhome/views/index.html" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1380138388560" ignored="false" />
+    <file path="/layout.css" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1379584024188" ignored="false" />
+    <file path="$PROJECT_DIR$/../honeyimhome/routes/quiz.js" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1380022431509" ignored="false" />
+    <file path="/quiz.js" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1380028874682" ignored="false" />
+    <file path="$PROJECT_DIR$/../honeyimhome/public/js/quiz.js" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1380031114607" ignored="false" />
+    <file path="$PROJECT_DIR$/../honeyimhome/models/quizplay.js" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1379585455631" ignored="false" />
+    <file path="/quizplay.js" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1379585241101" ignored="false" />
+    <file path="$PROJECT_DIR$/../honeyimhome/routes/index.js" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1380139958161" ignored="false" />
+    <file path="$PROJECT_DIR$/../honeyimhome/routes/main.js" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1379669902622" ignored="false" />
+    <file path="/main.js" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1379669863013" ignored="false" />
+    <file path="$PROJECT_DIR$/../honeyimhome/routes/users.js" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1379670112614" ignored="false" />
+    <file path="$PROJECT_DIR$/../honeyimhome/public/js/keys.js" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1379762601462" ignored="false" />
+    <file path="/keys.js" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1379762588108" ignored="false" />
+    <file path="$PROJECT_DIR$/../honeyimhome/public/js/common.ui.js" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1379692188375" ignored="false" />
+    <file path="/common.ui.js" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1379692188375" ignored="false" />
+    <file path="$PROJECT_DIR$/../honeyimhome/config.js" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1380022158310" ignored="false" />
+    <file path="/config.js" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1380016550542" ignored="false" />
+    <file path="$PROJECT_DIR$/../honeyimhome/models/user.js" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1380141848475" ignored="false" />
+    <file path="/user.js" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1380141848475" ignored="false" />
+    <file path="/scores.js" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1380132052666" ignored="false" />
+    <file path="$PROJECT_DIR$/../honeyimhome/routes/scores.js" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1380132066137" ignored="false" />
+    <file path="$PROJECT_DIR$/../honeyimhome/public/css/app.css" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1380138698824" ignored="false" />
+    <file path="/app.css" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1380138062244" ignored="false" />
+    <file path="$PROJECT_DIR$/../honeyimhome/routes/sign.js" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1380140542380" ignored="false" />
+    <file path="/sign.js" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1380140534677" ignored="false" />
+    <file path="/login.html" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1380140699531" ignored="false" />
+    <file path="$PROJECT_DIR$/../honeyimhome/views/login.html" changelist="c13b46b3-a340-4b14-9054-95e2120957a3" time="1380140723906" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,12 +118,26 @@
       <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="51" column="18" selection-start="2151" selection-end="2151" vertical-scroll-proportion="-10.2">
-              <folding>
-                <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#h1#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-              </folding>
+            <state line="12" column="19" selection-start="219" selection-end="219" vertical-scroll-proportion="-7.5">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="bootstrap.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/css/bootstrap.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="6067" column="15" selection-start="106357" selection-end="106357" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="monitor.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/css/monitor.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -55,7 +145,19 @@
       <file leaf-file-name="layout.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/layout.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="59" column="0" selection-start="2296" selection-end="2296" vertical-scroll-proportion="-36.875">
+            <state line="33" column="39" selection-start="1422" selection-end="1422" vertical-scroll-proportion="-20.625">
+              <folding>
+                <element signature="n#style#0;n#form#0;n#div#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="tag#script#0;tag#body#0;tag#html#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="old.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/css/old.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="85" column="7" selection-start="1162" selection-end="1162" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -64,7 +166,7 @@
       <file leaf-file-name="common.css" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/css/common.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="135" column="19" selection-start="1916" selection-end="1916" vertical-scroll-proportion="0.5420808">
+            <state line="44" column="0" selection-start="829" selection-end="829" vertical-scroll-proportion="0.4367968">
               <folding />
             </state>
           </provider>
@@ -73,10 +175,10 @@
       <file leaf-file-name="app.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/js/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="162" column="58" selection-start="4860" selection-end="4860" vertical-scroll-proportion="-14.16">
+            <state line="220" column="24" selection-start="6652" selection-end="6652" vertical-scroll-proportion="0.0">
               <folding>
-                <marker date="1370598051000" expanded="true" signature="744:791" placeholder="{...}" />
-                <marker date="1370598051000" expanded="true" signature="2163:2220" placeholder="/** Initialize canvas over the pasted picture. ...*/" />
+                <marker date="1382296380000" expanded="true" signature="744:791" placeholder="{...}" />
+                <marker date="1382296380000" expanded="true" signature="2163:2220" placeholder="/** Initialize canvas over the pasted picture. ...*/" />
               </folding>
             </state>
           </provider>
@@ -91,10 +193,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routes/index.js">
+      <file leaf-file-name="conf.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/conf.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="33" column="45" selection-start="852" selection-end="852" vertical-scroll-proportion="-12.96">
+            <state line="22" column="0" selection-start="487" selection-end="487" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="92" column="10" selection-start="2475" selection-end="2475" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -128,11 +239,11 @@
         <option value="$PROJECT_DIR$/public/css/old.css" />
         <option value="$PROJECT_DIR$/public/css/bootstrap.css" />
         <option value="$PROJECT_DIR$/public/js/fabric.js" />
-        <option value="$PROJECT_DIR$/conf.js" />
-        <option value="$PROJECT_DIR$/views/layout.html" />
-        <option value="$PROJECT_DIR$/views/index.html" />
-        <option value="$PROJECT_DIR$/public/js/app.js" />
         <option value="$PROJECT_DIR$/routes/index.js" />
+        <option value="$PROJECT_DIR$/conf.js" />
+        <option value="$PROJECT_DIR$/views/index.html" />
+        <option value="$PROJECT_DIR$/views/layout.html" />
+        <option value="$PROJECT_DIR$/public/js/app.js" />
         <option value="$PROJECT_DIR$/public/css/common.css" />
       </list>
     </option>
@@ -195,6 +306,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -293,7 +405,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -386,7 +497,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.07868526" sideWeight="0.4878361" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20717132" sideWeight="0.4878361" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39948782" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -465,64 +576,51 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/js/common.js">
+    <entry file="file://$PROJECT_DIR$/routes/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="50" selection-start="313" selection-end="313" vertical-scroll-proportion="0.1091992">
+        <state line="33" column="45" selection-start="852" selection-end="852" vertical-scroll-proportion="0.0">
           <folding />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/common.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="50" selection-start="313" selection-end="313" vertical-scroll-proportion="0.1091992" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/js/socket.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="0" selection-start="1044" selection-end="1044" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="32" column="0" selection-start="1044" selection-end="1044" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/express/node_modules/connect/node_modules/formidable/test/common.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="0" selection-start="229" selection-end="229" vertical-scroll-proportion="0.1091992">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../canvas/test.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="71" selection-start="360" selection-end="420" vertical-scroll-proportion="0.13113652" />
+        <state line="11" column="0" selection-start="229" selection-end="229" vertical-scroll-proportion="0.1091992" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/css/bootstrap.min.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="34505" selection-start="34466" selection-end="34734" vertical-scroll-proportion="0.08146639">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/css/old.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="149" column="1" selection-start="2122" selection-end="2122" vertical-scroll-proportion="0.9404368" />
+        <state line="8" column="34505" selection-start="34466" selection-end="34734" vertical-scroll-proportion="0.08146639" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="80" column="26" selection-start="2126" selection-end="2126" vertical-scroll-proportion="0.6639511">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/css/bootstrap.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6067" column="21" selection-start="129522" selection-end="129522" vertical-scroll-proportion="0.0">
+        <state line="92" column="10" selection-start="2475" selection-end="2475" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/conf.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="0" selection-start="487" selection-end="487" vertical-scroll-proportion="0.21512386">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
+        <state line="22" column="0" selection-start="487" selection-end="487" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="39" column="52" selection-start="1135" selection-end="1135" vertical-scroll-proportion="0.3905207">
+          <folding />
         </state>
       </provider>
     </entry>
@@ -533,44 +631,57 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/layout.html">
+    <entry file="file://$PROJECT_DIR$/public/css/old.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="59" column="0" selection-start="2296" selection-end="2296" vertical-scroll-proportion="-36.875">
+        <state line="85" column="7" selection-start="1162" selection-end="1162" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/app.js">
+    <entry file="file://$PROJECT_DIR$/public/css/bootstrap.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="162" column="58" selection-start="4860" selection-end="4860" vertical-scroll-proportion="-14.16">
-          <folding>
-            <marker date="1370598051000" expanded="true" signature="744:791" placeholder="{...}" />
-            <marker date="1370598051000" expanded="true" signature="2163:2220" placeholder="/** Initialize canvas over the pasted picture. ...*/" />
-          </folding>
+        <state line="6067" column="15" selection-start="106357" selection-end="106357" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/css/monitor.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="18" selection-start="2151" selection-end="2151" vertical-scroll-proportion="-10.2">
+        <state line="12" column="19" selection-start="219" selection-end="219" vertical-scroll-proportion="-7.5">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/layout.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="39" selection-start="1422" selection-end="1422" vertical-scroll-proportion="-20.625">
           <folding>
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#h1#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#form#0;n#div#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="tag#script#0;tag#body#0;tag#html#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/index.js">
+    <entry file="file://$PROJECT_DIR$/public/js/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="45" selection-start="852" selection-end="852" vertical-scroll-proportion="-12.96">
-          <folding />
+        <state line="220" column="24" selection-start="6652" selection-end="6652" vertical-scroll-proportion="0.0">
+          <folding>
+            <marker date="1382296380000" expanded="true" signature="744:791" placeholder="{...}" />
+            <marker date="1382296380000" expanded="true" signature="2163:2220" placeholder="/** Initialize canvas over the pasted picture. ...*/" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/css/common.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="135" column="19" selection-start="1916" selection-end="1916" vertical-scroll-proportion="0.5420808">
+        <state line="44" column="0" selection-start="829" selection-end="829" vertical-scroll-proportion="0.4367968">
           <folding />
         </state>
       </provider>
