@@ -9,21 +9,31 @@ var app = (function(){
         width: 0,
         height: 0
     };
+    var mouse = {x: 0, y: 0};
     var crop = {
         enabled: false,
         inAction: false,
-        rect: new fabric.Rect({
-            fill: 'transparent',
-            originX: 'left',
-            originY: 'top',
-            stroke: '#ccc',
-            strokeDashArray: [2, 2],
-            opacity: 1,
-            width: 1,
-            height: 1
-        }),
+        cPos: [],
+        rect: null,
         enable: function() {
             if (!canvas.initialized) return;
+            canvas.obj.selectable = true;
+            var canvasR = canvas.el[0].getBoundingClientRect();
+            this.cPos[0] = canvasR.left;
+            this.cPos[1] = canvasR.top;
+            this.rect = new fabric.Rect({
+                fill: 'transparent',
+                originX: 'left',
+                originY: 'top',
+                stroke: '#ddd',
+                strokeDashArray: [2, 2],
+                strokeWidth: 2,
+                opacity: 1,
+                width: 1,
+                height: 1
+            });
+            this.rect.visible = false;
+            canvas.obj.add(this.rect);
             this.enabled = true;
             this.bindListeners();
         },
@@ -32,32 +42,49 @@ var app = (function(){
             this.unbindListeners();
         },
         do: function() {
+            var left = el.left - object.left;
+            var top = el.top - object.top;
 
+            left *= 1 / 0.25;
+            top *= 1 / 0.25 ;
+
+            var width = el.width * 1 / 0.25;
+            var height = el.height * 1 / 0.25;
+
+            object.clipTo = function (ctx) {
+                ctx.rect(left, top, width, height);
+            };
+            object.selectable = true;
+            disabled = true;
+            el.visible = false;
+            canvas.obj.renderAll();
         },
         bindListeners: function() {
-            canvas.on("mouse:down", function (event) {
-                if (!this.enabled) return;
-                this.rect.left = event.e.pageX - pos[0];
-                this.rect.top = event.e.pageY - pos[1];
-                this.rect.visible = true;
-                mousex = event.e.pageX;
-                mousey = event.e.pageY;
-                this.inAction = true;
-                canvas.bringToFront(el);
+            var self = this;
+            canvas.obj.on("mouse:down", function (event) {
+                if (!self.enabled) return;
+                self.rect.left = event.e.pageX - self.cPos[0];
+                self.rect.top = event.e.pageY - self.cPos[1];
+                self.rect.visible = true;
+                mouse.x = event.e.pageX;
+                mouse.y = event.e.pageY;
+                self.inAction = true;
+                //canvas.obj.bringToFront(self.rect);
             });
-            canvas.on("mouse:move", function (event) {
-                if (this.enabled && this.inAction) {
-                    if (event.e.pageX - mousex > 0) {
-                        this.rect.width = event.e.pageX - mousex;
+            canvas.obj.on("mouse:move", function (event) {
+                if (self.enabled && self.inAction) {
+                    if (event.e.pageX - mouse.x > 0) {
+                        self.rect.width = event.e.pageX - mouse.x;
                     }
 
-                    if (event.e.pageY - mousey > 0) {
-                        this.rect.height = event.e.pageY - mousey;
+                    if (event.e.pageY - mouse.y > 0) {
+                        self.rect.height = event.e.pageY - mouse.y;
                     }
+                    canvas.obj.bringToFront(self.rect);
                 }
             });
-            canvas.on("mouse:up", function () {
-                this.inAction = false;
+            canvas.obj.on("mouse:up", function () {
+                self.inAction = false;
             });
         },
         unbindListeners: function() {
@@ -65,23 +92,20 @@ var app = (function(){
         }
     };
 
-    var mousex = 0;
-    var mousey = 0;
-
     var editMode = false;
 
     var edit = {
         pencil: function(on) {
             if(on) {
-                canvas.isDrawingMode = true;
-                canvas.freeDrawingColor = '#09c';
-                canvas.freeDrawingLineWidth = 4;
+                canvas.obj.isDrawingMode = true;
+                canvas.obj.freeDrawingColor = '#09c';
+                canvas.obj.freeDrawingLineWidth = 4;
             } else {
-                canvas.isDrawingMode = false;
+                canvas.obj.isDrawingMode = false;
             }
         }
     };
-    
+
     /* function to convert canvas urlData output to blob */
     function dataURLtoBlob(dataURL) {
         var binary = atob(dataURL.split(',')[1]);
@@ -116,16 +140,16 @@ var app = (function(){
             }
         },
         makeLink: function() {
-            var blobImageData = dataURLtoBlob(canvas.toDataURL()),
+            var blobImageData = dataURLtoBlob(canvas.obj.toDataURL()),
                 formData = new FormData();
-            
-            formData.append('image', blobImageData);   
-            formData.append('picId', app.getPicId());  
-                
+
+            formData.append('image', blobImageData);
+            formData.append('picId', app.getPicId());
+
             var afterUpload = function(resp) {
                 if(resp && resp.picId) {
                     var link = window.location.origin + '/' + resp.picId;
-                    $('.link-input').val(link); 
+                    $('.link-input').val(link);
                     if(app.zclip) app.zclip.setText(link);
                 }
             };
@@ -135,11 +159,11 @@ var app = (function(){
          * Initialize canvas over the pasted picture.
          */
         initCanvas: function(w, h, src, fn) {
-            if(canvasInitialized) return true;
+            if(canvas.initialized) return true;
 
-            canvas.el = $('<canvas>').attr('id', 'cnvs'),
-                bw = $('body').width();
-                    
+            canvas.el = $('<canvas>').attr('id', 'cnvs');
+            var bw = $('body').width();
+
             canvas.el.width(w);
             canvas.el.height(h);
             canvas.el.attr('width', w);
@@ -148,19 +172,19 @@ var app = (function(){
 
             canvas.obj = new fabric.Canvas('cnvs');
             if (src) {
-                canvas.setBackgroundImage(src, canvas.obj.renderAll.bind(canvas.obj), {
+                canvas.obj.setBackgroundImage(src, canvas.obj.renderAll.bind(canvas.obj), {
                     backgroundImageStretch: false
                 });
             }
 
             canvas.obj.selection = false;
-            
+
             var d = bw-w;
             if (d) {
                 $('.canvas-container').css('margin-left', d/2);
                 canvas.obj.calcOffset();
             }
-            
+
             canvas.initialized = true;
             console.log('Canvas initialized successfuly');
             if (fn) fn();
@@ -179,7 +203,7 @@ var app = (function(){
                 app.initCanvas();
                 $('#pic-holder img').hide();
             } else {
-                
+
             }
         },
         enableCrop: function(el) {
@@ -226,14 +250,14 @@ $(function() {
 
         /* Detect if item is image */
         if (!type.match(/^image/ig)) {
-            UI.notify('Houston, we need an image!');      
+            UI.notify('Houston, we need an image!');
             return false;
         }
 
         var formData = new FormData(),
             reader = new FileReader(),
             imageBlob = item.getAsFile();
-            
+
         var afterUpload = function(resp) {
             if(resp && resp.picId) {
                 var $img = $('#pic-holder img'),
@@ -262,7 +286,7 @@ $(function() {
             var $pic = $('#pic-holder img');
 
             if(!$pic.length) $pic = $('<img />');
-            
+
             $pic.attr('src', picSrc);
             $pic.addClass('loading');
 
@@ -270,18 +294,18 @@ $(function() {
             $picHolder.append($pic);
 
             formData.append('imageBlob', imageBlob);
-            
+
             /* try to upload image to server */
             $pic.load(function(event){
                 app.upload(formData, afterUpload);
                 $(this).off(event);
-            }) 
-            
+            })
+
         };
 
         reader.readAsDataURL(imageBlob);
     };
-    
+
     /* Binding events */
     document.onpaste = pasteHandler;
     
