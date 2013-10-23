@@ -1,23 +1,83 @@
-/* Global client application module */
+/**
+ * Global client application module
+ **/
 var app = (function(){
+    var canvas = {el: null, obj: null, initialized: false};
     var pic = {
         id: false,
         link: '',
         width: 0,
         height: 0
     };
+    var crop = {
+        enabled: false,
+        inAction: false,
+        rect: new fabric.Rect({
+            fill: 'transparent',
+            originX: 'left',
+            originY: 'top',
+            stroke: '#ccc',
+            strokeDashArray: [2, 2],
+            opacity: 1,
+            width: 1,
+            height: 1
+        }),
+        enable: function() {
+            if (!canvas.initialized) return;
+            this.enabled = true;
+            this.bindListeners();
+        },
+        disable: function() {
+            this.enabled = false;
+            this.unbindListeners();
+        },
+        do: function() {
 
-    var canvasInitialized = false,
-        editMode = false;
+        },
+        bindListeners: function() {
+            canvas.on("mouse:down", function (event) {
+                if (!this.enabled) return;
+                this.rect.left = event.e.pageX - pos[0];
+                this.rect.top = event.e.pageY - pos[1];
+                this.rect.visible = true;
+                mousex = event.e.pageX;
+                mousey = event.e.pageY;
+                this.inAction = true;
+                canvas.bringToFront(el);
+            });
+            canvas.on("mouse:move", function (event) {
+                if (this.enabled && this.inAction) {
+                    if (event.e.pageX - mousex > 0) {
+                        this.rect.width = event.e.pageX - mousex;
+                    }
+
+                    if (event.e.pageY - mousey > 0) {
+                        this.rect.height = event.e.pageY - mousey;
+                    }
+                }
+            });
+            canvas.on("mouse:up", function () {
+                this.inAction = false;
+            });
+        },
+        unbindListeners: function() {
+
+        }
+    };
+
+    var mousex = 0;
+    var mousey = 0;
+
+    var editMode = false;
 
     var edit = {
         pencil: function(on) {
             if(on) {
-                app.canvas.isDrawingMode = true;
-                app.canvas.freeDrawingColor = '#09c';
-                app.canvas.freeDrawingLineWidth = 4;
+                canvas.isDrawingMode = true;
+                canvas.freeDrawingColor = '#09c';
+                canvas.freeDrawingLineWidth = 4;
             } else {
-                app.canvas.isDrawingMode = false;
+                canvas.isDrawingMode = false;
             }
         }
     };
@@ -56,7 +116,7 @@ var app = (function(){
             }
         },
         makeLink: function() {
-            var blobImageData = dataURLtoBlob(app.canvas.toDataURL()),
+            var blobImageData = dataURLtoBlob(canvas.toDataURL()),
                 formData = new FormData();
             
             formData.append('image', blobImageData);   
@@ -71,42 +131,38 @@ var app = (function(){
             };
             app.upload(formData, afterUpload);
         },
-        unblockContols: function() {
-            $('.controls-blocker').hide();
-        },
         /**
          * Initialize canvas over the pasted picture.
          */
         initCanvas: function(w, h, src, fn) {
             if(canvasInitialized) return true;
 
-            var $c = $('<canvas>').attr('id', 'cnvs'),
+            canvas.el = $('<canvas>').attr('id', 'cnvs'),
                 bw = $('body').width();
                     
-            $c.width(w);
-            $c.height(h);
-            $c.attr('width', w);
-            $c.attr('height', h);
-            $('#content #pic-holder').prepend($c);
+            canvas.el.width(w);
+            canvas.el.height(h);
+            canvas.el.attr('width', w);
+            canvas.el.attr('height', h);
+            $('#content #pic-holder').prepend(canvas.el);
 
-            app.canvas = new fabric.Canvas('cnvs');
+            canvas.obj = new fabric.Canvas('cnvs');
             if (src) {
-                app.canvas.setBackgroundImage(src, app.canvas.renderAll.bind(app.canvas), {
+                canvas.setBackgroundImage(src, canvas.obj.renderAll.bind(canvas.obj), {
                     backgroundImageStretch: false
                 });
             }
-            
-            app.canvas.selection = false;
+
+            canvas.obj.selection = false;
             
             var d = bw-w;
             if (d) {
                 $('.canvas-container').css('margin-left', d/2);
-                app.canvas.calcOffset();
+                canvas.obj.calcOffset();
             }
             
-            canvasInitialized = true;
+            canvas.initialized = true;
             console.log('Canvas initialized successfuly');
-            app.unblockContols();
             if (fn) fn();
         },
         picEdit: function(tool, el) {
@@ -125,6 +181,14 @@ var app = (function(){
             } else {
                 
             }
+        },
+        enableCrop: function(el) {
+            $(el).removeClass('btn-info');
+            $(el).addClass('btn-warning');
+            crop.enable();
+        },
+        doCrop: function() {
+            crop.do();
         },
         upload: function(data, fn) {
             $.ajax({
