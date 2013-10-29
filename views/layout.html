@@ -19,8 +19,8 @@
     {% block head %}
     {% endblock %}
     <script type="text/javascript">
-        app.setPicId({{picId}});
-        app.setPicLink('{{picLink}}');
+        app.pic.setId({{picId}});
+        app.pic.setLink('{{picLink}}');
         app.domen = '{{domen}}';
         app.port = {{port}};
     </script>
@@ -35,7 +35,7 @@
     </div>
 
     <div class="edit-btns">
-        <div class="btn btn-info btn-sm" type="button" onclick="app.enableCrop(this)">
+        <div class="btn btn-info btn-sm" type="button" onclick="app.crop.enable(this)">
             <i class="icon-crop"></i>
         </div>
         <div class="btn btn-info btn-sm hidden" type="button">

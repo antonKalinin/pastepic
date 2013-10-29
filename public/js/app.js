@@ -2,109 +2,99 @@
  * Global client application module
  **/
 var app = (function(){
-    var canvas = {el: null, obj: null, initialized: false};
-    var pic = {
-        id: false,
-        link: '',
-        width: 0,
-        height: 0
-    };
+
+    var canvas = null,
+        canvasInitialized = false;
+
     var mouse = {x: 0, y: 0};
-    var crop = {
-        enabled: false,
-        inAction: false,
-        cPos: [],
-        rect: null,
-        enable: function() {
-            if (!canvas.initialized) return;
-            canvas.obj.selectable = true;
-            var canvasR = canvas.el[0].getBoundingClientRect();
-            this.cPos[0] = canvasR.left;
-            this.cPos[1] = canvasR.top;
-            this.rect = new fabric.Rect({
-                fill: 'transparent',
-                originX: 'left',
-                originY: 'top',
-                stroke: '#ddd',
-                strokeDashArray: [2, 2],
-                strokeWidth: 2,
-                opacity: 1,
-                width: 1,
-                height: 1
-            });
-            this.rect.visible = false;
-            canvas.obj.add(this.rect);
-            this.enabled = true;
-            this.bindListeners();
-        },
-        disable: function() {
-            this.enabled = false;
-            this.unbindListeners();
-        },
-        do: function() {
-            var left = el.left - object.left;
-            var top = el.top - object.top;
 
-            left *= 1 / 0.25;
-            top *= 1 / 0.25 ;
+    var crop = (function() {
+        var enabled = false,
+            inAction = false,
+            cPos = [],
+            rect = null;
 
-            var width = el.width * 1 / 0.25;
-            var height = el.height * 1 / 0.25;
+        return {
+            enable: function(btnEl) {
+                if (!canvasInitialized) return;
+                canvas.selectable = true;
+                var canvasR = document.getElementById('cnvs').getBoundingClientRect();
+                cPos[0] = canvasR.left;
+                cPos[1] = canvasR.top;
+                rect = new fabric.Rect({
+                    fill: 'transparent',
+                    originX: 'left',
+                    originY: 'top',
+                    stroke: '#ddd',
+                    strokeDashArray: [2, 2],
+                    strokeWidth: 2,
+                    opacity: 1,
+                    width: 1,
+                    height: 1
+                });
+                rect.visible = false;
+                canvas.add(rect);
+                enabled = true;
+                this.bindListeners();
+                $(btnEl).removeClass('btn-info');
+                $(btnEl).addClass('btn-warning');
+            },
+            disable: function(btnEl) {
+                enabled = false;
+                this.unbindListeners();
+                $(btnEl).addClass('btn-info');
+                $(btnEl).removeClass('btn-warning');
+            },
+            do: function() {
+                var left = el.left - object.left;
+                var top = el.top - object.top;
 
-            object.clipTo = function (ctx) {
-                ctx.rect(left, top, width, height);
-            };
-            object.selectable = true;
-            disabled = true;
-            el.visible = false;
-            canvas.obj.renderAll();
-        },
-        bindListeners: function() {
-            var self = this;
-            canvas.obj.on("mouse:down", function (event) {
-                if (!self.enabled) return;
-                self.rect.left = event.e.pageX - self.cPos[0];
-                self.rect.top = event.e.pageY - self.cPos[1];
-                self.rect.visible = true;
-                mouse.x = event.e.pageX;
-                mouse.y = event.e.pageY;
-                self.inAction = true;
-                //canvas.obj.bringToFront(self.rect);
-            });
-            canvas.obj.on("mouse:move", function (event) {
-                if (self.enabled && self.inAction) {
-                    if (event.e.pageX - mouse.x > 0) {
-                        self.rect.width = event.e.pageX - mouse.x;
+                left *= 1 / 0.25;
+                top *= 1 / 0.25 ;
+
+                var width = el.width * 1 / 0.25;
+                var height = el.height * 1 / 0.25;
+
+                object.clipTo = function (ctx) {
+                    ctx.rect(left, top, width, height);
+                };
+                object.selectable = true;
+                el.visible = false;
+                canvas.renderAll();
+            },
+            bindListeners: function() {
+                canvas.on("mouse:down", function (event) {
+                    if (!enabled) return;
+                    rect.left = event.e.pageX - cPos[0];
+                    rect.top = event.e.pageY - cPos[1];
+                    rect.visible = true;
+                    mouse.x = event.e.pageX;
+                    mouse.y = event.e.pageY;
+                    inAction = true;
+                });
+                canvas.on("mouse:move", function (event) {
+                    if (enabled && inAction) {
+                        if (event.e.pageX - mouse.x > 0) {
+                            rect.width = event.e.pageX - mouse.x;
+                        }
+
+                        if (event.e.pageY - mouse.y > 0) {
+                            rect.height = event.e.pageY - mouse.y;
+                        }
+                        canvas.bringToFront(rect);
                     }
-
-                    if (event.e.pageY - mouse.y > 0) {
-                        self.rect.height = event.e.pageY - mouse.y;
-                    }
-                    canvas.obj.bringToFront(self.rect);
-                }
-            });
-            canvas.obj.on("mouse:up", function () {
-                self.inAction = false;
-            });
-        },
-        unbindListeners: function() {
-
-        }
-    };
-
-    var editMode = false;
-
-    var edit = {
-        pencil: function(on) {
-            if(on) {
-                canvas.obj.isDrawingMode = true;
-                canvas.obj.freeDrawingColor = '#09c';
-                canvas.obj.freeDrawingLineWidth = 4;
-            } else {
-                canvas.obj.isDrawingMode = false;
+                });
+                canvas.on("mouse:up", function () {
+                    inAction = false;
+                });
+            },
+            unbindListeners: function() {
+                canvas.on("mouse:down", null);
+                canvas.on("mouse:move", null);
+                canvas.on("mouse:up", null);
             }
-        }
-    };
+        };
+    })();
 
     /* function to convert canvas urlData output to blob */
     function dataURLtoBlob(dataURL) {
@@ -116,103 +106,56 @@ var app = (function(){
         return new Blob([new Uint8Array(array)], {type: 'image/jpeg'});
     }
 
-    var activeEdit = false;
-
     return {
-        zclip: false,
-        getPicId: function() {
-            return pic.id;
-        },
-        setPicId: function(picId) {
-            pic.id = picId;
-        },
-        getPicLink: function() {
-            return pic.link;
-        },
-        setPicLink: function(picLink) {
-            pic.link = picLink;
-        },
-        setPicProps: function(props) {
-            for (p in props) {
-                if (pic.hasOwnProperty(p)) {
-                    pic[p] = props[p];
-                }
-            }
-        },
-        makeLink: function() {
-            var blobImageData = dataURLtoBlob(canvas.obj.toDataURL()),
-                formData = new FormData();
-
-            formData.append('image', blobImageData);
-            formData.append('picId', app.getPicId());
-
-            var afterUpload = function(resp) {
-                if(resp && resp.picId) {
-                    var link = window.location.origin + '/' + resp.picId;
-                    $('.link-input').val(link);
-                    if(app.zclip) app.zclip.setText(link);
-                }
-            };
-            app.upload(formData, afterUpload);
-        },
+        zclip: null,
+        crop: crop,
         /**
          * Initialize canvas over the pasted picture.
          */
-        initCanvas: function(w, h, src, fn) {
-            if(canvas.initialized) return true;
+        initCanvas: function(w, h, fn) {
+            if(canvasInitialized) return true;
 
-            canvas.el = $('<canvas>').attr('id', 'cnvs');
-            var bw = $('body').width();
+            var $canvas = $('<canvas>').attr('id', 'cnvs');
 
-            canvas.el.width(w);
-            canvas.el.height(h);
-            canvas.el.attr('width', w);
-            canvas.el.attr('height', h);
-            $('#content #pic-holder').prepend(canvas.el);
+            $canvas.width(w);
+            $canvas.height(h);
+            $canvas.attr('width', w);
+            $canvas.attr('height', h);
+            $('#content #pic-holder').prepend($canvas);
 
-            canvas.obj = new fabric.Canvas('cnvs');
-            if (src) {
-                canvas.obj.setBackgroundImage(src, canvas.obj.renderAll.bind(canvas.obj), {
-                    backgroundImageStretch: false
-                });
+            canvas = new fabric.Canvas('cnvs');
+            canvas.selection = false;
+
+            // aligning canvas to the center of the screen
+            var dw = document.width - w,
+                dh = (document.height - 30) - h; // 30px for top nav
+
+
+            if (dw) {
+                $('.canvas-container').css('margin-left', dw/2);
+                canvas.calcOffset();
             }
 
-            canvas.obj.selection = false;
-
-            var d = bw-w;
-            if (d) {
-                $('.canvas-container').css('margin-left', d/2);
-                canvas.obj.calcOffset();
+            if (dh) {
+                $('.canvas-container').css('margin-top', dh/2);
+                canvas.calcOffset();
             }
 
-            canvas.initialized = true;
+            canvasInitialized = true;
             console.log('Canvas initialized successfuly');
             if (fn) fn();
         },
-        picEdit: function(tool, el) {
-            if(activeEdit) activeEdit(false);
-            $('.edit-block .btn').removeClass('active');
-            if(edit.hasOwnProperty(tool)) {
-                activeEdit = edit[tool];
-                edit[tool](true);
-            }
-            $(el).addClass('active');
-        },
-        toggleEditMode: function() {
-            if(!editMode) {
-                app.initCanvas();
-                $('#pic-holder img').hide();
-            } else {
+        addImgToCanvas: function(picSrc, width, height, fn) {
+            fabric.util.loadImage(picSrc, function (img) {
+                var imgObj = new fabric.Image(img, {
+                    left: width/2,
+                    top: height/2,
+                    selectable: false
+                });
 
-            }
-        },
-        enableCrop: function(el) {
-            $(el).removeClass('btn-info');
-            $(el).addClass('btn-warning');
-            crop.enable();
-        },
-        doCrop: function() {
-            crop.do();
+                canvas.add(imgObj);
+                if (fn) fn();
+            });
         },
         upload: function(data, fn) {
             $.ajax({
@@ -229,6 +172,36 @@ var app = (function(){
             });
         }
     };
+})();
+
+
+app.pic = (function(){
+
+    var id,
+        link,
+        width,
+        height;
+
+    return {
+        getId: function() {
+            return id;
+        },
+        setId: function(picId) {
+            id = picId;
+        },
+        getLink: function() {
+            return link;
+        },
+        setLink: function(l) {
+            link = l;
+        },
+        setWidth: function(w) {
+            width = w;
+        },
+        setHeight: function(h) {
+            height = h;
+        }
+    }
 })();
 
 /*
@@ -259,19 +232,26 @@ $(function() {
             imageBlob = item.getAsFile();
 
         var afterUpload = function(resp) {
-            if(resp && resp.picId) {
+            if (resp && resp.picId) {
                 var $img = $('#pic-holder img'),
                     picSrc = '/uploads/' + resp.picId  + '.png';
                 $img.attr('src', picSrc);
-                app.setPicId(resp.picId);
-                app.setPicLink(resp.picLink);
-                app.setPicProps({width: resp.picParams.width, height: resp.picParams.height});
-                app.initCanvas(resp.picParams.width, resp.picParams.height, picSrc,
-                    function(){
-                        $img.removeClass('loading');
-                        $img.hide();
-                    }
-                );
+
+                var w = resp.picParams.width,
+                    h = resp.picParams.height;
+
+                app.pic.setId(resp.picId);
+                app.pic.setLink(resp.picLink);
+                app.pic.setWidth(w);
+                app.pic.setHeight(h);
+
+                app.initCanvas(w, h);
+
+                app.addImgToCanvas(picSrc, w, h, function(){
+                    $img.removeClass('loading');
+                    $img.hide();
+                });
+
                 history.pushState({}, resp.picId, "/" + resp.picId);
                 $('#link-form').show();
                 $('.pic-link').val(resp.picLink);
@@ -279,7 +259,6 @@ $(function() {
 
             }
         };
-
 
         reader.onload = function(evt){
             var picSrc = evt.target.result;
@@ -310,24 +289,18 @@ $(function() {
     document.onpaste = pasteHandler;
     
     
-    $(function(){
-        /* clipboard copy plugin initialization */
-        app.zclip = new ZeroClipboard($('#btn-copy-link'), { moviePath: '/js/ZeroClipboard.swf' });
-        app.zclip.on('load', function (client) {
-            console.log('Coppy plugin flash movie loaded and ready.');
-        });
-
-        app.zclip.on('mousedown', function(){
-            app.zclip.setText(app.getPicLink());
-        });
-
-        app.zclip.on( 'complete', function(client, args) {
-            UI.notify("Copied to clipboard!");
-        } );
-
-
+    /* clipboard copy plugin initialization */
+    app.zclip = new ZeroClipboard($('#btn-copy-link'), { moviePath: '/js/ZeroClipboard.swf' });
+    app.zclip.on('load', function (client) {
+        console.log('Coppy plugin flash movie loaded and ready.');
     });
-    
-        
+
+    app.zclip.on('mousedown', function(){
+        app.zclip.setText(app.pic.getLink());
+    });
+
+    app.zclip.on( 'complete', function(client, args) {
+        UI.notify("Copied to clipboard!");
+    });
 });
 
