@@ -39,18 +39,18 @@ UI.notify = function (html, opts) {
     var notify = $('<div/>').addClass('notify'),
         defs = {
             position: 'center', // top, center, bottom
-            cssClass: '',    // custom css class 
+            cssClass: '',    // custom css class
             showTime: 1500,  // duration of show
-            closable: true,  // is auto close 
+            closable: true,  // is auto close
             speed: 500,      // speed of apearence
             onClose: null    // callback function when notify disapeared
         };
-        
-    /* render new notify */    
-    
+
+    /* render new notify */
+
     var p = {};
-        p = $.extend(true, defs, opts);
-        
+    p = $.extend(true, defs, opts);
+
     // set notify in the middle by x axis
     $('body').append(notify);
     notify.html(html);
@@ -58,7 +58,7 @@ UI.notify = function (html, opts) {
 
     // set settings for notify
     if (p.cssClass != '') notify.addClass(p.cssClass);
-    
+
     var ncls = '', ntop = 0;
     if(p.position) {
         switch(p.position) {
@@ -73,20 +73,20 @@ UI.notify = function (html, opts) {
                 ntop = $(window).height() / 2 - notify.height() / 2;
         }
     }
-    
+
     notify.addClass(ncls);
     notify.css('top', ntop);
-    
+
     /*  display notify */
     notify.fadeIn(p.speed, function() {
         if(p.closable) {
             notify.delay(p.showTime).fadeOut(p.speed, function(){
-               if(typeof (p.onClose) == 'function') p.onClose(); 
-               notify.remove(); // destroy closed div
+                if(typeof (p.onClose) == 'function') p.onClose();
+                notify.remove(); // destroy closed div
             });
         }
     });
-    
+
     return {
         /* return an object (empty yet) */
     };

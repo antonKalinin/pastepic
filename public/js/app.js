@@ -1,10 +1,11 @@
 /**
  * Global client application module
  **/
-var app = (function(){
+var app = (function() {
 
     var canvas = null,
-        canvasInitialized = false;
+        canvasInitialized = false,
+        imageObject = null;
 
     var mouse = {x: 0, y: 0};
 
@@ -14,9 +15,59 @@ var app = (function(){
             cPos = [],
             rect = null;
 
+        var $cd = null; // crop dialog element
+
+
+        var listeners = {
+            mouseDown: function (event) {
+                if (!enabled) return;
+                hideCropDialog();
+                rect.left = event.e.pageX - cPos[0];
+                rect.top = event.e.pageY - cPos[1];
+                rect.visible = true;
+                mouse.x = event.e.pageX;
+                mouse.y = event.e.pageY;
+                inAction = true;
+            },
+            mouseMove: function (event) {
+                if (enabled && inAction) {
+                    if (event.e.pageX - mouse.x > 0) {
+                        rect.width = event.e.pageX - mouse.x;
+                    }
+
+                    if (event.e.pageY - mouse.y > 0) {
+                        rect.height = event.e.pageY - mouse.y;
+                    }
+                    canvas.bringToFront(rect);
+                }
+            },
+            mouseUp: function () {
+                inAction = false;
+                showCropDialog(rect.left + cPos[0], rect.top + cPos[1]);
+            }
+        };
+
+         var showCropDialog = function(x, y) {
+                 var dialogH = 30;
+                 if (!$cd) {
+                     $cd = $('#crop-dialog');
+                 }
+                 $cd.css('left', x);
+                 $cd.css('top', y - dialogH);
+                 $cd.removeClass('hidden');
+             },
+             hideCropDialog = function() {
+                 if (!$cd) return;
+                $cd.addClass('hidden');
+             };
+
         return {
             enable: function(btnEl) {
                 if (!canvasInitialized) return;
+                if (enabled) {
+                    crop.disable();
+                    return;
+                }
                 canvas.selectable = true;
                 var canvasR = document.getElementById('cnvs').getBoundingClientRect();
                 cPos[0] = canvasR.left;
@@ -39,59 +90,40 @@ var app = (function(){
                 $(btnEl).removeClass('btn-info');
                 $(btnEl).addClass('btn-warning');
             },
-            disable: function(btnEl) {
+            disable: function() {
                 enabled = false;
+                canvas.remove(rect);
+                hideCropDialog();
                 this.unbindListeners();
-                $(btnEl).addClass('btn-info');
-                $(btnEl).removeClass('btn-warning');
+
+                var $cropBtn = $('#btn-toggle-crop');
+                $cropBtn.addClass('btn-info');
+                $cropBtn.removeClass('btn-warning');
             },
             do: function() {
-                var left = el.left - object.left;
-                var top = el.top - object.top;
+                var left = rect.left - imageObject.left,
+                    top = rect.top - imageObject.top,
+                    width = rect.width,
+                    height = rect.height;
 
-                left *= 1 / 0.25;
-                top *= 1 / 0.25 ;
-
-                var width = el.width * 1 / 0.25;
-                var height = el.height * 1 / 0.25;
-
-                object.clipTo = function (ctx) {
+                imageObject.clipTo = function (ctx) {
                     ctx.rect(left, top, width, height);
                 };
-                object.selectable = true;
-                el.visible = false;
                 canvas.renderAll();
+                this.disable();
             },
             bindListeners: function() {
-                canvas.on("mouse:down", function (event) {
-                    if (!enabled) return;
-                    rect.left = event.e.pageX - cPos[0];
-                    rect.top = event.e.pageY - cPos[1];
-                    rect.visible = true;
-                    mouse.x = event.e.pageX;
-                    mouse.y = event.e.pageY;
-                    inAction = true;
-                });
-                canvas.on("mouse:move", function (event) {
-                    if (enabled && inAction) {
-                        if (event.e.pageX - mouse.x > 0) {
-                            rect.width = event.e.pageX - mouse.x;
-                        }
-
-                        if (event.e.pageY - mouse.y > 0) {
-                            rect.height = event.e.pageY - mouse.y;
-                        }
-                        canvas.bringToFront(rect);
-                    }
-                });
-                canvas.on("mouse:up", function () {
-                    inAction = false;
-                });
+                canvas.on("mouse:down", listeners.mouseDown);
+                canvas.on("mouse:move", listeners.mouseMove);
+                canvas.on("mouse:up", listeners.mouseUp);
             },
             unbindListeners: function() {
-                canvas.on("mouse:down", null);
-                canvas.on("mouse:move", null);
-                canvas.on("mouse:up", null);
+                var canvasEl = $('.upper-canvas')[0];
+                // todo: fix it
+                fabric.util.removeListener(canvasEl, "mouse:down", listeners.mouseDown);
+                fabric.util.removeListener(canvasEl, "mouse:move", listeners.mouseMove);
+                fabric.util.removeListener(canvasEl, "mouse:up", listeners.mouseUp);
+
             }
         };
     })();
@@ -137,8 +169,8 @@ var app = (function(){
             }
 
             if (dh) {
-                $('.canvas-container').css('margin-top', dh/2);
-                canvas.calcOffset();
+                //$('.canvas-container').css('margin-top', dh/2);
+                //canvas.calcOffset();
             }
 
             canvasInitialized = true;
@@ -147,13 +179,13 @@ var app = (function(){
         },
         addImgToCanvas: function(picSrc, width, height, fn) {
             fabric.util.loadImage(picSrc, function (img) {
-                var imgObj = new fabric.Image(img, {
+                imageObject = new fabric.Image(img, {
                     left: width/2,
                     top: height/2,
                     selectable: false
                 });
 
-                canvas.add(imgObj);
+                canvas.add(imageObject);
                 if (fn) fn();
             });
         },
@@ -208,87 +240,85 @@ app.pic = (function(){
   This is javascript to handle all the events of image manipulating
 */
 
-$(function() {
+function pasteHandler(evt){
     var $picHolder = $('#content #pic-holder');
-    function pasteHandler(evt){
-        var items = evt.clipboardData.items;
-        if (!items.length) {
-            console.log("Nothing to paste.");
-            return false;
+
+    var items = evt.clipboardData.items;
+    if (!items.length) {
+        console.log("Nothing to paste.");
+        return false;
+    }
+
+    /* Get only first item of clipboard (last inserted) */
+    var item = items[0],
+        type = item.type;
+
+    /* Detect if item is image */
+    if (!type.match(/^image/ig)) {
+        UI.notify('Houston, we need an image!');
+        return false;
+    }
+
+    var formData = new FormData(),
+        reader = new FileReader(),
+        imageBlob = item.getAsFile();
+
+    var afterUpload = function(resp) {
+        if (resp && resp.picId) {
+            var $img = $('#pic-holder img'),
+                picSrc = '/uploads/' + resp.picId  + '.png';
+            $img.attr('src', picSrc);
+
+            var w = resp.picParams.width,
+                h = resp.picParams.height;
+
+            app.pic.setId(resp.picId);
+            app.pic.setLink(resp.picLink);
+            app.pic.setWidth(w);
+            app.pic.setHeight(h);
+
+            app.initCanvas(w, h);
+
+            app.addImgToCanvas(picSrc, w, h, function(){
+                $img.removeClass('loading');
+                $img.hide();
+            });
+
+            history.pushState({}, resp.picId, "/" + resp.picId);
+            $('#link-form').show();
+            $('.pic-link').val(resp.picLink);
+            $('.copy-link-tip').fadeIn(300);
+
         }
-
-        /* Get only first item of clipboard (last inserted) */
-        var item = items[0],
-            type = item.type;
-
-        /* Detect if item is image */
-        if (!type.match(/^image/ig)) {
-            UI.notify('Houston, we need an image!');
-            return false;
-        }
-
-        var formData = new FormData(),
-            reader = new FileReader(),
-            imageBlob = item.getAsFile();
-
-        var afterUpload = function(resp) {
-            if (resp && resp.picId) {
-                var $img = $('#pic-holder img'),
-                    picSrc = '/uploads/' + resp.picId  + '.png';
-                $img.attr('src', picSrc);
-
-                var w = resp.picParams.width,
-                    h = resp.picParams.height;
-
-                app.pic.setId(resp.picId);
-                app.pic.setLink(resp.picLink);
-                app.pic.setWidth(w);
-                app.pic.setHeight(h);
-
-                app.initCanvas(w, h);
-
-                app.addImgToCanvas(picSrc, w, h, function(){
-                    $img.removeClass('loading');
-                    $img.hide();
-                });
-
-                history.pushState({}, resp.picId, "/" + resp.picId);
-                $('#link-form').show();
-                $('.pic-link').val(resp.picLink);
-                $('.copy-link-tip').fadeIn(300);
-
-            }
-        };
-
-        reader.onload = function(evt){
-            var picSrc = evt.target.result;
-            var $pic = $('#pic-holder img');
-
-            if(!$pic.length) $pic = $('<img />');
-
-            $pic.attr('src', picSrc);
-            $pic.addClass('loading');
-
-            $picHolder.find('.tip').hide();
-            $picHolder.append($pic);
-
-            formData.append('imageBlob', imageBlob);
-
-            /* try to upload image to server */
-            $pic.load(function(event){
-                app.upload(formData, afterUpload);
-                $(this).off(event);
-            })
-
-        };
-
-        reader.readAsDataURL(imageBlob);
     };
 
-    /* Binding events */
-    document.onpaste = pasteHandler;
-    
-    
+    reader.onload = function(evt){
+        var picSrc = evt.target.result;
+        var $pic = $('#pic-holder img');
+
+        if(!$pic.length) $pic = $('<img />');
+
+        $pic.attr('src', picSrc);
+        $pic.addClass('loading');
+
+        $picHolder.find('.tip').hide();
+        $picHolder.append($pic);
+
+        formData.append('imageBlob', imageBlob);
+
+        /* try to upload image to server */
+        $pic.load(function(event){
+            app.upload(formData, afterUpload);
+            $(this).off(event);
+        })
+
+    };
+
+    reader.readAsDataURL(imageBlob);
+};
+
+
+$(function() {
     /* clipboard copy plugin initialization */
     app.zclip = new ZeroClipboard($('#btn-copy-link'), { moviePath: '/js/ZeroClipboard.swf' });
     app.zclip.on('load', function (client) {
