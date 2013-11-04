@@ -9,6 +9,34 @@ var app = (function() {
 
     var mouse = {x: 0, y: 0};
 
+    var pic = (function(){
+        var id,
+            link,
+            width,
+            height;
+
+        return {
+            getId: function() {
+                return id;
+            },
+            setId: function(picId) {
+                id = picId;
+            },
+            getLink: function() {
+                return link;
+            },
+            setLink: function(l) {
+                link = l;
+            },
+            setWidth: function(w) {
+                width = w;
+            },
+            setHeight: function(h) {
+                height = h;
+            }
+        }
+    })();
+
     var crop = (function() {
         var enabled = false,
             inAction = false,
@@ -101,15 +129,26 @@ var app = (function() {
                 $cropBtn.removeClass('btn-warning');
             },
             do: function() {
-                var left = rect.left - imageObject.left,
-                    top = rect.top - imageObject.top,
-                    width = rect.width,
-                    height = rect.height;
+                var r = {
+                    picId: app.pic.getId(),
+                    left: rect.left,
+                    top: rect.top,
+                    width: rect.width,
+                    height: rect.height
+                    },
+                    cLeft = rect.left - imageObject.left,
+                    cTop = rect.top - imageObject.top;
 
                 imageObject.clipTo = function (ctx) {
-                    ctx.rect(left, top, width, height);
+                    ctx.rect(cLeft, cTop, r.width, r.height);
                 };
                 canvas.renderAll();
+
+                // success = updateCanvas(resp)
+                $.post('/crop', r, function(resp){
+                    console.log(resp);
+                });
+
                 this.disable();
             },
             bindListeners: function() {
@@ -128,6 +167,13 @@ var app = (function() {
         };
     })();
 
+    var showTools = function() {
+            $('.edit-tools').removeClass('hidden');
+        },
+        hideTools = function() {
+            $('.edit-tools').addClass('hidden');
+        };
+
     /* function to convert canvas urlData output to blob */
     function dataURLtoBlob(dataURL) {
         var binary = atob(dataURL.split(',')[1]);
@@ -141,6 +187,7 @@ var app = (function() {
     return {
         zclip: null,
         crop: crop,
+        pic: pic,
         /**
          * Initialize canvas over the pasted picture.
          */
@@ -174,6 +221,7 @@ var app = (function() {
             }
 
             canvasInitialized = true;
+            showTools();
             console.log('Canvas initialized successfuly');
             if (fn) fn();
         },
@@ -198,6 +246,7 @@ var app = (function() {
                 contentType: false,
                 processData: false,
                 success: function (resp) {
+                    console.log(resp);
                     if(fn) fn(resp);
                 },
                 dataType: 'json'
@@ -206,35 +255,6 @@ var app = (function() {
     };
 })();
 
-
-app.pic = (function(){
-
-    var id,
-        link,
-        width,
-        height;
-
-    return {
-        getId: function() {
-            return id;
-        },
-        setId: function(picId) {
-            id = picId;
-        },
-        getLink: function() {
-            return link;
-        },
-        setLink: function(l) {
-            link = l;
-        },
-        setWidth: function(w) {
-            width = w;
-        },
-        setHeight: function(h) {
-            height = h;
-        }
-    }
-})();
 
 /*
   This is javascript to handle all the events of image manipulating
@@ -263,33 +283,33 @@ function pasteHandler(evt){
         reader = new FileReader(),
         imageBlob = item.getAsFile();
 
-    var afterUpload = function(resp) {
-        if (resp && resp.picId) {
-            var $img = $('#pic-holder img'),
-                picSrc = '/uploads/' + resp.picId  + '.png';
-            $img.attr('src', picSrc);
+    var afterUpload = function(pic) {
+        if (!pic) return false;
 
-            var w = resp.picParams.width,
-                h = resp.picParams.height;
+        var $img = $('#pic-holder img');
+        $img.attr('src', pic.src);
 
-            app.pic.setId(resp.picId);
-            app.pic.setLink(resp.picLink);
-            app.pic.setWidth(w);
-            app.pic.setHeight(h);
+        var w = pic.size.width,
+            h = pic.size.height;
 
-            app.initCanvas(w, h);
+        //TODO: Set all pic object at once
+        app.pic.setId(pic.id);
+        app.pic.setLink(pic.link);
+        app.pic.setWidth(w);
+        app.pic.setHeight(h);
 
-            app.addImgToCanvas(picSrc, w, h, function(){
-                $img.removeClass('loading');
-                $img.hide();
-            });
+        app.initCanvas(w, h);
 
-            history.pushState({}, resp.picId, "/" + resp.picId);
-            $('#link-form').show();
-            $('.pic-link').val(resp.picLink);
-            $('.copy-link-tip').fadeIn(300);
+        app.addImgToCanvas(pic.src, w, h, function(){
+            $img.removeClass('loading');
+            $img.hide();
+        });
 
-        }
+        history.pushState({}, pic.id, "/" + pic.id);
+        $('#link-form').show();
+        $('.pic-link').val(pic.link);
+        $('.copy-link-tip').fadeIn(300);
+
     };
 
     reader.onload = function(evt){

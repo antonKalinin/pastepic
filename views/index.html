@@ -32,6 +32,7 @@
             if ($img.height() < (document.body.offsetHeight - 30)) {
                 var d = document.body.offsetHeight - ($img.height() + 30);
                 $img.css('margin-top', Math.round(0.4*d));
+                $img.addClass('with-shadow');
             }
         });
     </script>

@@ -19,8 +19,8 @@ body {
 .navbar-form .btn { border-radius: 0}
 .navbar-form .input-sm {border-bottom: 0; border-top: 0}
 
-.navbar .edit-btns {float: left}
-.navbar .edit-btns .btn {padding: 1px 5px;}
+.navbar .edit-tools  {float: left}
+.navbar .edit-tools .btn {padding: 1px 5px;}
 
 .btn {border-radius: 0 !important;}
 
@@ -33,6 +33,10 @@ body {
 #pic-holder {
     margin-top: 30px;
     text-align: center;
+}
+
+#pic-holder img.with-shadow {
+    box-shadow: 0 1px 3px rgba(0,0,0,0.4);
 }
 
 #pic-holder img.pasted {
@@ -60,7 +64,7 @@ body {
 
 #crop-dialog {
     position: absolute;
-    z-index: 100;
+    z-index: 9999;
     height: 30px;
     background: #fff;
 }
