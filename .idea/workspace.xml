@@ -2,75 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c13b46b3-a340-4b14-9054-95e2120957a3" name="Default" comment="View UPD &amp; common.js">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/routes/admin.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/auth.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/models/pic.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/routes/sign.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/sockets.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ualog.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/models/user.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/includes/ya-counter.html" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/consolidate/.npmignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/consolidate/History.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/consolidate/Makefile" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/consolidate/Readme.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/consolidate/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/consolidate/lib/consolidate.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/consolidate/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/imagemagick/.npmignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/imagemagick/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/imagemagick/imagemagick.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/imagemagick/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/imagemagick/test-crop.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/imagemagick/test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/swig/.npmignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/swig/.travis.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/swig/CONTRIBUTING.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/swig/HISTORY.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/swig/LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/swig/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/swig/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/swig/lib/dateformat.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/swig/lib/filters.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/swig/lib/helpers.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/swig/lib/parser.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/swig/lib/swig.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/swig/lib/tags.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/swig/lib/tags/autoescape.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/swig/lib/tags/block.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/swig/lib/tags/else.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/swig/lib/tags/extends.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/swig/lib/tags/filter.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/swig/lib/tags/for.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/swig/lib/tags/if.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/swig/lib/tags/import.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/swig/lib/tags/include.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/swig/lib/tags/macro.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/swig/lib/tags/parent.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/swig/lib/tags/raw.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/swig/lib/tags/set.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/swig/node_modules/underscore/.npmignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/swig/node_modules/underscore/.travis.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/swig/node_modules/underscore/CNAME" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/swig/node_modules/underscore/CONTRIBUTING.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/swig/node_modules/underscore/LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/swig/node_modules/underscore/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/swig/node_modules/underscore/favicon.ico" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/swig/node_modules/underscore/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/swig/node_modules/underscore/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/swig/node_modules/underscore/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/swig/node_modules/underscore/underscore-min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/swig/node_modules/underscore/underscore.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/swig/package.json" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/routes/index.js" afterPath="$PROJECT_DIR$/routes/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/app.js" afterPath="$PROJECT_DIR$/public/js/app.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/imgpstore/5277aff5827367826e000001,png" afterPath="$PROJECT_DIR$/public/imgpstore/5277aff5827367826e000001,png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/imgpstore/5277b04122eeec906e000001,png" afterPath="$PROJECT_DIR$/public/imgpstore/5277b04122eeec906e000001,png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/imgpstore/5277b0b922eeec906e000002,png" afterPath="$PROJECT_DIR$/public/imgpstore/5277b0b922eeec906e000002,png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/common.css" afterPath="$PROJECT_DIR$/public/css/common.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/conf.js" afterPath="$PROJECT_DIR$/conf.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/index.html" afterPath="$PROJECT_DIR$/views/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/index.js" afterPath="$PROJECT_DIR$/routes/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/layout.html" afterPath="$PROJECT_DIR$/views/layout.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="pictalk.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -201,7 +136,7 @@
       <file leaf-file-name="common.css" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/css/common.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="38" column="40" selection-start="802" selection-end="802" vertical-scroll-proportion="0.27332893">
+            <state line="38" column="40" selection-start="801" selection-end="802" vertical-scroll-proportion="0.27332893">
               <folding />
             </state>
           </provider>
@@ -436,42 +371,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pastepic" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pastepic" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pastepic" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pastepic" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
@@ -565,14 +464,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="185" y="-1680" width="1050" height="1680" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297055" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19521913" sideWeight="0.6702945" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19521913" sideWeight="0.6702945" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39948782" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297055" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -753,7 +652,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/css/common.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="40" selection-start="802" selection-end="802" vertical-scroll-proportion="0.27332893">
+        <state line="38" column="40" selection-start="801" selection-end="802" vertical-scroll-proportion="0.27332893">
           <folding />
         </state>
       </provider>
