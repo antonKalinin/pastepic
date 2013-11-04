@@ -120,7 +120,7 @@ exports.upload = function(req, res) {
     
     var uap = require('ua-parser'),
         In = require('../models/pic.js').Insert,
-        clientIp = req.connection.remoteAddress,
+        clientIp = req.headers['x-forwarded-for'] || req.connection.remoteAddress,
         ua = req.headers['user-agent'],
         r = uap.parse(ua);
 
