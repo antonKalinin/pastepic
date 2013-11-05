@@ -29,24 +29,25 @@ var _getCommonViewData = function() {
                 var gmPic = gm(picPath);
                 // resize and save picture
                 gmPic
-                    .resize('200')
-                    .write(picPrevPath, function(err) {
-                        if (err) throw err;
+                .resize('200')
+                .write(picPrevPath, function(err) {
+                    if (err) throw err;
+                });
 
-                        var pic = {
-                            id: picId,
-                            link: domain + picId,
-                            src: '/' + conf.storeDir + '/' + picId + '.png'
-                        };
-                        // get picture properties
-                        gmPic
-                            .identify(function (err, data) {
-                                if (err) throw err;
+                var pic = {
+                    id: picId,
+                    link: domain + picId,
+                    src: '/' + conf.storeDir + '/' + picId + '.png'
+                };
 
-                                pic['size'] = data.size;
-                                resp.send(pic);
-                            });
-                    });
+                // get picture properties
+                gmPic.identify(function (err, data) {
+                    if (err) throw err;
+
+                    pic['size'] = data.size;
+                    resp.send(pic);
+                });
+
             });
         });
     },
@@ -103,12 +104,25 @@ exports.index = function(req, res) {
 
 exports.image = function(req, res) {
     // TODO: increment image view stats
+    var picInsert = require('../models/pic.js').Insert;
     var viewData = _getCommonViewData();
     var picId = req.route.params.picId;
+
     viewData.picSrc = conf.storeDir + '/' + picId + '.png';
     viewData.picId = picId;
     viewData.picLink = conf.domain + (!conf.production ? (':' + conf.port) : '') + '/' + viewData.picId;
-    res.render('index.html', viewData);
+
+    picInsert.findOne({_id: picId}, function(err, pic) {
+        if (err) {
+            console.log(err);
+            return;
+        }
+
+        viewData.picDate = pic.getDate();
+        res.render('index.html', viewData);
+    });
+
+
 };
 
 exports.upload = function(req, res) {
@@ -146,6 +160,12 @@ exports.upload = function(req, res) {
     });
 };
 
+/**
+ * Special for Konstantin Dmitriev
+ *
+ * @param req
+ * @param res
+ */
 exports.crop = function(req, res) {
     var fs = require('fs'),
         path = require('path'),
@@ -154,13 +174,11 @@ exports.crop = function(req, res) {
     var picId = req.param('picId'),
         w = req.param('width'),
         h = req.param('height'),
-        x = Math.abs(req.param('left')),
-        y = Math.abs(req.param('top'));
+        x = req.param('left'),
+        y = req.param('top');
 
     var storePath = path.join(__dirname, '../', conf.storePath),
-        prStorePath = path.join(__dirname, '../', conf.prStorePath),
-        picPath = storePath + picId + '.png',
-        picPrevPath = prStorePath + picId + '.png';
+        picPath = storePath + picId + '.png';
 
     gm(picPath)
         .crop(w, h, x, y)

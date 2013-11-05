@@ -1,6 +1,4 @@
-/**
- *
- */
+require('look').start(8031, '127.0.0.1')
 
 var express = require('express')
     , swig = require('swig')

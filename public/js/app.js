@@ -188,6 +188,12 @@ var app = (function() {
         zclip: null,
         crop: crop,
         pic: pic,
+        setStatus: function(status) {
+            $('#status').html(status);
+        },
+        clearStatus: function() {
+            $('#status').html('');
+        },
         /**
          * Initialize canvas over the pasted picture.
          */
@@ -279,6 +285,8 @@ function pasteHandler(evt){
         return false;
     }
 
+    app.setStatus('Uploading the picture...');
+
     var formData = new FormData(),
         reader = new FileReader(),
         imageBlob = item.getAsFile();
@@ -306,6 +314,7 @@ function pasteHandler(evt){
         });
 
         history.pushState({}, pic.id, "/" + pic.id);
+        app.clearStatus();
         $('#link-form').show();
         $('.pic-link').val(pic.link);
         $('.copy-link-tip').fadeIn(300);
@@ -314,7 +323,8 @@ function pasteHandler(evt){
 
     reader.onload = function(evt){
         var picSrc = evt.target.result;
-        var $pic = $('#pic-holder img');
+        var $pic = $('#pic-holder img'),
+            $picWrap = $('<div></div>').addClass('pic-wrap');
 
         if(!$pic.length) $pic = $('<img />');
 
@@ -322,7 +332,8 @@ function pasteHandler(evt){
         $pic.addClass('loading');
 
         $picHolder.find('.tip').hide();
-        $picHolder.append($pic);
+        $picWrap.append($pic);
+        $picHolder.append($picWrap);
 
         formData.append('imageBlob', imageBlob);
 

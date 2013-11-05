@@ -21,8 +21,13 @@ body {
 
 .navbar .edit-tools  {float: left}
 .navbar .edit-tools .btn {padding: 1px 5px;}
-
 .btn {border-radius: 0 !important;}
+
+#status {
+    font-size: 14px;
+    color: #aaa;
+    margin: 7px 10px;
+}
 
 #content {
    height: auto;
@@ -39,9 +44,13 @@ body {
     box-shadow: 0 1px 3px rgba(0,0,0,0.5);
 }
 
-#pic-holder img.pasted {
-    display: none;
-    margin: 80px auto 10px;
+#pic-holder img.loading {
+    opacity: 0.5;
+}
+
+#pic-holder .pic-wrap {
+    position: absolute;
+    width: 100%;
 }
 
 #pic-holder .tip {

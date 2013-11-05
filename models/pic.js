@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 
-var browsers = {
+var ua = {
     'Chrome':  0,
     'Firefox': 1,
     'Safari':  2,
@@ -10,14 +10,14 @@ var browsers = {
 };
 
 var os = {
-    'Windows': 0,
+    'Windows 7': 0,
     'Mac OS X': 1,
     'Linux': 3,
     'Other': 4
 };
 
 var insertSchema = new mongoose.Schema({
-    ts: { type : Date, default: new Date().getTime() },
+    ts: { type : Date, default: Date.now() },
     ip: Array,
     os: Number,
     browser: Number
@@ -26,12 +26,19 @@ var insertSchema = new mongoose.Schema({
 insertSchema.set('autoIndex', false);
 
 insertSchema.methods = {
+    getDate: function() {
+        return this.ts.toLocaleString();
+    },
     getOs: function() {
-
+        for (var k in os) {
+            if (this.os == os[k]) {
+                return b;
+            }
+        }
     },
     getBrowser: function() {
-        for (var b in browsers) {
-            if (this.browser == browsers[b]) {
+        for (var k in ua) {
+            if (this.browser == ua[k]) {
                 return b;
             }
         }
@@ -40,14 +47,18 @@ insertSchema.methods = {
 
 insertSchema.statics = {
     getBrowserId: function(family) {
-        if (browsers[family]) {
-            return browsers[family];
+        if (typeof ua[family] != 'undefined') {
+            return ua[family];
         } else {
-            return browsers['Other'];
+            return ua['Other'];
         }
     },
-    getOsId: function(os) {
-        return 1;
+    getOsId: function(family) {
+        if (typeof os[family] != 'undefined') {
+            return os[family];
+        } else {
+            return os['Other'];
+        }
     }
 }
 
