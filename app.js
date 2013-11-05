@@ -1,6 +1,9 @@
-/**
- *
- */
+// Enable profiling
+
+require('nodetime').profile({
+    accountKey: '2a8a594cfbac34d34945d7df4d22a8cb7c64bedf',
+    appName: 'Pastepic'
+});
 
 var express = require('express')
     , swig = require('swig')
