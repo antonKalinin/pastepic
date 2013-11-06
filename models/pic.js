@@ -17,7 +17,7 @@ var os = {
 };
 
 var insertSchema = new mongoose.Schema({
-    ts: { type : Date, default: Date.now() },
+    ts: { type : Date, default: Date.now },
     ip: Array,
     os: Number,
     browser: Number
