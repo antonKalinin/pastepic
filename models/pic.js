@@ -17,7 +17,6 @@ var os = {
 };
 
 var insertSchema = new mongoose.Schema({
-    ts: { type : Date, default: Date.now },
     ip: Array,
     os: Number,
     browser: Number
@@ -27,7 +26,8 @@ insertSchema.set('autoIndex', false);
 
 insertSchema.methods = {
     getDate: function() {
-        return this.ts.toLocaleString();
+        var isoDate = this._id.getTimestamp();
+        return isoDate.toLocaleString();
     },
     getOs: function() {
         for (var k in os) {
