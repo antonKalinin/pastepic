@@ -13,7 +13,8 @@ var app = (function() {
         var id,
             link,
             width,
-            height;
+            height,
+            tone;
 
         return {
             getId: function() {
@@ -33,6 +34,12 @@ var app = (function() {
             },
             setHeight: function(h) {
                 height = h;
+            },
+            getTone: function() {
+                return tone;
+            },
+            setTone: function(t) {
+                tone = t;
             }
         }
     })();
@@ -66,6 +73,8 @@ var app = (function() {
                     if (event.e.pageY - mouse.y > 0) {
                         rect.height = event.e.pageY - mouse.y;
                     }
+                    canvas.upperCanvasEl.style.cursor = 'pointer';
+                    canvas.lowerCanvasEl.style.cursor = 'pointer';
                     canvas.bringToFront(rect);
                 }
             },
@@ -100,11 +109,16 @@ var app = (function() {
                 var canvasR = document.getElementById('cnvs').getBoundingClientRect();
                 cPos[0] = canvasR.left;
                 cPos[1] = canvasR.top;
+                var picTone = pic.getTone(),
+                    inverseTone = [];
+
+                for (var i = 0; i < 3; i++) { inverseTone.push(255-picTone[i]) }
+                var strokeColor = 'rgb(' + inverseTone.join(',') +')';
                 rect = new fabric.Rect({
                     fill: 'transparent',
                     originX: 'left',
                     originY: 'top',
-                    stroke: '#ddd',
+                    stroke: strokeColor,
                     strokeDashArray: [2, 2],
                     strokeWidth: 2,
                     opacity: 1,
@@ -227,6 +241,7 @@ var app = (function() {
             }
 
             canvasInitialized = true;
+            app.canvas = canvas; // debug only
             showTools();
             console.log('Canvas initialized successfuly');
             if (fn) fn();
@@ -305,6 +320,7 @@ function pasteHandler(evt){
         app.pic.setLink(pic.link);
         app.pic.setWidth(w);
         app.pic.setHeight(h);
+        app.pic.setTone(pic.tone);
 
         app.initCanvas(w, h);
 

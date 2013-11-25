@@ -18,7 +18,7 @@
         {% else %}
         <div class="tip">
             <h1>
-            <span style="color: #858585">{% if mac %}Cmd{% else %}Ctrl{% endif %}+V</span> to paste your screenshot.    
+                <span style="color: #858585">{% if mac %}Cmd{% else %}Ctrl{% endif %}+V</span> to paste your screenshot.
             </h1>
         </div>
         {% endif %}
@@ -26,30 +26,30 @@
 </div>
 
 {% if picId %}
-    <script type="text/javascript">
-        $(function() {
-            var $img = $('#pic-holder img');
+<script type="text/javascript">
+    $(function() {
+        var $img = $('#pic-holder img');
 
-            $img.load(function() {
-                if ($img.height() < (document.body.offsetHeight - 30)) {
-                    var d = document.body.offsetHeight - ($img.height() + 30);
-                    $img.css('margin-top', Math.round(0.4*d));
-                    $img.addClass('with-shadow');
-                }
-            });
+        $img.load(function() {
+            if ($img.height() < (document.body.offsetHeight - 30)) {
+                var d = document.body.offsetHeight - ($img.height() + 30);
+                $img.css('margin-top', Math.round(0.4*d));
+                $img.addClass('with-shadow');
+            }
         });
-    </script>
+    });
+</script>
 {% else %}
-    <div id="crop-dialog" class="hidden">
-        <span>Crop it?</span>
-        <div class="btn btn-sm btn-success" onclick="app.crop.do()">Yes</div><!--
+<div id="crop-dialog" class="hidden">
+    <span>Crop it?</span>
+    <div class="btn btn-sm btn-success" onclick="app.crop.do()">Yes</div><!--
      --><div class="btn btn-sm btn-default" onclick="app.crop.disable()">No</div>
-    </div>
-    <script type="text/javascript">
-        $(function() {
-            document.onpaste = pasteHandler;
-        });
-    </script>
+</div>
+<script type="text/javascript">
+    $(function() {
+        document.onpaste = pasteHandler;
+    });
+</script>
 {% endif %}
 
 {% endblock %}

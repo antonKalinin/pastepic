@@ -37,19 +37,27 @@ var _getCommonViewData = function() {
                 var pic = {
                     id: picId,
                     link: domain + picId,
-                    src: '/' + conf.storeDir + '/' + picId + '.png'
+                    src: '/' + conf.storeDir + '/' + picId + '.png',
                 };
 
                 // get picture properties
                 gmPic.identify(function (err, data) {
                     if (err) throw err;
-
                     pic['size'] = data.size;
+                    pic['tone'] = _getToneFromPicData(data);
                     resp.send(pic);
                 });
 
             });
         });
+    },
+    _getToneFromPicData = function(data) {
+        var channels = data['Channel Statistics'];
+        return [
+            parseInt(channels['Red']['Mean'].split(' ')[0]),
+            parseInt(channels['Green']['Mean'].split(' ')[0]),
+            parseInt(channels['Blue']['Mean'].split(' ')[0])
+        ];
     },
     _writeUaLog = function(req) {
         var uap = require('ua-parser'),
