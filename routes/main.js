@@ -37,7 +37,7 @@ var _getCommonViewData = function() {
                 var pic = {
                     id: picId,
                     link: domain + picId,
-                    src: '/' + conf.storeDir + '/' + picId + '.png',
+                    src: '/' + conf.storeDir + '/' + picId + '.png'
                 };
 
                 // get picture properties
