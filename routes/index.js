@@ -5,7 +5,6 @@ var auth = require('../auth.js');
  **/
 
 module.exports = function(app) {
-
     var main = require('./main'),
         sign = require('./sign'),
         admin = require('./admin');
@@ -19,4 +18,4 @@ module.exports = function(app) {
     app.get('/monitor', auth.ensureAdmin, admin.monitor);
 
     app.get('/signin', sign.in);
-}
+};
