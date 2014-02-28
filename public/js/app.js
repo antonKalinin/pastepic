@@ -60,18 +60,18 @@ var app = (function() {
                 rect.left = event.e.pageX - cPos[0];
                 rect.top = event.e.pageY - cPos[1];
                 rect.visible = true;
-                mouse.x = event.e.pageX;
-                mouse.y = event.e.pageY;
+                mouse.x = event.e.pageX - window.scrollX;
+                mouse.y = event.e.pageY - window.scrollY;
                 inAction = true;
             },
             mouseMove: function (event) {
                 if (enabled && inAction) {
                     if (event.e.pageX - mouse.x > 0) {
-                        rect.width = event.e.pageX - mouse.x;
+                        rect.width = event.e.pageX - mouse.x - window.scrollX;
                     }
 
                     if (event.e.pageY - mouse.y > 0) {
-                        rect.height = event.e.pageY - mouse.y;
+                        rect.height = event.e.pageY - mouse.y - window.scrollY;
                     }
                     canvas.upperCanvasEl.style.cursor = 'pointer';
                     canvas.lowerCanvasEl.style.cursor = 'pointer';
@@ -80,7 +80,9 @@ var app = (function() {
             },
             mouseUp: function () {
                 inAction = false;
-                showCropDialog(rect.left + cPos[0], rect.top + cPos[1]);
+                if (enabled) {
+                    showCropDialog(rect.left + cPos[0], rect.top + cPos[1]);
+                }
             }
         };
 
@@ -106,14 +108,19 @@ var app = (function() {
                     return;
                 }
                 canvas.selectable = true;
-                var canvasR = document.getElementById('cnvs').getBoundingClientRect();
-                cPos[0] = canvasR.left;
-                cPos[1] = canvasR.top;
-                var picTone = pic.getTone(),
+                var canvasR = document.getElementById('cnvs').getBoundingClientRect(),
+                    picTone = pic.getTone(),
                     inverseTone = [];
 
-                for (var i = 0; i < 3; i++) { inverseTone.push(255-picTone[i]) }
+                cPos[0] = canvasR.left;
+                cPos[1] = canvasR.top;
+
+                for (var i = 0; i < 3; i++) {
+                    inverseTone.push(255-picTone[i])
+                }
+
                 var strokeColor = 'rgb(' + inverseTone.join(',') +')';
+
                 rect = new fabric.Rect({
                     fill: 'transparent',
                     originX: 'left',
@@ -138,17 +145,17 @@ var app = (function() {
                 hideCropDialog();
                 this.unbindListeners();
 
-                var $cropBtn = $('#btn-toggle-crop');
-                $cropBtn.addClass('btn-info');
-                $cropBtn.removeClass('btn-warning');
+                $('#btn-toggle-crop')
+                    .addClass('btn-info')
+                    .removeClass('btn-warning');
             },
             do: function() {
                 var r = {
-                    picId: app.pic.getId(),
-                    left: rect.left,
-                    top: rect.top,
-                    width: rect.width,
-                    height: rect.height
+                        picId: app.pic.getId(),
+                        left: rect.left,
+                        top: rect.top,
+                        width: rect.width,
+                        height: rect.height
                     },
                     cLeft = rect.left - imageObject.left,
                     cTop = rect.top - imageObject.top;
@@ -164,6 +171,10 @@ var app = (function() {
                 });
 
                 this.disable();
+            },
+            cancel: function() {
+                canvas.remove(rect);
+                hideCropDialog();
             },
             bindListeners: function() {
                 canvas.on("mouse:down", listeners.mouseDown);
